@@ -24,6 +24,7 @@ for (const ext of ['webp', 'jpg', 'jpeg', 'png']) {
 }
 const html = read('web/template.html')
   .replace('/*HERO*/', () => `:root { ${hero} }`)
+  .replace('/*ICONS*/', () => read('web/icons.json').trim())
   .replace('/*ENGINE*/', () => read('src/engine.js'))
   .replace('/*DATA*/', () => 'const DATA = ' + JSON.stringify(data).replace(/</g, '\\u003c') + ';');
 writeFileSync(new URL('web/index.html', root), html);

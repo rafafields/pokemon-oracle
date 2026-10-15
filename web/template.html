@@ -63,7 +63,7 @@
   @keyframes bob { 50% { transform:translateY(4px); } }
   @media (prefers-reduced-motion: reduce) { .scroll-hint { animation:none; } }
 
-  main { max-width:860px; margin:0 auto; padding:56px 16px 64px; }
+  main { max-width:980px; margin:0 auto; padding:56px 16px 64px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:18px 14px; margin:18px 0 26px; }
   button.slot { display:flex; flex-direction:column; align-items:center; gap:4px; padding:12px 6px 10px; margin:4px; text-align:center; font-family:var(--text); font-weight:500; letter-spacing:0; }
   button.slot:hover, button.opt:hover { background:var(--accent-lo); }
@@ -88,6 +88,20 @@
   button.opt[aria-pressed="true"] { background:var(--accent-lo); box-shadow:0 -4px 0 0 var(--glow), 0 4px 0 0 var(--glow), -4px 0 0 0 var(--glow), 4px 0 0 0 var(--glow); }
   button.opt .sprite { width:80px; height:80px; }
   .row { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .go-row { display:flex; flex-direction:column; align-items:center; gap:10px; margin:30px 0 8px; }
+  .go-row button { padding:16px 28px; font-size:.95rem; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px 18px; margin:16px 0; }
+  .cards .card { margin:4px; display:flex; flex-direction:column; gap:8px; }
+  .cards.wide { grid-template-columns:1fr; }
+  .card.feature { display:flex; gap:18px; align-items:flex-start; background:linear-gradient(135deg,var(--surface2),var(--surface)); }
+  .card.feature .ico { width:56px; height:56px; }
+  .ico { flex:none; width:40px; height:40px; color:var(--glow); filter:drop-shadow(0 0 6px var(--accent)); }
+  .card .ico + * { margin-top:0; }
+  @media (max-width:820px) { .cards { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px) { .cards { grid-template-columns:1fr; } .card.feature { flex-direction:column; } }
+  .px { position:fixed; width:6px; height:6px; pointer-events:none; z-index:50; animation:pxfly .7s steps(7) forwards; }
+  @keyframes pxfly { to { transform:translate(var(--dx),var(--dy)); opacity:0; } }
+  @media (prefers-reduced-motion: reduce) { .px { display:none; } }
   .arch { font-family:var(--display); font-size:clamp(1.15rem,4.5vw,1.6rem); line-height:1.25; margin:0 !important; color:#fff; text-shadow:0 0 14px rgba(167,139,250,.6); }
   .axis { margin:16px 0; }
   .poles { display:flex; justify-content:space-between; gap:12px; font-size:.8rem; color:var(--muted); }
@@ -119,7 +133,7 @@
   <h2 id="t-pick"></h2>
   <div class="grid" id="slots"></div>
   <dialog id="picker"><header><h3 id="picker-title"></h3><button id="picker-close" type="button"></button></header><div class="opts" id="opts"></div></dialog>
-  <div class="row">
+  <div class="go-row">
     <button class="primary" id="go" disabled></button>
     <span class="muted" id="count"></span>
   </div>
@@ -168,7 +182,7 @@ const UI = {
     pattern: (ty, n, e) => `Many of your Pokémon have ${ty} as a second type (${n}; you would expect about ${e}).`,
     legal: [
       'Pokémon Oracle is a fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.',
-      'Pokémon images come from <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) and belong to their owners.',
+      'Pokémon images come from <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) and belong to their owners. Icons: <a href="https://github.com/halfmage/pixelarticons" target="_blank" rel="noopener">Pixelarticons</a> (MIT).',
       '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Code and documentation on GitHub</a>',
     ],
     text: { connectors: ['At the same time,', 'Alongside that,', 'On top of that,', 'And meanwhile,'], joiner: 'with', deep: 'Deep down,' },
@@ -198,7 +212,7 @@ const UI = {
     pattern: (ty, n, e) => `Muchos de tus Pokémon tienen ${ty} como segundo tipo (${n}; lo esperable serían ${e}).`,
     legal: [
       'Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.',
-      'Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios.',
+      'Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios. Iconos: <a href="https://github.com/halfmage/pixelarticons" target="_blank" rel="noopener">Pixelarticons</a> (MIT).',
       '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Código y documentación en GitHub</a>',
     ],
     text: undefined, // el motor trae los conectores en español por defecto
@@ -302,30 +316,37 @@ function prefetch(names) {
 }
 idle(() => prefetch([...new Set(model.order.flatMap(t => model.lists[t].map(p => p.name)))]));
 
+// ---- Iconos pixel art (Pixelarticons, MIT). Se eligen por el texto de la etiqueta, nunca por tipo ni eje, para no revelar de dónde sale cada entrada.
+const ICONS = /*ICONS*/;
+const icon = n => `<svg class="ico" viewBox="0 0 24 24" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="${ICONS[n]}"/></svg>`;
+const ENTRY_ICONS = ['star', 'eye', 'heart', 'sun', 'crown', 'feather', 'key', 'diamond-gem', 'wand', 'hourglass', 'compass', 'lightbulb', 'fire', 'shield'];
+function iconFor(label) { let h = 0; for (const ch of label) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return ENTRY_ICONS[h % ENTRY_ICONS.length]; }
+
 // ---- Resultado
 let shown = false;
 function render(scroll) {
   const r = computeResult(model, { ...state }, { standardize: $('std').checked });
   const u = ui(), c = C();
   const at = archetypeText(c.poles, r.archetype, u.text);
-  let h = `<h2>${esc(u.profile)}</h2><div class="card"><p class="arch">${esc(at.title)}</p>`;
+  let h = `<h2>${esc(u.profile)}</h2><div class="card feature">${icon('moon')}<div><p class="arch">${esc(at.title)}</p>`;
   if (at.paragraph) h += `<p>${esc(at.paragraph)}</p>`;
   if (at.nuance) h += `<p>${esc(at.nuance)}</p>`;
-  h += '</div>';
-  if (r.doubles.length) h += `<div class="card">${esc(r.doubles.length === 1 ? u.dbl1 : u.dblN(r.doubles.length))}${esc(u.dblTail)}${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
+  h += '</div></div>';
+  if (r.doubles.length) h += `<div class="card feature">${icon('infinity')}<div>${esc(r.doubles.length === 1 ? u.dbl1 : u.dblN(r.doubles.length))}${esc(u.dblTail)}${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div></div>`;
   const card = x => {
     const e = c.entry(x);
     const dbg = DEBUG ? `<small>${esc(x.pokemon)} · ${esc(c.axis(x.axis).name)} ${x.pos} · ${KIND[x.kind]} · relevance ${x.score.toFixed(2)}</small>` : '';
-    return `<div class="card entry"><b>${esc(e.label)}</b>${dbg}<p>${esc(e.text)}</p></div>`;
+    return `<div class="card entry">${icon(iconFor(e.label))}<b>${esc(e.label)}</b>${dbg}<p>${esc(e.text)}</p></div>`;
   };
   h += `<h2>${esc(u.most)}</h2>`;
-  for (const x of r.revealing) h += card(x);
+  h += `<div class="cards">${r.revealing.map(card).join('')}</div>`;
   const rest = r.scored.filter(x => !r.revealing.includes(x));
-  if (rest.length) h += `<details><summary class="muted">${esc(u.all(rest.length))}</summary>${rest.map(card).join('')}</details>`;
+  if (rest.length) h += `<details><summary class="muted">${esc(u.all(rest.length))}</summary><div class="cards">${rest.map(card).join('')}</div></details>`;
   h += `<h2>${esc(u.tensions)}</h2>`;
   if (!r.tensions.length) h += `<p class="muted">${esc(u.noTension)}</p>`;
-  for (const tn of r.tensions) h += `<div class="card">${esc(tn.kind === 'axes' ? c.tension(tn.index) : u.inner(c.axis(tn.axis).name))}</div>`;
-  if (r.pattern) h += `<div class="card">${esc(u.pattern(c.type(r.pattern.type), r.pattern.observed, (r.pattern.observed - r.pattern.dev).toFixed(1)))}</div>`;
+  const tcards = r.tensions.map(tn => `<div class="card">${icon('zap')}<p>${esc(tn.kind === 'axes' ? c.tension(tn.index) : u.inner(c.axis(tn.axis).name))}</p></div>`);
+  if (r.pattern) tcards.push(`<div class="card">${icon('sparkles')}<p>${esc(u.pattern(c.type(r.pattern.type), r.pattern.observed, (r.pattern.observed - r.pattern.dev).toFixed(1)))}</p></div>`);
+  if (tcards.length) h += `<div class="cards">${tcards.join('')}</div>`;
   h += `<h2>${esc(u.axes)}</h2><div class="card">`;
   for (const t of model.order) {
     const v = r.profile[t], a = c.axis(t);
@@ -375,6 +396,26 @@ $('lang-es').onclick = () => setLang('es');
 
 $('cta').onclick = () => $('select').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 $('go').onclick = () => render(true);
+
+// Partículas de píxel al pasar el ratón por los botones principales.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const colors = ['#ffffff', '#c4b5fd', '#a78bfa', '#8b5cf6'];
+  let last = 0;
+  for (const b of [$('go'), $('cta')]) b.addEventListener('pointermove', e => {
+    if (b.disabled || e.pointerType === 'touch') return;
+    const now = performance.now();
+    if (now - last < 45) return;
+    last = now;
+    for (let i = 0; i < 2; i++) {
+      const p = document.createElement('i');
+      p.className = 'px';
+      const sz = 4 + 2 * Math.floor(Math.random() * 2);
+      p.style.cssText = `left:${e.clientX - sz / 2}px;top:${e.clientY - sz / 2}px;width:${sz}px;height:${sz}px;background:${colors[Math.floor(Math.random() * colors.length)]};--dx:${Math.round((Math.random() - .5) * 70 / 4) * 4}px;--dy:${Math.round((-10 - Math.random() * 50) / 4) * 4}px`;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 700);
+    }
+  });
+}
 
 // Estrellas de píxel del hero: posiciones fijas (generador con semilla) para que no cambien entre cargas.
 function stars(el, n, seed, size) {

@@ -54,4 +54,4 @@ The documents are in Spanish.
 
 Fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.
 
-Pokémon images are not included in the repository: the page loads them from [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (a [PokeAPI](https://pokeapi.co) project) and they belong to their owners.
+Pokémon images are not included in the repository: the page loads them from [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (a [PokeAPI](https://pokeapi.co) project) and they belong to their owners. Icons are from [Pixelarticons](https://github.com/halfmage/pixelarticons) (MIT, see `web/icons.LICENSE.txt`).
