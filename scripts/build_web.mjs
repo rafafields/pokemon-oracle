@@ -8,6 +8,7 @@ const data = {
   pokemon: JSON.parse(read('data/pokemon.json')),
   catalog: JSON.parse(read('data/catalog.json')),
   tensions: JSON.parse(read('data/tensions.json')),
+  poles: JSON.parse(read('data/poles.json')),
 };
 const html = read('web/template.html')
   .replace('/*ENGINE*/', () => read('src/engine.js'))

@@ -1,0 +1,182 @@
+{
+ "normal": {
+  "low": {
+   "title": "Afán de destacar",
+   "tendency": "necesitas que lo tuyo se note y buscas dejar tu propia marca en lo que haces",
+   "shadow": "A veces la necesidad de destacar pesa más que el gusto por lo que haces."
+  },
+  "high": {
+   "title": "Gusto por lo sencillo",
+   "tendency": "encuentras tu mejor ánimo en lo cotidiano y no necesitas más escenario que el de cada día",
+   "shadow": "Tu comodidad puede dejar sin estrenar cosas que te vendrían bien."
+  }
+ },
+ "fuego": {
+  "low": {
+   "title": "Templanza",
+   "tendency": "mantienes el pulso incluso cuando todo arde alrededor y reaccionas con calma",
+   "shadow": "Tu calma a veces se confunde con falta de ganas."
+  },
+  "high": {
+   "title": "Vehemencia",
+   "tendency": "vives todo con fuerza y defiendes lo que te importa con todo lo que tienes",
+   "shadow": "Esa fuerza te gasta a ti y a veces desgasta a quien tienes cerca."
+  }
+ },
+ "agua": {
+  "low": {
+   "title": "Contención",
+   "tendency": "guardas lo que sientes y lo muestras solo cuando decides hacerlo",
+   "shadow": "Lo que no sale se queda dentro más tiempo del que crees."
+  },
+  "high": {
+   "title": "Apertura emocional",
+   "tendency": "sientes con intensidad y lo dejas ver, y eso te hace fácil de leer y de querer",
+   "shadow": "En algunos momentos te expones más de lo que te conviene."
+  }
+ },
+ "electrico": {
+  "low": {
+   "title": "Ritmo pausado",
+   "tendency": "vas a tu ritmo, sin prisa, y rindes mejor cuando nadie te empuja",
+   "shadow": "El mundo suele ir más deprisa de lo que a ti te sienta bien."
+  },
+  "high": {
+   "title": "Ritmo vibrante",
+   "tendency": "te mueves rápido, empiezas las cosas con ganas y contagias tu energía a casi todo el mundo",
+   "shadow": "Frenar es lo que menos practicas."
+  }
+ },
+ "planta": {
+  "low": {
+   "title": "Autosuficiencia",
+   "tendency": "te las arreglas por tu cuenta y prefieres no depender de nadie para salir adelante",
+   "shadow": "Rechazar ayuda te deja a veces más a solas de lo que querrías."
+  },
+  "high": {
+   "title": "Instinto de cuidado",
+   "tendency": "cuidas de quien tienes cerca y das tiempo a los demás para que crezcan",
+   "shadow": "Mientras atiendes lo ajeno, se te olvida atender lo tuyo."
+  }
+ },
+ "hielo": {
+  "low": {
+   "title": "Cercanía",
+   "tendency": "te acercas a la gente con facilidad y la dejas entrar pronto en tu vida",
+   "shadow": "Dar tanto acceso te expone a decepciones que otras personas se ahorran."
+  },
+  "high": {
+   "title": "Reserva",
+   "tendency": "guardas distancia con casi todo el mundo y solo abres la puerta a quien se la gana",
+   "shadow": "Esa distancia protege y también deja fuera a quien sí merecería entrar."
+  }
+ },
+ "lucha": {
+  "low": {
+   "title": "Espontaneidad",
+   "tendency": "improvisas, te dejas llevar por el momento y huyes de las rutinas rígidas",
+   "shadow": "Sin estructura, lo importante se queda a veces sin terminar."
+  },
+  "high": {
+   "title": "Constancia",
+   "tendency": "sostienes el esfuerzo en el tiempo y te exiges más de lo que exiges a nadie",
+   "shadow": "Descansar sigue sin parecerte parte del trabajo."
+  }
+ },
+ "veneno": {
+  "low": {
+   "title": "Confianza",
+   "tendency": "das el beneficio de la duda y crees en las buenas intenciones de la gente",
+   "shadow": "Tu confianza te regala algún chasco de vez en cuando."
+  },
+  "high": {
+   "title": "Escepticismo con humor",
+   "tendency": "miras con ojo crítico, detectas lo que no cuadra y lo cuentas con un humor afilado",
+   "shadow": "Tanta lucidez te impide a veces disfrutar de lo que sí funciona."
+  }
+ },
+ "tierra": {
+  "low": {
+   "title": "Idealismo",
+   "tendency": "crees en cómo deberían ser las cosas y te cuesta aceptar lo que se queda a medias",
+   "shadow": "El mundo real decepciona a quien lo mide con la vara de lo ideal."
+  },
+  "high": {
+   "title": "Pragmatismo",
+   "tendency": "decides por lo que funciona y prefieres resultados a promesas",
+   "shadow": "Lo útil se come a veces lo que merecía la pena aunque no sirviera de nada."
+  }
+ },
+ "volador": {
+  "low": {
+   "title": "Arraigo",
+   "tendency": "necesitas raíces: un sitio, una gente y unas costumbres a las que volver",
+   "shadow": "Quedarte demasiado puede taparte lo que hay más allá."
+  },
+  "high": {
+   "title": "Independencia",
+   "tendency": "necesitas espacio para ir a tu aire y decides sin pedir permiso",
+   "shadow": "Tu independencia puede leerse como distancia aunque no lo sea."
+  }
+ },
+ "psiquico": {
+  "low": {
+   "title": "Mente concreta",
+   "tendency": "piensas desde lo tangible y confías más en lo que puedes ver y tocar que en las teorías",
+   "shadow": "Las grandes ideas te pillan a veces demasiado lejos."
+  },
+  "high": {
+   "title": "Mente abstracta",
+   "tendency": "piensas en ideas, patrones y porqués, y disfrutas más de entender que de hacer",
+   "shadow": "Entre tanta idea, lo práctico espera su turno."
+  }
+ },
+ "bicho": {
+  "low": {
+   "title": "Estabilidad",
+   "tendency": "valoras lo que permanece y prefieres afianzar lo que tienes antes que empezar de nuevo",
+   "shadow": "El cambio llega igual, y te encuentra con menos ensayo."
+  },
+  "high": {
+   "title": "Capacidad de cambio",
+   "tendency": "te reinventas con facilidad y cada etapa te sirve de punto de partida para la siguiente",
+   "shadow": "Empezar de cero tantas veces te deja con menos raíces cada vez."
+  }
+ },
+ "roca": {
+  "low": {
+   "title": "Sensibilidad al golpe",
+   "tendency": "sientes de verdad lo que pasa y necesitas tiempo para asimilarlo",
+   "shadow": "Eso te da hondura y a veces te deja en carne viva."
+  },
+  "high": {
+   "title": "Aguante",
+   "tendency": "aguantas casi cualquier cosa y los golpes te cambian menos de lo que parece",
+   "shadow": "No siempre distingues entre resistir y dejar de sentir."
+  }
+ },
+ "fantasma": {
+  "low": {
+   "title": "Mirada hacia fuera",
+   "tendency": "vives hacia fuera, pendiente de la gente y del mundo, y piensas mientras actúas",
+   "shadow": "Rara vez te detienes a escuchar lo que pasa dentro de ti."
+  },
+  "high": {
+   "title": "Vida interior",
+   "tendency": "vives mucho por dentro, con recuerdos, pensamientos y mundos que casi nadie ve",
+   "shadow": "Hay días en los que esa casa interior pesa más que la calle."
+  }
+ },
+ "dragon": {
+  "low": {
+   "title": "Conformidad",
+   "tendency": "estás en paz con lo que eres y no sientes que algo grande te esté esperando",
+   "shadow": "Esa paz puede dejarte sin explorar lo que sí cabría."
+  },
+  "high": {
+   "title": "Ambición",
+   "tendency": "apuntas alto y sientes que lo tuyo es algo grande",
+   "shadow": "El listón que te pones deja poco margen para celebrar lo que ya has logrado."
+  }
+ }
+}

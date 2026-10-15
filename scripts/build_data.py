@@ -119,6 +119,14 @@ def dump(name, data):
         f.write('\n')
 
 
+# --- frases de los polos
+poles = {a['type']: {} for a in axes}
+for c in rows(read('Frases de los polos.md')):
+    if c[0] == 'Eje' or len(c) != 5:
+        continue
+    poles[axis_by_name[c[0]]]['low' if c[1] == 'bajo' else 'high'] = {'title': c[2], 'tendency': c[3], 'shadow': c[4]}
+assert all(set(v) == {'low', 'high'} for v in poles.values()), 'faltan polos'
+dump('poles.json', poles)
 dump('axes.json', axes)
 dump('pokemon.json', sorted(pokemon.values(), key=lambda p: p['id']))
 dump('catalog.json', {'simple': entries, 'double': doubles})

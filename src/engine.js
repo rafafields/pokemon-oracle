@@ -142,3 +142,20 @@ export function computeResult(model, selection, opts = {}) {
 
   return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, observed, dev, sec, contribs };
 }
+
+const CONNECTORS = ['Al mismo tiempo,', 'Y a la vez', 'A eso se suma que', 'Junto a eso,'];
+const cap = s => s[0].toUpperCase() + s.slice(1);
+
+// Título, párrafo y matiz del arquetipo a partir de las frases de los polos (data/poles.json).
+export function archetypeText(poles, archetype) {
+  if (!archetype.poles) return { title: 'Equilibrio', paragraph: '', nuance: '' };
+  const [[t1, s1], [t2, s2]] = archetype.poles;
+  const p1 = poles[t1][s1], p2 = poles[t2][s2];
+  const hash = [...archetype.key].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+  const conn = CONNECTORS[hash % CONNECTORS.length];
+  return {
+    title: `${p1.title} con ${p2.title[0].toLowerCase() + p2.title.slice(1)}`,
+    paragraph: `${cap(p1.tendency)}. ${conn} ${p2.tendency}. ${p1.shadow}`,
+    nuance: archetype.third ? `De fondo, ${poles[archetype.third[0]][archetype.third[1]].tendency}.` : '',
+  };
+}

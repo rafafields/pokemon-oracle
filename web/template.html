@@ -72,12 +72,11 @@ function randomize() {
 function render() {
   const sel = Object.fromEntries(model.order.map(t => [t, $('s-' + t).value]));
   const r = computeResult(model, sel, { standardize: $('std').checked });
-  const poleName = ([t, s]) => ax[t][s];
-  const a = r.archetype;
-  let h = '<h2>Tu perfil</h2><div class="card">';
-  h += `<p class="arch">${a.poles ? esc(poleName(a.poles[0])) + ' con ' + esc(poleName(a.poles[1])) : 'Equilibrio'}</p>`;
-  if (a.third) h += `<p class="muted">Matiz: ${esc(poleName(a.third))}</p>`;
-  h += '<p class="muted">Texto provisional: aún no están escritas las frases de cada polo.</p></div>';
+  const at = archetypeText(DATA.poles, r.archetype);
+  let h = `<h2>Tu perfil</h2><div class="card"><p class="arch">${esc(at.title)}</p>`;
+  if (at.paragraph) h += `<p>${esc(at.paragraph)}</p>`;
+  if (at.nuance) h += `<p>${esc(at.nuance)}</p>`;
+  h += '</div>';
   if (r.doubles.length) h += `<div class="card">${r.doubles.length === 1 ? 'Has repetido una elección en dos casillas' : 'Has repetido ' + r.doubles.length + ' elecciones en dos casillas'}, y eso también dice algo de ti.${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
   h += '<h2>Lo que más dice de ti</h2>';
   for (const c of r.revealing) {

@@ -1,7 +1,7 @@
 // Prueba una selección: node sim/try.mjs [tipo=Pokémon ...] [--seed N]
 // Los tipos sin indicar se eligen al azar. Ejemplo: node sim/try.mjs fuego=Charizard volador=Charizard dragon=Dragonite
 import { readFileSync } from 'node:fs';
-import { buildModel, computeResult } from '../src/engine.js';
+import { buildModel, computeResult, archetypeText } from '../src/engine.js';
 
 const load = f => JSON.parse(readFileSync(new URL('../data/' + f, import.meta.url), 'utf8'));
 const axes = load('axes.json'), catalog = load('catalog.json');
@@ -29,7 +29,11 @@ for (const t of model.order) console.log(`  ${ax[t].typeName.padEnd(9)} ${sel[t]
 console.log('\nPERFIL (0 = polo bajo, 10 = polo alto)');
 for (const t of r.ranked) console.log(`  ${ax[t].name.padEnd(14)} ${r.profile[t].toFixed(1).padStart(4)}  ${'█'.repeat(Math.round(r.profile[t]))}  (${ax[t].low} ↔ ${ax[t].high})`);
 console.log('\nARQUETIPO');
-console.log(r.archetype.poles ? `  ${poleName(r.archetype.poles[0])} con ${poleName(r.archetype.poles[1])}` + (r.archetype.third ? ` · matiz: ${poleName(r.archetype.third)}` : '') : '  Equilibrio');
+const at = archetypeText(load('poles.json'), r.archetype);
+console.log(`  ${at.title}
+  ${at.paragraph}
+  ${at.nuance}`);
+void (r.archetype.poles ? `  ${poleName(r.archetype.poles[0])} con ${poleName(r.archetype.poles[1])}` + (r.archetype.third ? ` · matiz: ${poleName(r.archetype.third)}` : '') : '  Equilibrio');
 console.log('\nTENSIONES');
 if (!r.tensions.length) console.log('  ninguna');
 for (const tn of r.tensions) console.log('  ' + (tn.kind === 'axes' ? tn.idea : `Te mueves entre dos extremos en ${ax[tn.axis].name}.`));
