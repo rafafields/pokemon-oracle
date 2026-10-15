@@ -98,6 +98,10 @@
   .card .ico + * { margin-top:0; }
   @media (max-width:820px) { .cards { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:560px) { .cards { grid-template-columns:1fr; } .card.feature { flex-direction:column; } }
+  .radar { position:relative; height:210px; }
+  .radar svg { position:absolute; left:50%; top:55%; width:150px; height:150px; transform:translate(-50%,-50%); overflow:visible; }
+  .radar .lbl { position:absolute; max-width:84px; font-size:.7rem; line-height:1.15; color:var(--muted); }
+  .radar-title { font-family:var(--display); font-size:.85rem; color:var(--glow); text-transform:uppercase; letter-spacing:.06em; text-align:center; }
   .px { position:fixed; width:6px; height:6px; pointer-events:none; z-index:50; animation:pxfly .7s steps(7) forwards; }
   @keyframes pxfly { to { transform:translate(var(--dx),var(--dy)); opacity:0; } }
   @media (prefers-reduced-motion: reduce) { .px { display:none; } }
@@ -174,6 +178,8 @@ const UI = {
     tensions: 'Tensions',
     noTension: 'Nothing worth mentioning.',
     axes: 'The 15 axes',
+    groups: ['Heart', 'Mind', 'Way of acting'],
+    byAxis: 'Detail by axis',
     dbl1: 'You picked the same Pokémon in two slots',
     dblN: n => `You picked the same Pokémon in ${n} pairs of slots`,
     dblTail: ', and that says something about you too.',
@@ -204,6 +210,8 @@ const UI = {
     tensions: 'Tensiones',
     noTension: 'Ninguna destacable.',
     axes: 'Los 15 ejes',
+    groups: ['Corazón', 'Mente', 'Forma de actuar'],
+    byAxis: 'Detalle por eje',
     dbl1: 'Has repetido una elección en dos casillas',
     dblN: n => `Has repetido ${n} elecciones en dos casillas`,
     dblTail: ', y eso también dice algo de ti.',
@@ -321,6 +329,29 @@ const icon = n => `<svg class="ico" viewBox="0 0 24 24" fill="currentColor" shap
 const ENTRY_ICONS = ['star', 'eye', 'heart', 'sun', 'crown', 'feather', 'key', 'diamond-gem', 'wand', 'hourglass', 'compass', 'lightbulb', 'fire', 'shield'];
 function iconFor(label) { let h = 0; for (const ch of label) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return ENTRY_ICONS[h % ENTRY_ICONS.length]; }
 
+// ---- Gráficas de estrella: los 15 ejes en 3 grupos de 5. El centro es el primer polo y el borde el segundo.
+const GROUPS = [['fuego', 'agua', 'planta', 'hielo', 'roca'], ['veneno', 'tierra', 'psiquico', 'fantasma', 'lucha'], ['electrico', 'volador', 'bicho', 'dragon', 'normal']];
+function radar(types, profile, c) {
+  const n = types.length, R = 75, C0 = 75;
+  const ang = i => -Math.PI / 2 + i * 2 * Math.PI / n;
+  const pt = (i, v) => [C0 + R * v / 10 * Math.cos(ang(i)), C0 + R * v / 10 * Math.sin(ang(i))].map(x => x.toFixed(1)).join(',');
+  const ring = v => types.map((_, i) => pt(i, v)).join(' ');
+  let svg = '<svg viewBox="0 0 150 150" shape-rendering="crispEdges" aria-hidden="true">';
+  for (const v of [2.5, 5, 7.5, 10]) svg += `<polygon points="${ring(v)}" fill="none" stroke="${v === 5 ? '#5b34b8' : '#3b2766'}" stroke-width="${v === 10 ? 2 : 1}"/>`;
+  types.forEach((_, i) => svg += `<line x1="${C0}" y1="${C0}" x2="${pt(i, 10).split(',')[0]}" y2="${pt(i, 10).split(',')[1]}" stroke="#3b2766"/>`);
+  svg += `<polygon points="${types.map((t, i) => pt(i, profile[t])).join(' ')}" fill="rgba(139,92,246,.45)" stroke="#c4b5fd" stroke-width="2" stroke-linejoin="miter"/>`;
+  types.forEach((t, i) => { const [x, y] = pt(i, profile[t]).split(','); svg += `<rect x="${x - 3}" y="${y - 3}" width="6" height="6" fill="#fff"/>`; });
+  svg += '</svg>';
+  const labels = types.map((t, i) => {
+    const a = ang(i), cx = Math.cos(a), cy = Math.sin(a);
+    const dx = ((R + 8) * cx).toFixed(0), dy = ((R + 6) * cy).toFixed(0);
+    const tx = Math.abs(cx) < .3 ? '-50%' : cx > 0 ? '0' : '-100%', ty = cy < -.3 ? '-100%' : cy > .3 ? '0' : '-50%';
+    const ax = c.axis(t);
+    return `<span class="lbl" style="left:calc(50% + ${dx}px);top:calc(55% + ${dy}px);transform:translate(${tx},${ty});text-align:${Math.abs(cx) < .3 ? 'center' : cx > 0 ? 'left' : 'right'}" title="${esc(ax.low)} ↔ ${esc(ax.high)}">${esc(ax.name)}</span>`;
+  }).join('');
+  return svg + labels;
+}
+
 // ---- Resultado
 let shown = false;
 function render(scroll) {
@@ -346,12 +377,13 @@ function render(scroll) {
   const tcards = r.tensions.map(tn => `<div class="card">${icon('zap')}<p>${esc(tn.kind === 'axes' ? c.tension(tn.index) : u.inner(c.axis(tn.axis).name))}</p></div>`);
   if (r.pattern) tcards.push(`<div class="card">${icon('sparkles')}<p>${esc(u.pattern(c.type(r.pattern.type), r.pattern.observed, (r.pattern.observed - r.pattern.dev).toFixed(1)))}</p></div>`);
   if (tcards.length) h += `<div class="cards">${tcards.join('')}</div>`;
-  h += `<h2>${esc(u.axes)}</h2><div class="card">`;
+  h += `<h2>${esc(u.axes)}</h2><div class="cards">${GROUPS.map((g, i) => `<div class="card"><div class="radar-title">${esc(u.groups[i])}</div><div class="radar">${radar(g, r.profile, c)}</div></div>`).join('')}</div>`;
+  h += `<details><summary class="muted">${esc(u.byAxis)}</summary><div class="card">`;
   for (const t of model.order) {
     const v = r.profile[t], a = c.axis(t);
     h += `<div class="axis"><div class="poles"><span>${esc(a.low)}</span><span>${esc(a.high)}</span></div><div class="track"><div class="mid"></div><div class="dot" style="left:${v * 10}%;transform:translateX(-${v * 10}%)"></div></div>${DEBUG ? `<div class="muted">${esc(a.name)}: ${v.toFixed(1)}</div>` : ''}</div>`;
   }
-  h += '</div>';
+  h += '</div></details>';
   if (DEBUG) {
     h += '<details open><summary class="muted">Calculation detail</summary><div class="card"><table><tr><th>Axis</th><th>Pokémon</th><th>Origin</th><th>Pos.</th><th>Weight</th></tr>';
     for (const x of [...r.contribs].sort((p, q) => model.order.indexOf(p.axis) - model.order.indexOf(q.axis))) {
