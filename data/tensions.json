@@ -1,0 +1,14 @@
+[
+ {"a": ["agua", "high"], "b": ["hielo", "high"], "idea": "Sientes mucho y lo muestras poco."},
+ {"a": ["dragon", "high"], "b": ["lucha", "low"], "idea": "Quieres llegar lejos sin un plan que te lleve."},
+ {"a": ["volador", "high"], "b": ["planta", "high"], "idea": "Cuidas a los demás y necesitas tu propio espacio."},
+ {"a": ["planta", "high"], "b": ["veneno", "high"], "idea": "Proteges a quien no acabas de creerte."},
+ {"a": ["tierra", "low"], "b": ["veneno", "high"], "idea": "Crees en algo y lo tratas con ironía."},
+ {"a": ["fuego", "high"], "b": ["hielo", "high"], "idea": "Arde mucho por dentro y se nota poco por fuera."},
+ {"a": ["dragon", "high"], "b": ["normal", "high"], "idea": "Aspiras a algo grande y disfrutas de lo pequeño."},
+ {"a": ["psiquico", "high"], "b": ["tierra", "high"], "idea": "Piensas en ideas y decides por lo que funciona."},
+ {"a": ["electrico", "high"], "b": ["fantasma", "high"], "idea": "Vas a mil por fuera y vives hacia dentro."},
+ {"a": ["electrico", "low"], "b": ["dragon", "high"], "idea": "Quieres algo enorme y lo persigues con calma."},
+ {"a": ["lucha", "high"], "b": ["bicho", "high"], "idea": "Te exiges constancia y a la vez necesitas cambiar."},
+ {"a": ["roca", "high"], "b": ["agua", "high"], "idea": "Lo aguantas todo y lo sientes todo."}
+]

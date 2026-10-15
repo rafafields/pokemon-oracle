@@ -39,7 +39,7 @@ Una sola fórmula, con la misma idea que se decidió en [Tratamiento de los tipo
 
 Resultado: si eliges más duales con Veneno de lo que cabría esperar, ese segundo eje pesa más; si es lo habitual (Veneno sale mucho por azar), pesa poco. El peso de una contribución es `p · 1` si es primaria y `p · s(U)` si es secundaria.
 
-**Frase de patrón.** Se comenta un patrón de tipo secundario solo si `O(U) ≥ 3` y `d(U) ≥ 1,5`. Se comenta como máximo uno (el de mayor `d`), y no se comenta nunca un tipo que ya salga entre los ejes dominantes para no repetir.
+**Frase de patrón.** Se comenta un patrón de tipo secundario solo si `O(U) ≥ 4` y `d(U) ≥ 2,5`. Se comenta como máximo uno (el de mayor `d`), y no se comenta nunca un tipo que ya salga entre los ejes dominantes para no repetir.
 
 ## 4. Valor de cada eje
 
@@ -70,20 +70,20 @@ Con 30 polos hay 435 pares posibles; no se escriben a mano: se componen. Lo que 
 
 Una tensión es una contradicción visible entre dos partes del perfil. Dos tipos:
 
-**Entre ejes.** Hay una tabla de pares de polos que se contradicen, escrita a mano (la lista inicial son unos 12 pares, ejemplos):
+**Entre ejes.** Hay una tabla de pares de polos que se contradicen, escrita a mano (son 12 pares, en `data/tensions.json`; la tabla muestra una parte):
 
 | Polo A | Polo B | Idea |
 |---|---|---|
 | Apertura emocional (Agua alta) | Reserva (Hielo alta) | Sientes mucho y lo muestras poco. |
 | Ambición (Dragón alta) | Espontaneidad (Lucha baja) | Quieres llegar lejos sin plan. |
-| Libertad (Volador alta) | Arraigo (Tierra baja) | Quieres irte y quedarte. |
+| Independencia (Volador alta) | Cuida y hace crecer (Planta alta) | Cuidas a los demás y necesitas tu espacio. |
 | Cuidado (Planta alta) | Escepticismo (Veneno alta) | Proteges a quien no acabas de creer. |
 | Idealismo (Tierra baja) | Escepticismo (Veneno alta) | Crees en algo y lo tratas con ironía. |
-| Vehemencia (Fuego alta) | Constancia (Lucha alta) | Mucha fuerza y poca paciencia, o al revés. |
+| Vehemencia (Fuego alta) | Reserva (Hielo alta) | Arde por dentro y se nota poco. |
 
 Una tensión se activa si **ambos polos tienen intensidad ≥ 3** (en el sentido de la tabla). Se muestran como máximo **2**, ordenadas por el producto de las dos intensidades.
 
-**Dentro de un eje.** Si las contribuciones de un mismo eje difieren en 6 o más posiciones (por ejemplo una primaria en 1 y una secundaria en 8), se activa una tensión interna del eje: "te mueves entre dos extremos en X". Cuenta como una de las 2 tensiones y va después de las de entre ejes en caso de empate.
+**Dentro de un eje.** Si las contribuciones de un mismo eje difieren en 8 o más posiciones (por ejemplo una primaria en 1 y una secundaria en 9), se activa una tensión interna del eje: "te mueves entre dos extremos en X". Cuenta como una de las 2 tensiones y va después de las de entre ejes en caso de empate.
 
 Si no se activa ninguna, el resultado no dice nada de tensiones (no se rellena con una frase de relleno).
 
@@ -109,7 +109,7 @@ El motor debe pasar, antes de darlo por bueno:
 7. Perfil con todos los extremos: no pasa de 2 tensiones.
 8. Empate exacto de intensidades: gana el eje primero del orden fijo.
 
-## Calibración pendiente
+## Calibración
 
 Los valores de este documento (pesos de popularidad, `0,3 + 0,3·d`, umbrales 1,5 / 3 / 6) son propuestas. La forma de comprobarlos es **simular** unas 10.000 selecciones al azar sobre el catálogo y mirar:
 
@@ -118,7 +118,29 @@ Los valores de este documento (pesos de popularidad, `0,3 + 0,3·d`, umbrales 1,
 - que la frase de patrón secundario salga en pocos casos (una de cada 10 o menos),
 - que el perfil medio no se desplace sistemáticamente a un polo, que sería señal de entradas mal repartidas (ya se sospecha en Roca, Tierra y Volador).
 
-Esto es un script corto, y es el siguiente paso natural.
+El script es `sim/simulate.mjs` (`npm run sim`).
+
+## Resultado de la primera calibración
+
+10.000 selecciones al azar, en dos modos: **uniforme** (cada Pokémon de la lista con la misma probabilidad) y **ponderado por popularidad** (lo habitual se elige más, más parecido a un usuario real). Datos con el catálogo en borrador.
+
+| Medida | Valores iniciales | Tras ajustar | Objetivo |
+|---|---|---|---|
+| Tensiones (0 / 1 / 2) | 9 / 26 / 65 % | 38 / 36 / 26 % (uniforme) | que 2 no sea lo habitual |
+| Frase de patrón secundario | 34 % (uniforme), 49 % (ponderado) | 6 % y 15 % | una de cada 10 o menos |
+| Arquetipo más frecuente | 3,6 % | 3,6 % | no pasar de ~5 % |
+| Arquetipos distintos | 511 | 511 | muchos |
+
+Se ajustaron tres umbrales: tensión interna de un eje a 8 posiciones o más (antes 6), y patrón secundario con al menos 4 casos y desviación de 2,5 o más. Con los de antes, Veneno disparaba una tensión interna en el 41 % de los casos porque casi siempre recibe contribuciones de muy distinto signo de Planta, Bicho y Fantasma.
+
+**Problemas que quedan y no se resuelven con umbrales:**
+
+1. **Los ejes están escorados.** Con selecciones al azar, la media del eje no es 5: Tierra sale en 7,0 (el 68 % de las veces por encima de 6,5), Volador en 6,5, Fuego en 6,4 y Eléctrico en 6,4; Agua en 4,3. Es la sospecha de extremos poco poblados (Tierra, Volador, Roca) confirmada. Como el arquetipo se elige por la distancia a 5, esos ejes dominan los resultados.
+2. **El perfil plano no existe.** "Equilibrio" no salió nunca (0 %): entre 15 ejes siempre hay alguno lejos de 5. Ese caso especial sobra con el umbral actual.
+3. **La doble selección es frecuente**: 23 % (uniforme) y 42 % (ponderado). Es una cifra alta; las entradas dobles se verán a menudo y su calidad pesa mucho.
+4. **El arquetipo** depende mucho de la escora del punto 1, aunque la variedad es buena (más de 450 arquetipos distintos).
+
+**Propuesta para el punto 1:** medir la intensidad del eje respecto a su media y su dispersión típicas, no respecto a 5 (una puntuación estándar con valores que se calculan una vez a partir del catálogo, como el esperado del tipo secundario). Así un Tierra de 7 es lo normal y no destaca, y destaca lo que se aparta de lo habitual en ese eje. La alternativa es reequilibrar las entradas, que es más trabajo y toca el texto. Es decisión de Rafa.
 
 ## Decisiones que se dejan a Rafa
 

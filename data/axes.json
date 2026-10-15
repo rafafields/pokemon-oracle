@@ -1,0 +1,122 @@
+[
+ {
+  "type": "normal",
+  "typeName": "Normal",
+  "name": "Sencillez",
+  "low": "Busca destacar",
+  "high": "Disfruta lo sencillo",
+  "measures": "Cuánto necesita la persona singularizarse frente a sentirse a gusto en lo cotidiano."
+ },
+ {
+  "type": "fuego",
+  "typeName": "Fuego",
+  "name": "Intensidad",
+  "low": "Templanza",
+  "high": "Vehemencia",
+  "measures": "El calor del temperamento: cuánto arde por dentro y se nota por fuera."
+ },
+ {
+  "type": "agua",
+  "typeName": "Agua",
+  "name": "Sensibilidad",
+  "low": "Contención",
+  "high": "Apertura emocional",
+  "measures": "Cuánto deja pasar y mostrar la emoción."
+ },
+ {
+  "type": "electrico",
+  "typeName": "Eléctrico",
+  "name": "Energía",
+  "low": "Ritmo pausado",
+  "high": "Ritmo vibrante",
+  "measures": "El ritmo de activación: pausa y calma frente a movimiento constante."
+ },
+ {
+  "type": "planta",
+  "typeName": "Planta",
+  "name": "Cuidado",
+  "low": "Autosuficiencia",
+  "high": "Cuida y hace crecer",
+  "measures": "La inclinación a nutrir, acompañar y dar tiempo a otros para crecer."
+ },
+ {
+  "type": "hielo",
+  "typeName": "Hielo",
+  "name": "Reserva",
+  "low": "Cercanía",
+  "high": "Reserva",
+  "measures": "La distancia que pone la persona con los demás y consigo misma."
+ },
+ {
+  "type": "lucha",
+  "typeName": "Lucha",
+  "name": "Disciplina",
+  "low": "Espontaneidad",
+  "high": "Constancia y exigencia",
+  "measures": "Cuánto sostiene el esfuerzo y la exigencia propia en el tiempo."
+ },
+ {
+  "type": "veneno",
+  "typeName": "Veneno",
+  "name": "Ironía",
+  "low": "Confianza",
+  "high": "Escepticismo con humor ácido",
+  "measures": "La confianza por defecto frente a la sospecha lúcida y el humor con filo."
+ },
+ {
+  "type": "tierra",
+  "typeName": "Tierra",
+  "name": "Pragmatismo",
+  "low": "Idealismo",
+  "high": "Pragmatismo",
+  "measures": "Si se guía por lo que debería ser o por lo que funciona."
+ },
+ {
+  "type": "volador",
+  "typeName": "Volador",
+  "name": "Libertad",
+  "low": "Arraigo",
+  "high": "Independencia",
+  "measures": "La necesidad de espacio y autonomía frente a la de raíces y pertenencia."
+ },
+ {
+  "type": "psiquico",
+  "typeName": "Psíquico",
+  "name": "Curiosidad",
+  "low": "Lo concreto",
+  "high": "Lo abstracto y lo intelectual",
+  "measures": "Si piensa desde lo tangible o desde las ideas, los patrones y el porqué."
+ },
+ {
+  "type": "bicho",
+  "typeName": "Bicho",
+  "name": "Reinvención",
+  "low": "Estabilidad",
+  "high": "Cambio",
+  "measures": "Cuánta transformación busca o tolera: permanecer o volver a empezar."
+ },
+ {
+  "type": "roca",
+  "typeName": "Roca",
+  "name": "Resiliencia",
+  "low": "Se deja afectar",
+  "high": "Aguanta todo",
+  "measures": "Cuánto le atraviesa lo que pasa: lo deja huella o lo soporta sin moverse."
+ },
+ {
+  "type": "fantasma",
+  "typeName": "Fantasma",
+  "name": "Introspección",
+  "low": "Mira hacia fuera",
+  "high": "Vida interior profunda",
+  "measures": "Cuánto vive hacia dentro: pensamientos, recuerdos y sombras propias."
+ },
+ {
+  "type": "dragon",
+  "typeName": "Dragón",
+  "name": "Ambición",
+  "low": "Conformidad con lo que se es",
+  "high": "Aspira a algo grande",
+  "measures": "El tamaño de lo que aspira a ser, del presente suficiente al destino."
+ }
+]

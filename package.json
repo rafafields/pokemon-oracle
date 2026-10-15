@@ -1,0 +1,9 @@
+{
+  "name": "pokemon-oracle",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "data": "python scripts/build_data.py",
+    "sim": "node sim/simulate.mjs"
+  }
+}
