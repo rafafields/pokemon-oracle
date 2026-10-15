@@ -1,6 +1,6 @@
 # Propuesta de reequilibrio de ejes
 
-Qué hacer con los polos poco poblados (B: reorientar ejes, C: reescribir o recolocar candidatos). Es una **propuesta, no está aplicada**. Los números salen de simulaciones sobre el catálogo en borrador, tras reestirar la escala a 0–10 y corregir el polo ([Motor de perfil y reglas de tensión](Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
+Qué hacer con los polos poco poblados (B: reorientar ejes, C: reescribir o recolocar candidatos). Los dos movimientos de la sección 4 (Diglett y Raichu) **se aplicaron** al catálogo; el resto es propuesta. Los números salen de simulaciones sobre el catálogo en borrador, tras reestirar la escala a 0–10 y corregir el polo ([Motor de perfil y reglas de tensión](Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
 
 ## 1. Diagnóstico: ¿se puede llegar a cada polo?
 

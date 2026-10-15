@@ -512,6 +512,13 @@
    "text": "Funcionas con un ritmo tranquilo y continuo. No haces mucho ruido, pero siempre estás en marcha. Las prisas te sacan de tu frecuencia."
   },
   {
+   "pokemon": "Raichu",
+   "type": "electrico",
+   "pos": 3,
+   "label": "Carga acumulada",
+   "text": "Tienes una energía contenida que se nota cuando hace falta. Hay potencia detrás de tu simpatía. Te sienta bien soltar de vez en cuando; acumularla demasiado pesa."
+  },
+  {
    "pokemon": "Zapdos",
    "type": "electrico",
    "pos": 4,
@@ -524,13 +531,6 @@
    "pos": 5,
    "label": "Competitividad en marcha",
    "text": "Necesitas tensión y metas para activarte. Rindes mejor con un reto cerca y con alguien a quien superar. Descansar, sin esa tensión, se vuelve incómodo."
-  },
-  {
-   "pokemon": "Raichu",
-   "type": "electrico",
-   "pos": 6,
-   "label": "Carga acumulada",
-   "text": "Tienes una energía contenida que se nota cuando hace falta. Hay potencia detrás de tu simpatía. Te sienta bien soltar de vez en cuando; acumularla demasiado pesa."
   },
   {
    "pokemon": "Pikachu",
@@ -995,6 +995,13 @@
    "text": "Has aprendido a ser fuerte porque tocó. Combinas ideales con lo que te ha enseñado la vida. Tu realismo nació de una herida, y a veces la sientes aún."
   },
   {
+   "pokemon": "Diglett",
+   "type": "tierra",
+   "pos": 3,
+   "label": "Convicción callada",
+   "text": "Haces tu parte por convicción y no por reconocimiento. Trabajas en lo que crees incluso cuando nadie lo ve. Tu idealismo no hace ruido, y por eso a veces pasa por simple costumbre."
+  },
+  {
    "pokemon": "Nidoking",
    "type": "tierra",
    "pos": 4,
@@ -1042,13 +1049,6 @@
    "pos": 8,
    "label": "Sentido de la utilidad",
    "text": "Vas a lo esencial. Tu criterio es práctico y rápido. Con quien se anda con rodeos tu trato se vuelve áspero, y no siempre vale la pena."
-  },
-  {
-   "pokemon": "Diglett",
-   "type": "tierra",
-   "pos": 8,
-   "label": "Trabajo silencioso",
-   "text": "Haces lo tuyo sin llamar la atención. Aportas eficacia sin ruido. Que te vean te importa menos que acabar, aunque a veces te vendría bien."
   },
   {
    "pokemon": "Geodude",
