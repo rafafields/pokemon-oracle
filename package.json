@@ -5,6 +5,7 @@
   "scripts": {
     "data": "python scripts/build_data.py",
     "sim": "node sim/simulate.mjs",
-    "try": "node sim/try.mjs"
+    "try": "node sim/try.mjs",
+    "web": "node scripts/build_web.mjs"
   }
 }

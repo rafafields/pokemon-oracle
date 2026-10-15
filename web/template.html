@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oráculo Pokémon</title>
+<style>
+  :root { --bg:#faf8f4; --fg:#222; --muted:#6b6b6b; --card:#fff; --line:#e4dfd6; --accent:#c0392b; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#17171a; --fg:#e8e6e1; --muted:#9a978f; --card:#222226; --line:#34343a; --accent:#ff6b5b; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { margin:0 0 4px; font-size:1.8rem; } h2 { font-size:1.15rem; margin:28px 0 8px; }
+  .muted { color:var(--muted); font-size:.9rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin:16px 0; }
+  label.slot { display:block; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  label.slot span { display:block; font-size:.8rem; color:var(--muted); }
+  select { width:100%; margin-top:2px; font:inherit; padding:4px; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:6px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  button { font:inherit; padding:9px 16px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--fg); cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:10px 0; }
+  .card p { margin:6px 0 0; }
+  .arch { font-size:1.4rem; font-weight:700; margin:0 !important; }
+  .axis { display:grid; grid-template-columns:110px 1fr 36px; gap:8px; align-items:center; margin:6px 0; font-size:.9rem; }
+  .track { position:relative; height:12px; background:var(--line); border-radius:6px; }
+  .fill { position:absolute; top:0; bottom:0; left:0; background:var(--accent); border-radius:6px; }
+  .mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--muted); }
+  .poles { display:flex; justify-content:space-between; font-size:.7rem; color:var(--muted); }
+  .entry b { display:block; } .entry small { color:var(--muted); }
+  table { border-collapse:collapse; width:100%; font-size:.85rem; } td,th { text-align:left; padding:3px 6px; border-bottom:1px solid var(--line); }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Oráculo Pokémon</h1>
+  <p class="muted">Elige tu Pokémon favorito de cada tipo de Kanto. Es un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Versión de pruebas: el catálogo es un borrador.</p>
+  <div class="grid" id="slots"></div>
+  <div class="row">
+    <button class="primary" id="go">Esto dice de ti</button>
+    <button id="rand">Todo al azar</button>
+    <label class="muted"><input type="checkbox" id="std" checked> Normalizar ejes</label>
+  </div>
+  <p class="muted">Normalizar mide la intensidad de cada eje respecto a lo habitual en ese eje, no respecto al centro de la escala.</p>
+  <div id="out" hidden></div>
+</main>
+<script type="module">
+/*DATA*/
+/*ENGINE*/
+
+const model = buildModel(DATA.axes, DATA.pokemon, DATA.catalog, DATA.tensions);
+const ax = Object.fromEntries(DATA.axes.map(a => [a.type, a]));
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const KIND = { primary: 'principal', secondary: 'segundo tipo', double: 'doble selección' };
+
+for (const t of model.order) {
+  const l = document.createElement('label');
+  l.className = 'slot';
+  l.innerHTML = `<span>${esc(ax[t].typeName)} · ${esc(ax[t].name)}</span><select id="s-${t}">${model.lists[t].map(p => `<option>${esc(p.name)}</option>`).join('')}</select>`;
+  $('slots').appendChild(l);
+}
+
+function randomize() {
+  for (const t of model.order) { const l = model.lists[t]; $('s-' + t).value = l[Math.floor(Math.random() * l.length)].name; }
+}
+
+function render() {
+  const sel = Object.fromEntries(model.order.map(t => [t, $('s-' + t).value]));
+  const r = computeResult(model, sel, { standardize: $('std').checked });
+  const poleName = ([t, s]) => ax[t][s];
+  const a = r.archetype;
+  let h = '<h2>Tu perfil</h2><div class="card">';
+  h += `<p class="arch">${a.poles ? esc(poleName(a.poles[0])) + ' con ' + esc(poleName(a.poles[1])) : 'Equilibrio'}</p>`;
+  if (a.third) h += `<p class="muted">Matiz: ${esc(poleName(a.third))}</p>`;
+  h += '<p class="muted">Texto provisional: aún no están escritas las frases de cada polo.</p></div>';
+  if (r.doubles.length) h += `<div class="card">Has elegido a <b>${r.doubles.map(esc).join(', ')}</b> en dos casillas. Eso cuenta con una entrada propia.</div>`;
+  h += '<h2>Lo que más dice de ti</h2>';
+  for (const c of r.revealing) {
+    const e = c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon) : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis);
+    h += `<div class="card entry"><b>${esc(e.label)}</b><small>${esc(c.pokemon)} · ${esc(ax[c.axis].name)} ${c.pos}${c.kind === 'double' ? ' (doble selección)' : ''}</small><p>${esc(e.text)}</p></div>`;
+  }
+  h += '<h2>Tensiones</h2>';
+  if (!r.tensions.length) h += '<p class="muted">Ninguna destacable.</p>';
+  for (const tn of r.tensions) h += `<div class="card">${tn.kind === 'axes' ? esc(tn.idea) : 'Te mueves entre dos extremos en ' + esc(ax[tn.axis].name) + '.'}</div>`;
+  if (r.pattern) h += `<div class="card">Muchos de tus Pokémon tienen ${esc(ax[r.pattern.type].typeName)} como segundo tipo (${r.pattern.observed}; lo esperable serían ${(r.pattern.observed - r.pattern.dev).toFixed(1)}).</div>`;
+  h += '<h2>Los 15 ejes</h2><div class="card">';
+  for (const t of model.order) {
+    const v = r.profile[t];
+    h += `<div class="axis"><span>${esc(ax[t].name)}</span><div><div class="track"><div class="fill" style="width:${v * 10}%"></div><div class="mid"></div></div><div class="poles"><span>${esc(ax[t].low)}</span><span>${esc(ax[t].high)}</span></div></div><span>${v.toFixed(1)}</span></div>`;
+  }
+  h += '</div><details><summary class="muted">Detalle del cálculo</summary><div class="card"><table><tr><th>Eje</th><th>Pokémon</th><th>Origen</th><th>Pos.</th><th>Peso</th></tr>';
+  for (const c of [...r.contribs].sort((x, y) => model.order.indexOf(x.axis) - model.order.indexOf(y.axis))) {
+    h += `<tr><td>${esc(ax[c.axis].name)}</td><td>${esc(c.pokemon)}</td><td>${KIND[c.kind]}</td><td>${c.pos}</td><td>${c.w.toFixed(2)}</td></tr>`;
+  }
+  h += '</table></div></details>';
+  $('out').innerHTML = h;
+  $('out').hidden = false;
+  $('out').scrollIntoView({ behavior: 'smooth' });
+}
+
+$('go').onclick = render;
+$('rand').onclick = () => { randomize(); render(); };
+randomize();
+</script>
+</body>
+</html>

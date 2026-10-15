@@ -7,6 +7,11 @@ export const DEFAULTS = {
   patternMinCount: 4, patternMinDev: 2.5,
   flatThreshold: 1.5, thirdAxisThreshold: 2,
   tensionPole: 3, tensionMax: 2, innerGap: 8,
+  // Con standardize, la intensidad de un eje se mide en desviaciones típicas respecto a su media
+  // (calculada con selecciones al azar sobre el catálogo) en lugar de respecto a 5.
+  standardize: true,
+  z: { flat: 0.5, third: 0.8, tension: 1.0 },
+  calibrationSamples: 4000,
 };
 
 export function buildModel(axes, pokemon, catalog, tensions, config = {}) {
@@ -22,12 +27,34 @@ export function buildModel(axes, pokemon, catalog, tensions, config = {}) {
   for (const t of order) {
     for (const p of lists[t]) if (p.types.length === 2) expected[other(p, t)] += 1 / lists[t].length;
   }
-  return { cfg, axes, order, byName, simple, double, lists, expected, other, tensions };
+  const model = { cfg, axes, order, byName, simple, double, lists, expected, other, tensions, stats: null };
+  model.stats = calibrate(model);
+  return model;
+}
+
+// Media y desviación de cada eje con selecciones uniformes al azar y una semilla fija (determinista).
+export function calibrate(model, n = model.cfg.calibrationSamples, seed = 12345) {
+  const rnd = () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const sum = {}, sq = {};
+  for (const t of model.order) { sum[t] = 0; sq[t] = 0; }
+  for (let i = 0; i < n; i++) {
+    const sel = {};
+    for (const t of model.order) { const l = model.lists[t]; sel[t] = l[Math.floor(rnd() * l.length)].name; }
+    const prof = computeResult(model, sel, { standardize: false }).profile;
+    for (const t of model.order) { sum[t] += prof[t]; sq[t] += prof[t] * prof[t]; }
+  }
+  const stats = {};
+  for (const t of model.order) {
+    const mean = sum[t] / n;
+    stats[t] = { mean, sd: Math.sqrt(Math.max(sq[t] / n - mean * mean, 1e-6)) };
+  }
+  return stats;
 }
 
 const clamp = (x, lo, hi) => Math.min(hi, Math.max(lo, x));
 
-export function computeResult(model, selection) {
+export function computeResult(model, selection, opts = {}) {
+  const std = opts.standardize ?? model.cfg.standardize;
   const { cfg, order, byName, simple, double, expected, other } = model;
   const picks = order.map(t => {
     const p = byName.get(selection[t]);
@@ -74,14 +101,16 @@ export function computeResult(model, selection) {
     const sw = cs.reduce((s, c) => s + c.w, 0);
     profile[t] = cs.reduce((s, c) => s + c.w * c.pos, 0) / sw;
   }
-  const intensity = t => Math.abs(profile[t] - 5);
+  const dist = t => (std ? (profile[t] - model.stats[t].mean) / model.stats[t].sd : profile[t] - 5);
+  const intensity = t => Math.abs(dist(t));
+  const th = std ? cfg.z : { flat: cfg.flatThreshold, third: cfg.thirdAxisThreshold, tension: cfg.tensionPole };
   const ranked = [...order].sort((a, b) => intensity(b) - intensity(a) || order.indexOf(a) - order.indexOf(b));
-  const pole = t => (profile[t] >= 5 ? 'high' : 'low');
-  const flat = intensity(ranked[0]) < cfg.flatThreshold;
+  const pole = t => (dist(t) >= 0 ? 'high' : 'low');
+  const flat = intensity(ranked[0]) < th.flat;
   const archetype = flat ? { key: 'equilibrio' } : {
     key: `${ranked[0]}:${pole(ranked[0])}+${ranked[1]}:${pole(ranked[1])}`,
     poles: [[ranked[0], pole(ranked[0])], [ranked[1], pole(ranked[1])]],
-    third: intensity(ranked[2]) >= cfg.thirdAxisThreshold ? [ranked[2], pole(ranked[2])] : null,
+    third: intensity(ranked[2]) >= th.third ? [ranked[2], pole(ranked[2])] : null,
   };
 
   // Tensiones: entre ejes (por producto de intensidades) y dentro de un eje.
@@ -89,7 +118,7 @@ export function computeResult(model, selection) {
   const poleIntensity = ([t, side]) => (pole(t) === side ? intensity(t) : 0);
   for (const [i, tn] of model.tensions.entries()) {
     const a = poleIntensity(tn.a), b = poleIntensity(tn.b);
-    if (a >= cfg.tensionPole && b >= cfg.tensionPole) found.push({ kind: 'axes', index: i, score: a * b, idea: tn.idea });
+    if (a >= th.tension && b >= th.tension) found.push({ kind: 'axes', index: i, score: a * b, idea: tn.idea });
   }
   found.sort((x, y) => y.score - x.score || x.index - y.index);
   const inner = [];
@@ -111,5 +140,5 @@ export function computeResult(model, selection) {
     .map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
     .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis)).slice(0, 3);
 
-  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, observed, dev, sec };
+  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, observed, dev, sec, contribs };
 }
