@@ -27,6 +27,8 @@ Borrador para redactar el catálogo con IA y revisarlo a mano ([Quién escribe e
 
 **Entradas de doble selección** (un dual elegido en sus dos casillas, ver [Casilla del tipo Volador y lista de cada Pokémon](Decisiones%20de%20dise%C3%B1o.md)): llevan dos posiciones, una por eje, y un solo matiz. No es la suma de las dos entradas simples: habla de lo que significa elegir al mismo Pokémon dos veces.
 
+**Escala completa.** En cada eje, el candidato más bajo debe quedar en 0 y el más alto en 10, con el resto repartido en medio y sin cambiar el orden. Así ningún polo queda inalcanzable por la forma de escribir. Se aplicó una vez de forma mecánica sobre el primer borrador (los candidatos más bajos de Fuego, Eléctrico, Hielo, Tierra, Volador y Roca estaban en 2).
+
 ## Reparto de posiciones
 
 - **Tipos ricos** (Normal, Agua, Veneno...): repartir los Pokémon por toda la escala. Evitar que se acumulen en el centro, porque un centro lleno no distingue a nadie.

@@ -4,26 +4,26 @@
 
 | Pokémon | Pos. | Etiqueta | Matiz |
 |---|---|---|---|
-| Cloyster (+Hielo) | 1 | Puertas cerradas | Cierras filas cuando algo te afecta. Tu intimidad está bien protegida y pocas personas entran. Por dentro sientes mucho; el reto es dejar que alguien lo vea. |
-| Kabutops (+Roca) | 1 | Frialdad precisa | Resuelves con precisión y sin dramatismo. Tus emociones existen, pero las tratas como un asunto privado y técnico. Por eso los demás te malinterpretan. |
-| Kingler | 2 | Fuerza que no se explica | Prefieres hacer a decir. Tu emoción se expresa en actos contundentes, rara vez en palabras. Los demás tardan en entender lo mucho que te importa. |
-| Slowpoke (+Psíquico) | 2 | Sin prisa ni drama | Procesas todo con calma, tanta que la emoción llega tarde. Nada te sacude a primera hora, y eso tranquiliza a los demás. El coste es reaccionar cuando el momento ya pasó. |
-| Shellder | 2 | Reserva por defecto | Tu primer reflejo es protegerte. Hablas poco de lo que sientes y esperas a tener confianza. Una vez dentro, la gente descubre más de lo que esperaba. |
-| Starmie (+Psíquico) | 2 | Brillo distante | Proyectas algo hermoso y difícil de alcanzar. Controlas lo que enseñas, y lo que no enseñas es mucho. Te admiran más de lo que te conocen. |
-| Kabuto (+Roca) | 2 | Aguante silencioso | Has pasado por mucho sin decir nada. Tu emoción va por dentro y rara vez se nota. Cuando la sacas, sorprende por lo honda que es. |
-| Blastoise | 3 | Solidez que cuida | Te muestras fuerte y fiable, y mantienes tus emociones bajo control. Los demás se apoyan en ti sin saber lo que cargas, y tú no se lo cuentas. |
-| Poliwrath (+Lucha) | 3 | Sentir a través del esfuerzo | Canalizas lo que sientes en esfuerzo: entrenar, sudar, resolver. Llevas la emoción al terreno de la acción, donde te sientes a salvo. Ponerle palabras es lo difícil. |
-| Slowbro (+Psíquico) | 3 | Carga compartida | Llevas a cuestas algo que te acompaña y te pesa, y lo toleras con calma. Tu serenidad es en parte resignación. Aflojar lo que arrastras te sentaría bien. |
-| Krabby | 3 | Dureza por fuera | Tienes una defensa práctica y un carácter testarudo. Muestras poco, y lo que muestras es más tosco de lo que sientes. Por dentro hay más ternura de la que aparentas. |
-| Staryu | 3 | Emoción en otro idioma | Sientes de una manera que otros no siempre entienden. Tu calma aparente esconde una vida interior con su propio código. Traducirlo es lo que cuesta. |
-| Tentacruel (+Veneno) | 3 | Aguas con cuidado | Proteges lo que sientes con barreras eficaces. Quien se acerca sin permiso lo nota enseguida. Con quien se lo gana, tu generosidad es enorme. |
-| Omastar (+Roca) | 3 | Emoción de fondo | Lo que sientes se asienta despacio y se queda. Casi nada te remueve de golpe, pero lo que cala, cala para siempre. Revisitar tu pasado cuesta y, cuando lo haces, te enriquece. |
-| Wartortle | 4 | Calma con recursos | Sabes mantener la compostura y salir a flote. Compartes tus sentimientos con quienes te inspiran confianza, y esa lista es corta. Es cuestión de tiempo más que de ganas. |
-| Squirtle | 4 | Confianza ganada | Tienes un lado alegre y un lado prudente. Muestras emoción con quien te cae bien y te repliegas si te la toman a mal. Tu seguridad llega cuando te sabes querido. |
-| Golduck | 4 | Fluidez con control | Te mueves con soltura entre emociones y sabes mantenerlas a raya. Tu elegancia está en la calma. Un mal día lo tiene cualquiera, y tú prefieres que no se note. |
-| Omanyte (+Roca) | 4 | Sensibilidad recogida | Sientes mucho, pero lo guardas cerca. Te abres despacio y en la distancia corta. Es tu manera de proteger lo que importa, aunque te deje a solas con ello. |
-| Poliwhirl | 5 | A medio camino | Equilibras bien lo que sientes y lo que enseñas. Te adaptas al ambiente sin perder tu centro. Cuidado: el equilibrio puede ser, en el fondo, una forma de no decidir. |
-| Seadra | 5 | Delicadeza con defensas | Eres sensible y lo defiendes con discreción. Te conmueves, pero sin ceder terreno. Las emociones te interesan más de lo que admites. |
+| Cloyster (+Hielo) | 0 | Puertas cerradas | Cierras filas cuando algo te afecta. Tu intimidad está bien protegida y pocas personas entran. Por dentro sientes mucho; el reto es dejar que alguien lo vea. |
+| Kabutops (+Roca) | 0 | Frialdad precisa | Resuelves con precisión y sin dramatismo. Tus emociones existen, pero las tratas como un asunto privado y técnico. Por eso los demás te malinterpretan. |
+| Kingler | 1 | Fuerza que no se explica | Prefieres hacer a decir. Tu emoción se expresa en actos contundentes, rara vez en palabras. Los demás tardan en entender lo mucho que te importa. |
+| Slowpoke (+Psíquico) | 1 | Sin prisa ni drama | Procesas todo con calma, tanta que la emoción llega tarde. Nada te sacude a primera hora, y eso tranquiliza a los demás. El coste es reaccionar cuando el momento ya pasó. |
+| Shellder | 1 | Reserva por defecto | Tu primer reflejo es protegerte. Hablas poco de lo que sientes y esperas a tener confianza. Una vez dentro, la gente descubre más de lo que esperaba. |
+| Starmie (+Psíquico) | 1 | Brillo distante | Proyectas algo hermoso y difícil de alcanzar. Controlas lo que enseñas, y lo que no enseñas es mucho. Te admiran más de lo que te conocen. |
+| Kabuto (+Roca) | 1 | Aguante silencioso | Has pasado por mucho sin decir nada. Tu emoción va por dentro y rara vez se nota. Cuando la sacas, sorprende por lo honda que es. |
+| Blastoise | 2 | Solidez que cuida | Te muestras fuerte y fiable, y mantienes tus emociones bajo control. Los demás se apoyan en ti sin saber lo que cargas, y tú no se lo cuentas. |
+| Poliwrath (+Lucha) | 2 | Sentir a través del esfuerzo | Canalizas lo que sientes en esfuerzo: entrenar, sudar, resolver. Llevas la emoción al terreno de la acción, donde te sientes a salvo. Ponerle palabras es lo difícil. |
+| Slowbro (+Psíquico) | 2 | Carga compartida | Llevas a cuestas algo que te acompaña y te pesa, y lo toleras con calma. Tu serenidad es en parte resignación. Aflojar lo que arrastras te sentaría bien. |
+| Krabby | 2 | Dureza por fuera | Tienes una defensa práctica y un carácter testarudo. Muestras poco, y lo que muestras es más tosco de lo que sientes. Por dentro hay más ternura de la que aparentas. |
+| Staryu | 2 | Emoción en otro idioma | Sientes de una manera que otros no siempre entienden. Tu calma aparente esconde una vida interior con su propio código. Traducirlo es lo que cuesta. |
+| Tentacruel (+Veneno) | 2 | Aguas con cuidado | Proteges lo que sientes con barreras eficaces. Quien se acerca sin permiso lo nota enseguida. Con quien se lo gana, tu generosidad es enorme. |
+| Omastar (+Roca) | 2 | Emoción de fondo | Lo que sientes se asienta despacio y se queda. Casi nada te remueve de golpe, pero lo que cala, cala para siempre. Revisitar tu pasado cuesta y, cuando lo haces, te enriquece. |
+| Wartortle | 3 | Calma con recursos | Sabes mantener la compostura y salir a flote. Compartes tus sentimientos con quienes te inspiran confianza, y esa lista es corta. Es cuestión de tiempo más que de ganas. |
+| Squirtle | 3 | Confianza ganada | Tienes un lado alegre y un lado prudente. Muestras emoción con quien te cae bien y te repliegas si te la toman a mal. Tu seguridad llega cuando te sabes querido. |
+| Golduck | 3 | Fluidez con control | Te mueves con soltura entre emociones y sabes mantenerlas a raya. Tu elegancia está en la calma. Un mal día lo tiene cualquiera, y tú prefieres que no se note. |
+| Omanyte (+Roca) | 3 | Sensibilidad recogida | Sientes mucho, pero lo guardas cerca. Te abres despacio y en la distancia corta. Es tu manera de proteger lo que importa, aunque te deje a solas con ello. |
+| Poliwhirl | 4 | A medio camino | Equilibras bien lo que sientes y lo que enseñas. Te adaptas al ambiente sin perder tu centro. Cuidado: el equilibrio puede ser, en el fondo, una forma de no decidir. |
+| Seadra | 4 | Delicadeza con defensas | Eres sensible y lo defiendes con discreción. Te conmueves, pero sin ceder terreno. Las emociones te interesan más de lo que admites. |
 | Dewgong (+Hielo) | 6 | Serenidad cálida | Transmites calma y cercanía. Tus emociones fluyen sin sobresaltos y los demás se sienten a gusto contigo. Lo difícil es enfadarte a tiempo cuando toca. |
 | Horsea | 6 | Atención al detalle | Te afectan los detalles. Percibes lo que otros pasan por alto y reaccionas con ternura. Necesitas aprender a no cargar con todo lo que notas. |
 | Tentacool (+Veneno) | 6 | Sensor emocional | Captas el estado de ánimo del entorno antes que nadie. Tu sensibilidad funciona como un termómetro. El riesgo es absorber lo que no es tuyo. |
@@ -37,4 +37,4 @@
 | Lapras (+Hielo) | 9 | Empatía que acompaña | Sientes con los demás y lo expresas con calidez. Eres de las personas que escuchan y acompañan en los momentos difíciles. Tu emoción es generosa, y también te agota. |
 | Gyarados (+Volador) | 10 | Marea desatada | Lo que sientes sale entero y sin frenos. Pasas de la calma a la tormenta en poco tiempo. Tienes mucho que ofrecer y mucho que aprender a encauzar. |
 
-**Reparto:** rango de 1 a 10. Doce Pokémon se acumulan en las posiciones 2 y 3 (catorce con el 1), un tramo algo más cargado que el resto. Tiene sentido para un tipo con muchos candidatos de carácter reservado, pero conviene revisarlo.
+**Reparto:** 32 candidatos entre las posiciones 0 y 10; sin entrada en 5. Escala reestirada para ocupar de 0 a 10 (el orden no cambia).

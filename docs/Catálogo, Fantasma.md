@@ -4,6 +4,8 @@
 
 | Pokémon | Pos. | Etiqueta | Matiz |
 |---|---|---|---|
-| Gastly (+Veneno) | 1 | Presencia inquieta | Te interesa lo que pasa fuera: gente, bromas, ambiente. Vives hacia los demás y rara vez te quedas a solas. Tu sombra sale a la luz cuando te quedas sin energía. |
+| Gastly (+Veneno) | 0 | Presencia inquieta | Te interesa lo que pasa fuera: gente, bromas, ambiente. Vives hacia los demás y rara vez te quedas a solas. Tu sombra sale a la luz cuando te quedas sin energía. |
 | Haunter (+Veneno) | 5 | Doble vida | Alternas la fiesta con tu lado reservado. Sabes ser sociable y desaparecer a tiempo. Tienes un mundo interior al que invitas a pocas personas. |
-| Gengar (+Veneno) | 9 | Sombra propia | Tu vida interior es rica, oscura y divertida. Piensas, recuerdas y te ríes de ti en silencio. Los demás ven una parte, y a ti te va bien así. |
+| Gengar (+Veneno) | 10 | Sombra propia | Tu vida interior es rica, oscura y divertida. Piensas, recuerdas y te ríes de ti en silencio. Los demás ven una parte, y a ti te va bien así. |
+
+**Reparto:** 3 candidatos en las posiciones 0, 5 y 10. Escala reestirada para ocupar de 0 a 10 (el orden no cambia).

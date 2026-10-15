@@ -51,6 +51,13 @@ con `wᵢ = 1` si es primaria o de doble selección y `wᵢ = s(U)` si es secund
 
 **Intensidad** del eje: `|v(a) − 5|`. Es lo que se mira para decidir qué destaca.
 
+## 4 bis. Polo e intensidad
+
+- **Polo** de un eje: por la posición absoluta. Por encima o igual a 5, polo alto; por debajo, polo bajo. El centro de la escala es 5.
+- **Intensidad** (con la normalización activada, que es lo por defecto): cuántas desviaciones típicas se aparta el valor de la media de ese eje (media y dispersión calculadas una vez con 4.000 selecciones al azar y semilla fija). Así un eje cuyos Pokémon tienden a puntuar alto, como Tierra, no domina los resultados solo por eso.
+- **Solo cuenta si va en la dirección del polo.** Si alguien está en 5,5 en un eje con media 6,9, su polo es el alto, pero está por debajo de lo habitual, así que su intensidad es 0 y ese eje no destaca. De este modo el texto y la posición nunca se contradicen.
+- Sin normalizar, la intensidad es simplemente la distancia a 5.
+
 ## 5. Arquetipo
 
 1. Se ordenan los ejes por intensidad, de mayor a menor. Empates: orden fijo de ejes.
@@ -83,7 +90,7 @@ Una tensión es una contradicción visible entre dos partes del perfil. Dos tipo
 
 Una tensión se activa si **ambos polos tienen intensidad ≥ 3** (en el sentido de la tabla). Se muestran como máximo **2**, ordenadas por el producto de las dos intensidades.
 
-**Dentro de un eje.** Si las contribuciones de un mismo eje difieren en 8 o más posiciones (por ejemplo una primaria en 1 y una secundaria en 9), se activa una tensión interna del eje: "te mueves entre dos extremos en X". Cuenta como una de las 2 tensiones y va después de las de entre ejes en caso de empate.
+**Dentro de un eje.** Si las contribuciones de un mismo eje difieren en 9 o más posiciones (por ejemplo una primaria en 0 y una secundaria en 9), se activa una tensión interna del eje: "te mueves entre dos extremos en X". Cuenta como una de las 2 tensiones y va después de las de entre ejes en caso de empate.
 
 Si no se activa ninguna, el resultado no dice nada de tensiones (no se rellena con una frase de relleno).
 
@@ -140,9 +147,26 @@ Se ajustaron tres umbrales: tensión interna de un eje a 8 posiciones o más (an
 3. **La doble selección es frecuente**: 23 % (uniforme) y 42 % (ponderado). Es una cifra alta; las entradas dobles se verán a menudo y su calidad pesa mucho.
 4. **El arquetipo** depende mucho de la escora del punto 1, aunque la variedad es buena (más de 450 arquetipos distintos).
 
-**Propuesta para el punto 1:** medir la intensidad del eje respecto a su media y su dispersión típicas, no respecto a 5 (una puntuación estándar con valores que se calculan una vez a partir del catálogo, como el esperado del tipo secundario). Así un Tierra de 7 es lo normal y no destaca, y destaca lo que se aparta de lo habitual en ese eje. La alternativa es reequilibrar las entradas, que es más trabajo y toca el texto. Es decisión de Rafa.
+**Resuelto con la normalización (ver más abajo).** Propuesta original para el punto 1: medir la intensidad del eje respecto a su media y su dispersión típicas, no respecto a 5 (una puntuación estándar con valores que se calculan una vez a partir del catálogo, como el esperado del tipo secundario). Así un Tierra de 7 es lo normal y no destaca, y destaca lo que se aparta de lo habitual en ese eje. La alternativa es reequilibrar las entradas, que es más trabajo y toca el texto. Es decisión de Rafa.
 
 ## Decisiones que se dejan a Rafa
 
 - Si mostrar al usuario el radar de 15 ejes o solo el texto (el radar ayuda a compartir, pero invita a leerlo como test).
 - Si el título compuesto ("Reserva con Ambición") suena bien o conviene dar un nombre propio a los pares más frecuentes.
+
+## Segunda calibración: escala completa y polo absoluto
+
+Tras comprobar que en ningún eje había entradas en la posición 0 y que seis ejes empezaban en 2, se **reestiraron las posiciones** de cada eje para ocupar de 0 a 10 sin cambiar el orden, y se **corrigió el polo** para que lo decida la posición absoluta (el punto 4 bis). Efecto con 10.000 selecciones al azar (modo uniforme):
+
+| Medida | Antes | Después |
+|---|---|---|
+| Media del eje más escorada | Tierra 7,0 | Tierra 6,4 |
+| Tierra por debajo de 3,5 | 4,5 % | 10,9 % |
+| Volador por debajo de 3,5 | 7,4 % | 19,4 % |
+| Arquetipos distintos | 746 | 733 |
+| Arquetipo más frecuente | 0,9 % | 1,2 % |
+| Tensiones 0 / 1 / 2 | 42 / 34 / 24 % | 51 / 35 / 15 % (con los umbrales nuevos) |
+
+Se reajustaron dos umbrales: tensión interna de un eje a 9 posiciones o más y tensión entre ejes con intensidad de 1,2 o más. Sin reajustar, el reestiramiento subía el 2 tensiones al 48 %.
+
+**Lo que sigue abierto:** Tierra sigue por encima de la media (6,4) y Agua queda escorada hacia abajo (3,6): el reestiramiento acerca los ejes al centro pero no crea candidatos en los polos bajos de Tierra, Volador, Roca, Fuego o Eléctrico, ni en el alto de Agua. Eso depende de reorientar los polos o de reescribir los candidatos más bajos.

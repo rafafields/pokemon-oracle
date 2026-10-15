@@ -87,91 +87,91 @@
   {
    "pokemon": "Pidgeot",
    "type": "normal",
-   "pos": 5,
+   "pos": 4,
    "label": "Brillar con naturalidad",
    "text": "Tienes presencia sin buscarla: cuando te lanzas, se te nota. Disfrutas del reconocimiento sin perseguirlo. Tu equilibrio está en saber cuándo volver a casa."
   },
   {
    "pokemon": "Dodrio",
    "type": "normal",
-   "pos": 5,
+   "pos": 4,
    "label": "Corriendo con orgullo",
    "text": "Tu sencillez tiene carácter: haces las cosas rápido y bien, y te gusta que se vea. Tienes mil opiniones y aun así avanzas. Quizá te falta alguien que te diga que ya llegaste."
   },
   {
    "pokemon": "Clefable",
    "type": "normal",
-   "pos": 4,
+   "pos": 3,
    "label": "Rareza discreta",
    "text": "Resultas difícil de ver, y no por casualidad: apareces cuando quieres y como quieres. Tu rareza es tuya, no un espectáculo. Casi nadie llega a conocerla entera."
   },
   {
    "pokemon": "Porygon",
    "type": "normal",
-   "pos": 4,
+   "pos": 3,
    "label": "Fuera de catálogo",
    "text": "No encajas del todo en ninguna casilla y no te molesta. Lo tuyo es lo curioso y lo que nadie esperaba, y por debajo hay más afecto del que reconoces."
   },
   {
    "pokemon": "Spearow",
    "type": "normal",
-   "pos": 4,
+   "pos": 3,
    "label": "Carácter en pequeño",
    "text": "Tienes mucho temperamento en poco espacio. Necesitas que te respeten y respondes antes de pensar. Debajo hay alguien que solo quiere que lo tomen en serio."
   },
   {
    "pokemon": "Meowth",
    "type": "normal",
-   "pos": 3,
+   "pos": 2,
    "label": "Ojo para el brillo",
    "text": "Siempre buscas la oportunidad, y te atrae lo que reluce: el dinero, el estilo, la jugada ingeniosa. Tu encanto es la agudeza con gracia. Lo que reluce no siempre vale lo que parece."
   },
   {
    "pokemon": "Fearow",
    "type": "normal",
-   "pos": 3,
+   "pos": 2,
    "label": "Dominar el terreno",
    "text": "Quieres altura y que te vean. Tienes claro qué es lo tuyo y no cedes un metro, ni cuando convendría hacerlo. Aterrizar y bajar la guardia es tu asignatura."
   },
   {
    "pokemon": "Clefairy",
    "type": "normal",
-   "pos": 3,
+   "pos": 2,
    "label": "Magia de otro sitio",
    "text": "Atraes por la rareza, un poco de misterio y algo mágico. Te gusta ser alguien que no se explica del todo, aunque a veces eso te deje sin que nadie te entienda."
   },
   {
    "pokemon": "Tauros",
    "type": "normal",
-   "pos": 2,
+   "pos": 1,
    "label": "Embestir para demostrar",
    "text": "Necesitas moverte con fuerza para sentir que existes: empuje, voluntad y ganas de que se note. Admiras lo que hace ruido. Lo que te falta es quietud, y no la buscas."
   },
   {
    "pokemon": "Farfetch'd",
    "type": "normal",
-   "pos": 2,
+   "pos": 1,
    "label": "Singularidad elegida",
    "text": "Cultivas tu rareza con orgullo, aunque cueste: tus reglas, tu manera, tu rumbo. Tienes algo único porque lo has decidido. Compartirlo con alguien lo haría más fácil de sostener."
   },
   {
    "pokemon": "Persian",
    "type": "normal",
-   "pos": 1,
+   "pos": 0,
    "label": "Elegancia consciente",
    "text": "Sabes cómo te ven y lo cuidas. Tu estilo es un trabajo diario, y no te conformas con pasar desapercibido. Tras tanta imagen, merece la pena preguntarte cuándo descansas de ella."
   },
   {
    "pokemon": "Jigglypuff",
    "type": "normal",
-   "pos": 1,
+   "pos": 0,
    "label": "Escenario propio",
    "text": "Necesitas público, aunque no siempre te atienda. Te expresas a tu manera aunque no te escuchen, y si no te escuchan, te molestas. Detrás hay ganas de que alguien se quede."
   },
   {
    "pokemon": "Dratini",
    "type": "dragon",
-   "pos": 2,
+   "pos": 0,
    "label": "Potencial en silencio",
    "text": "Llevas dentro algo grande que aún no ha salido. Vives bien con lo que eres ahora, y cada etapa es un paso que das sin prisa. No necesitas demostrarlo, solo que te dejen crecer."
   },
@@ -185,63 +185,63 @@
   {
    "pokemon": "Dragonite",
    "type": "dragon",
-   "pos": 9,
+   "pos": 10,
    "label": "Grandeza con corazón",
    "text": "Aspiras a algo grande y, cuando llegas, lo usas para ayudar. Tu ambición es generosa: quieres crecer para que quepan los demás. Cuesta que reconozcas lo grande que ya eres."
   },
   {
    "pokemon": "Vulpix",
    "type": "fuego",
-   "pos": 2,
+   "pos": 0,
    "label": "Calidez de brasa",
    "text": "Tu calor es suave y se nota de cerca. Prefieres dar tiempo y cuidar el ambiente a levantar la voz. Rara vez te enfadas, pero cuando ocurre, tardas en olvidarlo."
   },
   {
    "pokemon": "Ninetales",
    "type": "fuego",
-   "pos": 3,
+   "pos": 1,
    "label": "Calma con memoria",
    "text": "Tu serenidad es profunda y un poco enigmática. Guardas lo que sientes y lo dejas salir a tu ritmo. Lo que te hacen no se te olvida, aunque no lo digas."
   },
   {
    "pokemon": "Flareon",
    "type": "fuego",
-   "pos": 4,
+   "pos": 2,
    "label": "Calor de hogar",
    "text": "Tu intensidad es acogedora: das calor sin quemar. Te implicas con afecto y constancia, y evitas los fuegos artificiales. Lo que no sueles mostrar es tu enfado, y se queda dentro."
   },
   {
    "pokemon": "Charmander",
    "type": "fuego",
-   "pos": 5,
+   "pos": 4,
    "label": "Ganas de crecer",
    "text": "Tienes empuje y mucho entusiasmo por demostrar de qué eres capaz. Tu energía crece con cada reto. Aún aprendes a medir cuándo apretar y cuándo soltar."
   },
   {
    "pokemon": "Arcanine",
    "type": "fuego",
-   "pos": 6,
+   "pos": 5,
    "label": "Fuerza con nobleza",
    "text": "Tu intensidad tiene dirección: sabes lo que defiendes y lo haces con dignidad. Inspiras respeto sin imponerlo. Cuando te comprometes, lo haces entero, y retirarte cuesta."
   },
   {
    "pokemon": "Moltres",
    "type": "fuego",
-   "pos": 7,
+   "pos": 6,
    "label": "Renacer con orgullo",
    "text": "Pones el cuerpo y el alma en lo que haces, y sabes volver a empezar tras una caída. Tu orgullo es tu motor y tu peso. Pedir que te sostengan es lo último que harías."
   },
   {
    "pokemon": "Growlithe",
    "type": "fuego",
-   "pos": 7,
+   "pos": 6,
    "label": "Entusiasmo leal",
    "text": "Te lanzas de cabeza por quienes quieres. Tu vehemencia es afecto sin filtro y no sabes disimular lo que sientes. Reaccionas antes de preguntar, y eso te cuesta algún malentendido."
   },
   {
    "pokemon": "Ponyta",
    "type": "fuego",
-   "pos": 7,
+   "pos": 6,
    "label": "Ímpetu libre",
    "text": "Te mueves por impulso y necesitas espacio para correr hacia lo que te atrae. Tu entusiasmo es contagioso. Frenar, aunque sepas que conviene, es lo que menos te sale."
   },
@@ -276,140 +276,140 @@
   {
    "pokemon": "Cloyster",
    "type": "agua",
-   "pos": 1,
+   "pos": 0,
    "label": "Puertas cerradas",
    "text": "Cierras filas cuando algo te afecta. Tu intimidad está bien protegida y pocas personas entran. Por dentro sientes mucho; el reto es dejar que alguien lo vea."
   },
   {
    "pokemon": "Kabutops",
    "type": "agua",
-   "pos": 1,
+   "pos": 0,
    "label": "Frialdad precisa",
    "text": "Resuelves con precisión y sin dramatismo. Tus emociones existen, pero las tratas como un asunto privado y técnico. Por eso los demás te malinterpretan."
   },
   {
    "pokemon": "Kingler",
    "type": "agua",
-   "pos": 2,
+   "pos": 1,
    "label": "Fuerza que no se explica",
    "text": "Prefieres hacer a decir. Tu emoción se expresa en actos contundentes, rara vez en palabras. Los demás tardan en entender lo mucho que te importa."
   },
   {
    "pokemon": "Slowpoke",
    "type": "agua",
-   "pos": 2,
+   "pos": 1,
    "label": "Sin prisa ni drama",
    "text": "Procesas todo con calma, tanta que la emoción llega tarde. Nada te sacude a primera hora, y eso tranquiliza a los demás. El coste es reaccionar cuando el momento ya pasó."
   },
   {
    "pokemon": "Shellder",
    "type": "agua",
-   "pos": 2,
+   "pos": 1,
    "label": "Reserva por defecto",
    "text": "Tu primer reflejo es protegerte. Hablas poco de lo que sientes y esperas a tener confianza. Una vez dentro, la gente descubre más de lo que esperaba."
   },
   {
    "pokemon": "Starmie",
    "type": "agua",
-   "pos": 2,
+   "pos": 1,
    "label": "Brillo distante",
    "text": "Proyectas algo hermoso y difícil de alcanzar. Controlas lo que enseñas, y lo que no enseñas es mucho. Te admiran más de lo que te conocen."
   },
   {
    "pokemon": "Kabuto",
    "type": "agua",
-   "pos": 2,
+   "pos": 1,
    "label": "Aguante silencioso",
    "text": "Has pasado por mucho sin decir nada. Tu emoción va por dentro y rara vez se nota. Cuando la sacas, sorprende por lo honda que es."
   },
   {
    "pokemon": "Blastoise",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Solidez que cuida",
    "text": "Te muestras fuerte y fiable, y mantienes tus emociones bajo control. Los demás se apoyan en ti sin saber lo que cargas, y tú no se lo cuentas."
   },
   {
    "pokemon": "Poliwrath",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Sentir a través del esfuerzo",
    "text": "Canalizas lo que sientes en esfuerzo: entrenar, sudar, resolver. Llevas la emoción al terreno de la acción, donde te sientes a salvo. Ponerle palabras es lo difícil."
   },
   {
    "pokemon": "Slowbro",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Carga compartida",
    "text": "Llevas a cuestas algo que te acompaña y te pesa, y lo toleras con calma. Tu serenidad es en parte resignación. Aflojar lo que arrastras te sentaría bien."
   },
   {
    "pokemon": "Krabby",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Dureza por fuera",
    "text": "Tienes una defensa práctica y un carácter testarudo. Muestras poco, y lo que muestras es más tosco de lo que sientes. Por dentro hay más ternura de la que aparentas."
   },
   {
    "pokemon": "Staryu",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Emoción en otro idioma",
    "text": "Sientes de una manera que otros no siempre entienden. Tu calma aparente esconde una vida interior con su propio código. Traducirlo es lo que cuesta."
   },
   {
    "pokemon": "Tentacruel",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Aguas con cuidado",
    "text": "Proteges lo que sientes con barreras eficaces. Quien se acerca sin permiso lo nota enseguida. Con quien se lo gana, tu generosidad es enorme."
   },
   {
    "pokemon": "Omastar",
    "type": "agua",
-   "pos": 3,
+   "pos": 2,
    "label": "Emoción de fondo",
    "text": "Lo que sientes se asienta despacio y se queda. Casi nada te remueve de golpe, pero lo que cala, cala para siempre. Revisitar tu pasado cuesta y, cuando lo haces, te enriquece."
   },
   {
    "pokemon": "Wartortle",
    "type": "agua",
-   "pos": 4,
+   "pos": 3,
    "label": "Calma con recursos",
    "text": "Sabes mantener la compostura y salir a flote. Compartes tus sentimientos con quienes te inspiran confianza, y esa lista es corta. Es cuestión de tiempo más que de ganas."
   },
   {
    "pokemon": "Squirtle",
    "type": "agua",
-   "pos": 4,
+   "pos": 3,
    "label": "Confianza ganada",
    "text": "Tienes un lado alegre y un lado prudente. Muestras emoción con quien te cae bien y te repliegas si te la toman a mal. Tu seguridad llega cuando te sabes querido."
   },
   {
    "pokemon": "Golduck",
    "type": "agua",
-   "pos": 4,
+   "pos": 3,
    "label": "Fluidez con control",
    "text": "Te mueves con soltura entre emociones y sabes mantenerlas a raya. Tu elegancia está en la calma. Un mal día lo tiene cualquiera, y tú prefieres que no se note."
   },
   {
    "pokemon": "Omanyte",
    "type": "agua",
-   "pos": 4,
+   "pos": 3,
    "label": "Sensibilidad recogida",
    "text": "Sientes mucho, pero lo guardas cerca. Te abres despacio y en la distancia corta. Es tu manera de proteger lo que importa, aunque te deje a solas con ello."
   },
   {
    "pokemon": "Poliwhirl",
    "type": "agua",
-   "pos": 5,
+   "pos": 4,
    "label": "A medio camino",
    "text": "Equilibras bien lo que sientes y lo que enseñas. Te adaptas al ambiente sin perder tu centro. Cuidado: el equilibrio puede ser, en el fondo, una forma de no decidir."
   },
   {
    "pokemon": "Seadra",
    "type": "agua",
-   "pos": 5,
+   "pos": 4,
    "label": "Delicadeza con defensas",
    "text": "Eres sensible y lo defiendes con discreción. Te conmueves, pero sin ceder terreno. Las emociones te interesan más de lo que admites."
   },
@@ -500,35 +500,35 @@
   {
    "pokemon": "Magneton",
    "type": "electrico",
-   "pos": 2,
+   "pos": 0,
    "label": "Orden atractivo",
    "text": "Tu ritmo es sereno y organizado, y atraes por coherencia, no por ruido. Prefieres un orden estable a la agitación. Cuando todos corren, acelerar te cuesta."
   },
   {
    "pokemon": "Magnemite",
    "type": "electrico",
-   "pos": 3,
+   "pos": 1,
    "label": "Ritmo constante",
    "text": "Funcionas con un ritmo tranquilo y continuo. No haces mucho ruido, pero siempre estás en marcha. Las prisas te sacan de tu frecuencia."
   },
   {
    "pokemon": "Zapdos",
    "type": "electrico",
-   "pos": 5,
+   "pos": 4,
    "label": "Tormenta con intención",
    "text": "Tu energía llega en rachas poderosas y bien dirigidas. Pasas de la calma al relámpago en un segundo. Eliges tus momentos, y eso impone y también distancia."
   },
   {
    "pokemon": "Electabuzz",
    "type": "electrico",
-   "pos": 6,
+   "pos": 5,
    "label": "Competitividad en marcha",
    "text": "Necesitas tensión y metas para activarte. Rindes mejor con un reto cerca y con alguien a quien superar. Descansar, sin esa tensión, se vuelve incómodo."
   },
   {
    "pokemon": "Raichu",
    "type": "electrico",
-   "pos": 7,
+   "pos": 6,
    "label": "Carga acumulada",
    "text": "Tienes una energía contenida que se nota cuando hace falta. Hay potencia detrás de tu simpatía. Te sienta bien soltar de vez en cuando; acumularla demasiado pesa."
   },
@@ -563,63 +563,63 @@
   {
    "pokemon": "Victreebel",
    "type": "planta",
-   "pos": 1,
+   "pos": 0,
    "label": "Apetito propio",
    "text": "Antes que a nadie, te cuidas a ti. Persigues lo que quieres con decisión y no te disculpas por ello. Tu franqueza puede resultar áspera para quien esperaba ternura."
   },
   {
    "pokemon": "Tangela",
    "type": "planta",
-   "pos": 2,
+   "pos": 1,
    "label": "Mundo propio",
    "text": "Tu mundo está lleno de tus cosas, tus ideas y tus nudos. No necesitas mucho de los demás para sentir que no te falta nada. Dejar entrar a alguien exigiría desenredar."
   },
   {
    "pokemon": "Parasect",
    "type": "planta",
-   "pos": 2,
+   "pos": 1,
    "label": "Cuidado que marca el ritmo",
    "text": "Parece que cuidas, pero llevas la batuta. Tu forma de cuidar es muy intensa y poco negociable. Conviene preguntarte quién manda en esa relación."
   },
   {
    "pokemon": "Gloom",
    "type": "planta",
-   "pos": 3,
+   "pos": 2,
    "label": "Cuidado con reservas",
    "text": "Ayudas, pero con condiciones. Cuesta aceptar lo que no te gusta de los demás. Tu amabilidad es real, aunque con límites claros que no todo el mundo ve."
   },
   {
    "pokemon": "Weepinbell",
    "type": "planta",
-   "pos": 3,
+   "pos": 2,
    "label": "Paciente con quien se acerca",
    "text": "Esperas a que lleguen a ti y no sales a buscar a nadie. Atiendes bien cuando te toca. Esperar demasiado te hace perder oportunidades de acompañar."
   },
   {
    "pokemon": "Vileplume",
    "type": "planta",
-   "pos": 4,
+   "pos": 3,
    "label": "Generosidad con carácter",
    "text": "Das mucho, y tu manera de dar es muy tuya y no siempre fácil de recibir. Tienes mucha vida que ofrecer, pero a tu estilo, y no todo el mundo lo entiende."
   },
   {
    "pokemon": "Paras",
    "type": "planta",
-   "pos": 4,
+   "pos": 3,
    "label": "Cercanía que abraza",
    "text": "Cuidas con una cercanía tan intensa que cuesta separarse. Te entregas con cariño. El reto es no vivir a través de la otra persona."
   },
   {
    "pokemon": "Oddish",
    "type": "planta",
-   "pos": 5,
+   "pos": 4,
    "label": "Atención discreta",
    "text": "Cuidas en silencio y sin llamar la atención. Tu atención es mayor de la que aparentas. Despiertas del todo cuando alguien te necesita."
   },
   {
    "pokemon": "Bellsprout",
    "type": "planta",
-   "pos": 5,
+   "pos": 4,
    "label": "Flexibilidad atenta",
    "text": "Te adaptas a lo que necesita la otra persona. Cuidas sin imponer. Tu flexibilidad te hace ceder más de lo que querrías, y no siempre lo notas."
   },
@@ -661,21 +661,21 @@
   {
    "pokemon": "Jynx",
    "type": "hielo",
-   "pos": 2,
+   "pos": 0,
    "label": "Expresividad sin pudor",
    "text": "Te comunicas con gestos grandes y sin miedo al qué dirán. Te acercas pronto y marcas el ritmo. Quien no te conoce puede tomar tu cercanía por teatro."
   },
   {
    "pokemon": "Lapras",
    "type": "hielo",
-   "pos": 3,
+   "pos": 1,
    "label": "Acogida tranquila",
    "text": "Recibes a los demás con una serenidad abierta. Te acercas sin invadir. Disfrutas de acompañar y de que te acompañen, y soportas mal la soledad prolongada."
   },
   {
    "pokemon": "Dewgong",
    "type": "hielo",
-   "pos": 5,
+   "pos": 4,
    "label": "Equilibrio amable",
    "text": "Estás cerca cuando se te necesita y te retiras cuando no. Tienes un punto medio amable. Lo difícil es saber cuánta distancia quieres en cada caso."
   },
@@ -696,21 +696,21 @@
   {
    "pokemon": "Mankey",
    "type": "lucha",
-   "pos": 1,
+   "pos": 0,
    "label": "Genio sin brida",
    "text": "Reaccionas antes de pensar y vives por impulso. Tu energía es honesta, pero poco medida. Una rutina te sentaría mejor de lo que crees."
   },
   {
    "pokemon": "Primeape",
    "type": "lucha",
-   "pos": 2,
+   "pos": 1,
    "label": "Furia del momento",
    "text": "Te encienden las provocaciones y pierdes el control con facilidad. Detrás hay una necesidad grande de respeto, que se activa más rápido que tu paciencia."
   },
   {
    "pokemon": "Machop",
    "type": "lucha",
-   "pos": 5,
+   "pos": 4,
    "label": "Empezar con ganas",
    "text": "Entrenas con entusiasmo y todavía descubres tu método. Te motiva el progreso visible. Confundes a veces cantidad de esfuerzo con dirección."
   },
@@ -752,126 +752,126 @@
   {
    "pokemon": "Oddish",
    "type": "veneno",
-   "pos": 1,
+   "pos": 0,
    "label": "Ingenuidad despierta",
    "text": "Confías por defecto y miras el lado agradable de casi todo. Te sorprenden las malas intenciones. Aprender a sospechar un poco no te quitaría la sonrisa."
   },
   {
    "pokemon": "Bulbasaur",
    "type": "veneno",
-   "pos": 2,
+   "pos": 1,
    "label": "Confianza tranquila",
    "text": "Das el beneficio de la duda con serenidad y sin ingenuidad. Cuando te fallan, lo asumes con calma. Tu confianza es una decisión, no un despiste."
   },
   {
    "pokemon": "Ivysaur",
    "type": "veneno",
-   "pos": 2,
+   "pos": 1,
    "label": "Fe con aprendizaje",
    "text": "Sigues confiando, aunque ya has visto cosas. Tienes ojo para lo que no cuadra y aun así eliges creer. El precio es aprender algunas lecciones a golpes."
   },
   {
    "pokemon": "Bellsprout",
    "type": "veneno",
-   "pos": 2,
+   "pos": 1,
    "label": "Optimismo flexible",
    "text": "Te adaptas con buen ánimo y piensas bien de la gente. Tu humor es ligero y sin aristas. Detectar cuándo alguien se aprovecha te cuesta."
   },
   {
    "pokemon": "Venusaur",
    "type": "veneno",
-   "pos": 3,
+   "pos": 2,
    "label": "Serenidad con criterio",
    "text": "Confías y observas a la vez. Tienes un humor suave y poca prisa por juzgar. Sabes dar la razón y guardarte tu opinión, y no siempre te conviene."
   },
   {
    "pokemon": "Nidoran♀",
    "type": "veneno",
-   "pos": 3,
+   "pos": 2,
    "label": "Alerta amable",
    "text": "Tu trato es cercano y cuidas de no confiarte del todo. Tu desconfianza es protectora, no hostil. Te evita sorpresas y también algún regalo inesperado."
   },
   {
    "pokemon": "Nidorina",
    "type": "veneno",
-   "pos": 3,
+   "pos": 2,
    "label": "Cautela con calidez",
    "text": "Equilibras la ternura con una buena dosis de precaución. Te lo piensas antes de abrirte del todo. Quien te gana, te gana de verdad."
   },
   {
    "pokemon": "Tentacool",
    "type": "veneno",
-   "pos": 3,
+   "pos": 2,
    "label": "Escepticismo a la deriva",
    "text": "Miras todo con una distancia tranquila. Dudas sin dramatizar y te dejas llevar por la corriente. Tu ironía es sutil y poco hiriente, tan sutil que a veces pasa desapercibida."
   },
   {
    "pokemon": "Weepinbell",
    "type": "veneno",
-   "pos": 3,
+   "pos": 2,
    "label": "Humor de espera",
    "text": "Esperas, observas y sueltas el comentario justo. Tu ironía llega tarde, pero bien afilada. Tu paciencia te hace difícil de engañar."
   },
   {
    "pokemon": "Weedle",
    "type": "veneno",
-   "pos": 4,
+   "pos": 3,
    "label": "Ironía menuda",
    "text": "Tu humor es pequeño y punzante. Te defiendes con bromas y no con grandes discursos. Te subestiman, y en ocasiones lo aprovechas."
   },
   {
    "pokemon": "Nidoqueen",
    "type": "veneno",
-   "pos": 4,
+   "pos": 3,
    "label": "Firmeza con ternura",
    "text": "Proteges y desconfías por el mismo motivo: los tuyos importan. Tu humor es seco pero cálido. No dejas que nadie te tome el pelo."
   },
   {
    "pokemon": "Gloom",
    "type": "veneno",
-   "pos": 4,
+   "pos": 3,
    "label": "Gracia agria",
    "text": "Te tomas la vida con cierto desdén juguetón. Tu comentario ácido es tu forma de cariño. En ocasiones la acidez es solo cansancio con buena puntería."
   },
   {
    "pokemon": "Vileplume",
    "type": "veneno",
-   "pos": 4,
+   "pos": 3,
    "label": "Descaro vistoso",
    "text": "Dices lo que piensas con colores llamativos. Tu escepticismo es más teatral de lo que parece. Disfrutas de que se note, y eso te hace inolvidable y algo agotador."
   },
   {
    "pokemon": "Kakuna",
    "type": "veneno",
-   "pos": 5,
+   "pos": 4,
    "label": "Silencio sospechoso",
    "text": "Observas sin decir nada y guardas tu opinión para ti. Tu ironía está en lo que no dices. Cuando por fin hablas, se nota que lo has pensado todo."
   },
   {
    "pokemon": "Nidoran♂",
    "type": "veneno",
-   "pos": 5,
+   "pos": 4,
    "label": "Duda con orgullo",
    "text": "Prefieres ver para creer y no te cuesta decirlo. Tu escepticismo es protector y a veces testarudo. Prefieres ofenderte antes que dejarte engañar."
   },
   {
    "pokemon": "Venonat",
    "type": "veneno",
-   "pos": 5,
+   "pos": 4,
    "label": "Mirada de reojo",
    "text": "Observas desde un costado y con interés. Desconfías con curiosidad, sin amargura. Ves el truco antes que nadie, aunque no siempre lo digas en voz alta."
   },
   {
    "pokemon": "Victreebel",
    "type": "veneno",
-   "pos": 5,
+   "pos": 4,
    "label": "Sinceridad con filo",
    "text": "Dices lo que piensas con una franqueza que corta. Tu ironía es tu manera de decir la verdad, y casi nunca te dedicas a gustar. Quien te entiende, valora lo transparente que eres."
   },
   {
    "pokemon": "Tentacruel",
    "type": "veneno",
-   "pos": 5,
+   "pos": 4,
    "label": "Desconfianza elegante",
    "text": "Mides a quien se acerca antes de dejarle pasar. Tu ironía es medida y precisa. Quien pasa la prueba obtiene una alianza difícil de romper."
   },
@@ -983,56 +983,56 @@
   {
    "pokemon": "Cubone",
    "type": "tierra",
-   "pos": 2,
+   "pos": 0,
    "label": "Corazón con duelo",
    "text": "Llevas contigo algo que echas de menos y lo conviertes en motivo. Tu mundo interior pesa más que lo útil. Lo práctico se te hace cuesta arriba cuando duele."
   },
   {
    "pokemon": "Marowak",
    "type": "tierra",
-   "pos": 4,
+   "pos": 2,
    "label": "Pérdida convertida en fuerza",
    "text": "Has aprendido a ser fuerte porque tocó. Combinas ideales con lo que te ha enseñado la vida. Tu realismo nació de una herida, y a veces la sientes aún."
   },
   {
    "pokemon": "Nidoking",
    "type": "tierra",
-   "pos": 5,
+   "pos": 4,
    "label": "Fuerza con ideas",
    "text": "Quieres hacer lo correcto y tienes la fuerza para ello. Te mueve algo más que la utilidad. Cuando un principio pesa, tu pragmatismo se queda en segundo plano."
   },
   {
    "pokemon": "Nidoqueen",
    "type": "tierra",
-   "pos": 6,
+   "pos": 5,
    "label": "Protección con los pies en el suelo",
    "text": "Haces lo que toca y lo haces con sentido. Tu cuidado es práctico y firme. Sabes cuándo un ideal debe esperar, aunque te duela dejarlo."
   },
   {
    "pokemon": "Rhydon",
    "type": "tierra",
-   "pos": 6,
+   "pos": 5,
    "label": "Terquedad productiva",
    "text": "Abres camino a la fuerza y sin pedir permiso. Valoras lo que funciona. Cambiar de método cuando ya has empezado te cuesta, aunque el método ya no sirva."
   },
   {
    "pokemon": "Rhyhorn",
    "type": "tierra",
-   "pos": 7,
+   "pos": 6,
    "label": "Ir al grano",
    "text": "Vas de frente a lo que quieres y no te desvías. Prefieres hechos a discusiones. Te pierdes lo que pasa a los lados, a veces justo lo que necesitabas ver."
   },
   {
    "pokemon": "Sandshrew",
    "type": "tierra",
-   "pos": 7,
+   "pos": 6,
    "label": "Practicidad defensiva",
    "text": "Te cuidas con soluciones simples. Te enrollas poco y resuelves rápido. Sabes que menos es más y que lo útil protege."
   },
   {
    "pokemon": "Onix",
    "type": "tierra",
-   "pos": 7,
+   "pos": 6,
    "label": "Plan a largo plazo",
    "text": "Tu manera de pensar es larga, sólida y orientada a lo que dura. Prefieres un plan firme a un gesto bonito. Impones respeto, y eso puede dejarte lejos de los demás."
   },
@@ -1081,77 +1081,77 @@
   {
    "pokemon": "Doduo",
    "type": "volador",
-   "pos": 2,
+   "pos": 0,
    "label": "Seguridad en compañía",
    "text": "Te sientes mejor con alguien a tu lado. Tu libertad consiste en elegir con quién ir. Salir sin compañía te cuesta, aunque eres más capaz de lo que crees."
   },
   {
    "pokemon": "Pidgey",
    "type": "volador",
-   "pos": 3,
+   "pos": 1,
    "label": "Vuelo bajo",
    "text": "Te mueves cerca de casa y valoras volver. Tu libertad es pequeña y completa. No necesitas el horizonte para sentirte a gusto, y eso es una forma de sabiduría."
   },
   {
    "pokemon": "Dodrio",
    "type": "volador",
-   "pos": 3,
+   "pos": 1,
    "label": "Rapidez con ataduras",
    "text": "Corres, pero con tu grupo. Tu independencia es de ritmo, no de compañía. Lo que frena es no saber qué querrías tú sin nadie alrededor."
   },
   {
    "pokemon": "Pidgeotto",
    "type": "volador",
-   "pos": 4,
+   "pos": 2,
    "label": "Probando el aire",
    "text": "Empiezas a alejarte y a mirar lejos. Te gusta volver, y eso te da seguridad para seguir explorando. Estás descubriendo cuánto espacio necesitas de verdad."
   },
   {
    "pokemon": "Zubat",
    "type": "volador",
-   "pos": 4,
+   "pos": 2,
    "label": "Libertad en la oscuridad",
    "text": "Te mueves mejor sin que te miren y sin dar explicaciones. Tu libertad es discreta y nocturna. Necesitas un refugio al que volver, aunque no lo admitas."
   },
   {
    "pokemon": "Golbat",
    "type": "volador",
-   "pos": 5,
+   "pos": 4,
    "label": "Autonomía con apetito",
    "text": "Tomas lo que necesitas y te mueves a tu aire. Tu independencia tiene apetito. Depender de alguien te cuesta, aunque a veces lo agradecerías."
   },
   {
    "pokemon": "Spearow",
    "type": "volador",
-   "pos": 6,
+   "pos": 5,
    "label": "Libertad peleona",
    "text": "Defiendes tu espacio con uñas y dientes. Tu independencia es una forma de orgullo. Que te digan por dónde ir te saca de quicio."
   },
   {
    "pokemon": "Pidgeot",
    "type": "volador",
-   "pos": 6,
+   "pos": 5,
    "label": "Altura elegida",
    "text": "Puedes ir lejos y vuelves por gusto. Tu libertad es madura: sabes qué necesitas. Te mueves con soltura entre quedarte y marcharte."
   },
   {
    "pokemon": "Charizard",
    "type": "volador",
-   "pos": 7,
+   "pos": 6,
    "label": "Libertad con carácter",
    "text": "Te vas cuando quieres y te quedas cuando te interesa. Tu independencia va de la mano de tu orgullo. Aceptar un \"no puedes\" te resulta casi imposible."
   },
   {
    "pokemon": "Butterfree",
    "type": "volador",
-   "pos": 7,
+   "pos": 6,
    "label": "Libertad ganada",
    "text": "Has cambiado para poder moverte a tus anchas. Tu independencia llegó tras un proceso largo. La disfrutas con delicadeza y la cuidas como algo conseguido."
   },
   {
    "pokemon": "Farfetch'd",
    "type": "volador",
-   "pos": 7,
+   "pos": 6,
    "label": "Camino propio",
    "text": "Vas por donde te parece y sin pedir permiso. Tu autonomía es obstinada y casi ceremonial. Hacer las cosas a tu manera es una convicción, y también una soledad."
   },
@@ -1214,56 +1214,56 @@
   {
    "pokemon": "Slowpoke",
    "type": "psiquico",
-   "pos": 1,
+   "pos": 0,
    "label": "Presente absoluto",
    "text": "Vives en lo que tienes delante, sin mucha teoría. Te interesa lo tangible y lo cotidiano. Los grandes debates te pillan lejos, y probablemente te perdonas no seguirlos."
   },
   {
    "pokemon": "Slowbro",
    "type": "psiquico",
-   "pos": 2,
+   "pos": 1,
    "label": "Hecho concreto",
    "text": "Aprendes por experiencia y de lo que pasa. Tu pensamiento va despacio y al grano. Lo abstracto te cansa pronto."
   },
   {
    "pokemon": "Abra",
    "type": "psiquico",
-   "pos": 3,
+   "pos": 2,
    "label": "Evasión mental",
    "text": "Prefieres no pensarlo demasiado y que el mundo se ocupe. Tu intuición supera a tu razonamiento. Desapareces de la conversación cuando se complica."
   },
   {
    "pokemon": "Drowzee",
    "type": "psiquico",
-   "pos": 3,
+   "pos": 2,
    "label": "Curiosidad cercana",
    "text": "Te interesa lo que pasa por la cabeza de la gente, sobre todo sus deseos y sus preocupaciones concretas. Tu curiosidad es amable y cercana. Menos teorías, más personas."
   },
   {
    "pokemon": "Exeggcute",
    "type": "psiquico",
-   "pos": 4,
+   "pos": 3,
    "label": "Ideas en grupo",
    "text": "Piensas mejor con otros. Tus ideas nacen de la conversación y se enriquecen con ella. Sostener una idea sin respaldo te cuesta bastante."
   },
   {
    "pokemon": "Jynx",
    "type": "psiquico",
-   "pos": 4,
+   "pos": 3,
    "label": "Mente expresiva",
    "text": "Piensas en voz alta y con el cuerpo. Te interesa lo que se puede decir, mostrar y contagiar. Tu inteligencia se ve en cómo comunicas."
   },
   {
    "pokemon": "Mr. Mime",
    "type": "psiquico",
-   "pos": 5,
+   "pos": 4,
    "label": "Imaginar lo que no está",
    "text": "Puedes hacer real lo que otros no ven. Tu curiosidad está en cómo mostrar las ideas. Tu mundo interior es muy visible para quien presta atención."
   },
   {
    "pokemon": "Hypno",
    "type": "psiquico",
-   "pos": 5,
+   "pos": 4,
    "label": "Atención magnética",
    "text": "Te interesa cómo funciona la atención de la gente. Observas y orientas con delicadeza. Tu curiosidad tiene algo de oficio, y a veces cuesta saber dónde acaba tu interés y empieza tu influencia."
   },
@@ -1312,49 +1312,49 @@
   {
    "pokemon": "Pinsir",
    "type": "bicho",
-   "pos": 1,
+   "pos": 0,
    "label": "Fidelidad a lo propio",
    "text": "Tienes claro quién eres y no lo cambias por presión. Tu constancia da seguridad a los demás. Los cambios te cuestan, aunque a veces los necesitarías."
   },
   {
    "pokemon": "Parasect",
    "type": "bicho",
-   "pos": 2,
+   "pos": 1,
    "label": "Apego a lo conocido",
    "text": "Valoras lo que ya tienes y a quien ya conoces, con una fidelidad intensa. Mantener lo que funciona te parece una virtud. Soltar lo que ya no sirve es lo difícil."
   },
   {
    "pokemon": "Paras",
    "type": "bicho",
-   "pos": 3,
+   "pos": 2,
    "label": "Arraigo pequeño",
    "text": "Prefieres lo estable y lo cercano. Cambias poco y despacio. Te sientes a gusto cuando todo está en su lugar."
   },
   {
    "pokemon": "Kakuna",
    "type": "bicho",
-   "pos": 3,
+   "pos": 2,
    "label": "Pausa fértil",
    "text": "Estás en espera, unas veces por miedo y otras por sabiduría. Reservas fuerzas para un cambio que aún no has anunciado. Tu quietud es preparación."
   },
   {
    "pokemon": "Metapod",
    "type": "bicho",
-   "pos": 4,
+   "pos": 3,
    "label": "Esperar el momento",
    "text": "Sabes detenerte mientras algo se gesta. Defiendes tu proceso aunque no se vea. La paciencia es tu manera de cambiar, y no todos la reconocen como cambio."
   },
   {
    "pokemon": "Scyther",
    "type": "bicho",
-   "pos": 4,
+   "pos": 3,
    "label": "Fidelidad a la técnica",
    "text": "Perfeccionas lo que sabes hacer en lugar de reinventarte. Tu estilo es reconocible y exigente. Incorporar lo nuevo te exige un esfuerzo extra."
   },
   {
    "pokemon": "Venonat",
    "type": "bicho",
-   "pos": 5,
+   "pos": 4,
    "label": "Adaptación curiosa",
    "text": "Cambias con interés, pero sin fiebre. Observas, aprendes y te acomodas. Tu flexibilidad es moderada y práctica, y rara vez te arriesgas a un giro grande."
   },
@@ -1396,49 +1396,49 @@
   {
    "pokemon": "Omanyte",
    "type": "roca",
-   "pos": 2,
+   "pos": 0,
    "label": "Sensibilidad profunda",
    "text": "Te afecta lo que ocurre y lo recuerdas mucho tiempo. Te protegen tus defensas más que tu dureza. Admitir que algo te duele forma parte de tu fuerza."
   },
   {
    "pokemon": "Kabuto",
    "type": "roca",
-   "pos": 3,
+   "pos": 1,
    "label": "Superviviente discreto",
    "text": "Has pasado por mucho y sigues. No presumes de ello. El cansancio se te nota a ratos, aunque no digas nada."
   },
   {
    "pokemon": "Aerodactyl",
    "type": "roca",
-   "pos": 4,
+   "pos": 2,
    "label": "Dureza de fondo",
    "text": "Tienes un carácter fiero y una vulnerabilidad que cuidas. Tu resiliencia es defensa. Bajarla te daría paz, aunque a ti te parezca un riesgo."
   },
   {
    "pokemon": "Omastar",
    "type": "roca",
-   "pos": 5,
+   "pos": 4,
    "label": "Peso que sostiene",
    "text": "Cargas con bastante y lo llevas con decoro. Resistes sin dar la impresión de sufrir. Tu aguante es lento y firme, y casi nadie sabe cuánto pesa."
   },
   {
    "pokemon": "Rhyhorn",
    "type": "roca",
-   "pos": 6,
+   "pos": 5,
    "label": "Empuje obstinado",
    "text": "Ante un obstáculo, empujas. No te rindes con facilidad y no eres sutil. Cambiar de plan te supone un esfuerzo enorme."
   },
   {
    "pokemon": "Kabutops",
    "type": "roca",
-   "pos": 6,
+   "pos": 5,
    "label": "Dureza aprendida",
    "text": "Has aprendido a resistir sin aspavientos. No te dejas afectar y se nota. Esa dureza te ha protegido y también te aísla."
   },
   {
    "pokemon": "Geodude",
    "type": "roca",
-   "pos": 7,
+   "pos": 6,
    "label": "Dureza sencilla",
    "text": "Aguantas sin darle muchas vueltas. Los golpes te cambian poco. Tu fortaleza es la de lo básico: no hace falta más cuando todo funciona."
   },
@@ -1473,7 +1473,7 @@
   {
    "pokemon": "Gastly",
    "type": "fantasma",
-   "pos": 1,
+   "pos": 0,
    "label": "Presencia inquieta",
    "text": "Te interesa lo que pasa fuera: gente, bromas, ambiente. Vives hacia los demás y rara vez te quedas a solas. Tu sombra sale a la luz cuando te quedas sin energía."
   },
@@ -1487,7 +1487,7 @@
   {
    "pokemon": "Gengar",
    "type": "fantasma",
-   "pos": 9,
+   "pos": 10,
    "label": "Sombra propia",
    "text": "Tu vida interior es rica, oscura y divertida. Piensas, recuerdas y te ríes de ti en silencio. Los demás ven una parte, y a ti te va bien así."
   }
@@ -1496,7 +1496,7 @@
   {
    "pokemon": "Dragonite",
    "pos": {
-    "dragon": 9,
+    "dragon": 10,
     "volador": 8
    },
    "label": "Grandeza libre",
@@ -1506,7 +1506,7 @@
    "pokemon": "Charizard",
    "pos": {
     "fuego": 9,
-    "volador": 7
+    "volador": 6
    },
    "label": "Pasión sin ataduras",
    "text": "Quieres sentir al máximo y hacerlo sin que nadie te ponga límites. Tu intensidad y tu independencia se refuerzan entre sí. El riesgo es que el orgullo te deje a solas en lo más alto."
@@ -1514,7 +1514,7 @@
   {
    "pokemon": "Moltres",
    "pos": {
-    "fuego": 7,
+    "fuego": 6,
     "volador": 8
    },
    "label": "Orgullo que resurge",
@@ -1523,7 +1523,7 @@
   {
    "pokemon": "Poliwrath",
    "pos": {
-    "agua": 3,
+    "agua": 2,
     "lucha": 7
    },
    "label": "Esfuerzo con calma",
@@ -1533,7 +1533,7 @@
    "pokemon": "Tentacool",
    "pos": {
     "agua": 6,
-    "veneno": 3
+    "veneno": 2
    },
    "label": "Corazón abierto, ojo atento",
    "text": "Sientes mucho y confías bastante, pero con la guardia a media altura. Te afecta el entorno y lo observas con ironía suave, sin dejar de implicarte."
@@ -1541,8 +1541,8 @@
   {
    "pokemon": "Tentacruel",
    "pos": {
-    "agua": 3,
-    "veneno": 5
+    "agua": 2,
+    "veneno": 4
    },
    "label": "Escudo con humor",
    "text": "Te contienes y desconfías con medida. Tus emociones y tu ironía se protegen entre sí. Quien llega hasta ti descubre una calidez mayor de la que se esperaba."
@@ -1550,8 +1550,8 @@
   {
    "pokemon": "Slowpoke",
    "pos": {
-    "agua": 2,
-    "psiquico": 1
+    "agua": 1,
+    "psiquico": 0
    },
    "label": "Calma sin teoría",
    "text": "Ni te sacuden las emociones ni te interesa darles vueltas. Vives el momento con una serenidad profunda. En ocasiones esa serenidad es, en el fondo, desconexión."
@@ -1559,8 +1559,8 @@
   {
    "pokemon": "Slowbro",
    "pos": {
-    "agua": 3,
-    "psiquico": 2
+    "agua": 2,
+    "psiquico": 1
    },
    "label": "Serenidad cargada",
    "text": "Llevas lo que sientes con calma y sin análisis. Aceptas lo que viene. Quizá convendría mirar de vez en cuando lo que cargas con algo más de distancia."
@@ -1568,7 +1568,7 @@
   {
    "pokemon": "Starmie",
    "pos": {
-    "agua": 2,
+    "agua": 1,
     "psiquico": 7
    },
    "label": "Frialdad brillante",
@@ -1578,7 +1578,7 @@
    "pokemon": "Dewgong",
    "pos": {
     "agua": 6,
-    "hielo": 5
+    "hielo": 4
    },
    "label": "Calma acogedora",
    "text": "Fluyes con las emociones y mantienes una distancia amable. Te acercas sin invadir. Decidir cuánto abrirte en cada momento es lo que más trabajo te da."
@@ -1586,7 +1586,7 @@
   {
    "pokemon": "Cloyster",
    "pos": {
-    "agua": 1,
+    "agua": 0,
     "hielo": 9
    },
    "label": "Cierre total",
@@ -1596,7 +1596,7 @@
    "pokemon": "Lapras",
    "pos": {
     "agua": 9,
-    "hielo": 3
+    "hielo": 1
    },
    "label": "Corazón abierto",
    "text": "Sientes con los demás y te acercas sin miedo. Tu empatía y tu cercanía se potencian entre sí. Poner límites es lo que te queda por aprender."
@@ -1613,8 +1613,8 @@
   {
    "pokemon": "Omanyte",
    "pos": {
-    "agua": 4,
-    "roca": 2
+    "agua": 3,
+    "roca": 0
    },
    "label": "Memoria blanda",
    "text": "Guardas lo que sientes y te afecta con facilidad. Cuentas con pocas defensas para lo que duele. Tu sensibilidad es profunda y callada, y casi nadie se entera."
@@ -1622,8 +1622,8 @@
   {
    "pokemon": "Omastar",
    "pos": {
-    "agua": 3,
-    "roca": 5
+    "agua": 2,
+    "roca": 4
    },
    "label": "Fortaleza de fondo",
    "text": "Contienes lo que sientes y aguantas sin fanfarria. Tu calma está construida con los años. Lo que ocurre dentro no se nota fuera, ni siquiera a quien más te conoce."
@@ -1631,8 +1631,8 @@
   {
    "pokemon": "Kabuto",
    "pos": {
-    "agua": 2,
-    "roca": 3
+    "agua": 1,
+    "roca": 1
    },
    "label": "Resistir en silencio",
    "text": "Callas lo que sientes y te afecta más de lo que parece. Sobrevives sin quejarte. Hablarlo te aliviaría, y es justo lo que menos te apetece hacer."
@@ -1640,8 +1640,8 @@
   {
    "pokemon": "Kabutops",
    "pos": {
-    "agua": 1,
-    "roca": 6
+    "agua": 0,
+    "roca": 5
    },
    "label": "Frialdad resistente",
    "text": "Hay poca emoción hacia fuera y mucha resistencia por dentro. Tu dureza es una decisión aprendida. Pedir ayuda es lo que más te cuesta."
@@ -1649,7 +1649,7 @@
   {
    "pokemon": "Zapdos",
    "pos": {
-    "electrico": 5,
+    "electrico": 4,
     "volador": 8
    },
    "label": "Tormenta soberana",
@@ -1659,7 +1659,7 @@
    "pokemon": "Bulbasaur",
    "pos": {
     "planta": 8,
-    "veneno": 2
+    "veneno": 1
    },
    "label": "Cuidar con fe",
    "text": "Cuidas con generosidad y confías en la gente. Tu ternura puede ser ingenua. Te conviene aprender a elegir a quién cuidas, sin perder la fe."
@@ -1668,7 +1668,7 @@
    "pokemon": "Ivysaur",
    "pos": {
     "planta": 8,
-    "veneno": 2
+    "veneno": 1
    },
    "label": "Cuidar con aprendizaje",
    "text": "Sigues cuidando con ganas aunque ya has visto cosas. Tu confianza ha madurado, no se ha ido. Todavía crees en la gente, y eso dice mucho de ti."
@@ -1677,7 +1677,7 @@
    "pokemon": "Venusaur",
    "pos": {
     "planta": 10,
-    "veneno": 3
+    "veneno": 2
    },
    "label": "Refugio sereno",
    "text": "Eres cobijo para muchos y confías con criterio. Tu generosidad es amplia y tu juicio, tranquilo. Aguantas mucho antes de cerrarte."
@@ -1685,8 +1685,8 @@
   {
    "pokemon": "Oddish",
    "pos": {
-    "planta": 5,
-    "veneno": 1
+    "planta": 4,
+    "veneno": 0
    },
    "label": "Ternura ingenua",
    "text": "Atiendes con discreción y piensas bien de todos. Tu inocencia hace que te quieran. Creer que alguien pueda fallarte se te hace difícil."
@@ -1694,8 +1694,8 @@
   {
    "pokemon": "Gloom",
    "pos": {
-    "planta": 3,
-    "veneno": 4
+    "planta": 2,
+    "veneno": 3
    },
    "label": "Ayuda con acidez",
    "text": "Cuidas a tu manera, con una crítica de por medio. Tu cariño tiene humor y un poco de aspereza. Quien aprende a leerlo, descubre que es de los más fiables."
@@ -1703,8 +1703,8 @@
   {
    "pokemon": "Vileplume",
    "pos": {
-    "planta": 4,
-    "veneno": 4
+    "planta": 3,
+    "veneno": 3
    },
    "label": "Generosidad con picante",
    "text": "Das mucho y lo adornas con comentarios. Tu estilo es único y a veces confunde. Quien lo entiende, se queda; quien no, se pierde algo bueno."
@@ -1712,8 +1712,8 @@
   {
    "pokemon": "Bellsprout",
    "pos": {
-    "planta": 5,
-    "veneno": 2
+    "planta": 4,
+    "veneno": 1
    },
    "label": "Atención flexible y optimista",
    "text": "Cuidas con flexibilidad y confías en lo bueno. Te adaptas a las necesidades de la otra persona. Cedes con frecuencia más de lo que deberías."
@@ -1721,8 +1721,8 @@
   {
    "pokemon": "Weepinbell",
    "pos": {
-    "planta": 3,
-    "veneno": 3
+    "planta": 2,
+    "veneno": 2
    },
    "label": "Paciencia con humor",
    "text": "Esperas, cuidas lo justo y sueltas un comentario cuando toca. Te gusta ver cómo van las cosas antes de implicarte, y a veces llegas cuando ya pasó el momento."
@@ -1730,8 +1730,8 @@
   {
    "pokemon": "Victreebel",
    "pos": {
-    "planta": 1,
-    "veneno": 5
+    "planta": 0,
+    "veneno": 4
    },
    "label": "Franqueza voraz",
    "text": "Te cuidas primero y dices lo que piensas con filo. Tu autonomía es muy marcada. La sinceridad rara vez va de la mano de la cercanía, y lo sabes."
@@ -1739,8 +1739,8 @@
   {
    "pokemon": "Paras",
    "pos": {
-    "planta": 4,
-    "bicho": 3
+    "planta": 3,
+    "bicho": 2
    },
    "label": "Cercanía compartida",
    "text": "Cuidas con apego y cambias poco. Te implicas hondo en lo que conoces. Soltar lo que ya terminó te cuesta."
@@ -1748,8 +1748,8 @@
   {
    "pokemon": "Parasect",
    "pos": {
-    "planta": 2,
-    "bicho": 2
+    "planta": 1,
+    "bicho": 1
    },
    "label": "Apego que domina",
    "text": "Cuidas con intensidad y te aferras a lo conocido. Tu cariño es firme y poco flexible. Aprender a soltar es tu tarea pendiente."
@@ -1758,7 +1758,7 @@
    "pokemon": "Exeggcute",
    "pos": {
     "planta": 6,
-    "psiquico": 4
+    "psiquico": 3
    },
    "label": "Cuidado en red",
    "text": "Cuidas mejor en grupo y piensas con otros. Tu fuerza es lo colectivo. A solas, saber qué necesitas se vuelve difícil."
@@ -1775,8 +1775,8 @@
   {
    "pokemon": "Jynx",
    "pos": {
-    "hielo": 2,
-    "psiquico": 4
+    "hielo": 0,
+    "psiquico": 3
    },
    "label": "Expresividad con mente",
    "text": "Te comunicas con gran expresividad y piensas en voz alta. Tu cercanía es teatral e inteligente. Cuesta saber qué hay detrás, y eso forma parte de tu atractivo."
@@ -1794,7 +1794,7 @@
    "pokemon": "Weedle",
    "pos": {
     "bicho": 7,
-    "veneno": 4
+    "veneno": 3
    },
    "label": "Ironía menuda",
    "text": "Empiezas cosas nuevas con ironía suave. Te subestiman, y en ocasiones lo aprovechas. Cambias con humor, y eso hace que te tomen menos en serio de lo que mereces."
@@ -1802,8 +1802,8 @@
   {
    "pokemon": "Kakuna",
    "pos": {
-    "bicho": 3,
-    "veneno": 5
+    "bicho": 2,
+    "veneno": 4
    },
    "label": "Silencio con recelo",
    "text": "Esperas, callas y observas con recelo. Tu quietud es preparación y defensa. Tu cambio llegará cuando tú decidas, y no antes."
@@ -1820,8 +1820,8 @@
   {
    "pokemon": "Venonat",
    "pos": {
-    "bicho": 5,
-    "veneno": 5
+    "bicho": 4,
+    "veneno": 4
    },
    "label": "Mirada curiosa y escéptica",
    "text": "Observas con interés y con duda a la vez. Cambias con prudencia. Ves lo que a otros se les escapa, y eso a veces te deja con una verdad incómoda."
@@ -1838,8 +1838,8 @@
   {
    "pokemon": "Nidoqueen",
    "pos": {
-    "veneno": 4,
-    "tierra": 6
+    "veneno": 3,
+    "tierra": 5
    },
    "label": "Protección práctica",
    "text": "Proteges con realismo y con una ironía medida. Tu firmeza no es dureza. Detectas enseguida a quien intenta tomarte el pelo."
@@ -1848,7 +1848,7 @@
    "pokemon": "Nidoking",
    "pos": {
     "veneno": 6,
-    "tierra": 5
+    "tierra": 4
    },
    "label": "Orgullo con principios",
    "text": "Muestras firmeza, un punto de sorna y algunos ideales. Tu escepticismo protege tu sentido de lo justo. Ceder te cuesta, incluso cuando tendrías razones."
@@ -1857,7 +1857,7 @@
    "pokemon": "Zubat",
    "pos": {
     "veneno": 6,
-    "volador": 4
+    "volador": 2
    },
    "label": "Sombra libre",
    "text": "Observas con humor desde fuera y te mueves con discreción. Tu independencia es nocturna. Te gusta mirar sin que te miren, y eso te deja sin testigos de lo que haces bien."
@@ -1866,7 +1866,7 @@
    "pokemon": "Golbat",
    "pos": {
     "veneno": 7,
-    "volador": 5
+    "volador": 4
    },
    "label": "Instinto autónomo",
    "text": "Ves el truco y haces lo que te conviene. Tu escepticismo y tu autonomía se refuerzan entre sí. Confiar y depender son tus dos grandes pendientes."
@@ -1874,7 +1874,7 @@
   {
    "pokemon": "Gastly",
    "pos": {
-    "fantasma": 1,
+    "fantasma": 0,
     "veneno": 8
    },
    "label": "Broma con doble fondo",
@@ -1892,7 +1892,7 @@
   {
    "pokemon": "Gengar",
    "pos": {
-    "fantasma": 9,
+    "fantasma": 10,
     "veneno": 10
    },
    "label": "Sombra completa",
@@ -1901,7 +1901,7 @@
   {
    "pokemon": "Geodude",
    "pos": {
-    "roca": 7,
+    "roca": 6,
     "tierra": 8
    },
    "label": "Dureza práctica",
@@ -1929,7 +1929,7 @@
    "pokemon": "Onix",
    "pos": {
     "roca": 9,
-    "tierra": 7
+    "tierra": 6
    },
    "label": "Firmeza con visión",
    "text": "Aguantas mucho y piensas a largo plazo. Tu constancia es estructura. Mover tu postura, aunque sea poco, requiere paciencia y buenos argumentos."
@@ -1937,8 +1937,8 @@
   {
    "pokemon": "Rhyhorn",
    "pos": {
-    "tierra": 7,
-    "roca": 6
+    "tierra": 6,
+    "roca": 5
    },
    "label": "Empuje tenaz",
    "text": "Vas de frente y no cedes. Tu empuje es práctico. Sin plan B, el choque con la realidad llega antes de lo esperado."
@@ -1946,7 +1946,7 @@
   {
    "pokemon": "Rhydon",
    "pos": {
-    "tierra": 6,
+    "tierra": 5,
     "roca": 8
    },
    "label": "Terquedad con experiencia",
@@ -1955,7 +1955,7 @@
   {
    "pokemon": "Aerodactyl",
    "pos": {
-    "roca": 4,
+    "roca": 2,
     "volador": 10
    },
    "label": "Libertad radical",
@@ -1965,7 +1965,7 @@
    "pokemon": "Butterfree",
    "pos": {
     "bicho": 10,
-    "volador": 7
+    "volador": 6
    },
    "label": "Libertad transformada",
    "text": "Has cambiado para ser libre. Vives la reinvención y el movimiento como una sola cosa. Quedarte en un sitio se te hace casi imposible."
@@ -1973,7 +1973,7 @@
   {
    "pokemon": "Scyther",
    "pos": {
-    "bicho": 4,
+    "bicho": 3,
     "volador": 8
    },
    "label": "Precisión autónoma",
@@ -1983,7 +1983,7 @@
    "pokemon": "Pidgey",
    "pos": {
     "normal": 9,
-    "volador": 3
+    "volador": 1
    },
    "label": "Lo pequeño y cercano",
    "text": "Disfrutas de lo sencillo y de lo cercano, y tu libertad es corta. Tu mundo es pequeño y completo. Poco horizonte, mucha paz."
@@ -1992,7 +1992,7 @@
    "pokemon": "Pidgeotto",
    "pos": {
     "normal": 7,
-    "volador": 4
+    "volador": 2
    },
    "label": "Alzando el vuelo con humildad",
    "text": "Empiezas a mirar más lejos sin dejar tu sencillez. Descubres que te gusta el espacio. Sigues volviendo a casa, y esa vuelta te hace bien."
@@ -2000,8 +2000,8 @@
   {
    "pokemon": "Pidgeot",
    "pos": {
-    "normal": 5,
-    "volador": 6
+    "normal": 4,
+    "volador": 5
    },
    "label": "Presencia libre",
    "text": "Tienes presencia y mueves tu independencia con naturalidad. Disfrutas de que se te reconozca y no te atas. Es el equilibrio de quien sabe volver."
@@ -2009,8 +2009,8 @@
   {
    "pokemon": "Spearow",
    "pos": {
-    "normal": 4,
-    "volador": 6
+    "normal": 3,
+    "volador": 5
    },
    "label": "Carácter indómito",
    "text": "Mucho carácter en poco espacio y poco permiso. Quieres respeto y que te dejen hacer. Tu libertad es un reto constante."
@@ -2018,7 +2018,7 @@
   {
    "pokemon": "Fearow",
    "pos": {
-    "normal": 3,
+    "normal": 2,
     "volador": 8
    },
    "label": "Territorio y presencia",
@@ -2027,8 +2027,8 @@
   {
    "pokemon": "Farfetch'd",
    "pos": {
-    "normal": 2,
-    "volador": 7
+    "normal": 1,
+    "volador": 6
    },
    "label": "Camino singular",
    "text": "Haces las cosas a tu manera y lo asumes con orgullo. Tu singularidad es elegida. Tu rareza es tu bandera, y también tu soledad."
@@ -2037,7 +2037,7 @@
    "pokemon": "Doduo",
    "pos": {
     "normal": 7,
-    "volador": 2
+    "volador": 0
    },
    "label": "Pareja inseparable",
    "text": "Disfrutas de lo sencillo en compañía. Tu libertad es relativa y compartida. Salir sin nadie al lado es tu reto."
@@ -2045,8 +2045,8 @@
   {
    "pokemon": "Dodrio",
    "pos": {
-    "normal": 5,
-    "volador": 3
+    "normal": 4,
+    "volador": 1
    },
    "label": "Rapidez en equipo",
    "text": "Corres rápido y en grupo. Tu independencia es de ritmo. Solo te falta saber hacia dónde irías por tu cuenta, sin que el grupo marque el camino."

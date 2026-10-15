@@ -6,11 +6,11 @@ export const DEFAULTS = {
   secBase: 0.3, secSlope: 0.3, secMin: 0.1, secMax: 1,
   patternMinCount: 4, patternMinDev: 2.5,
   flatThreshold: 1.5, thirdAxisThreshold: 2,
-  tensionPole: 3, tensionMax: 2, innerGap: 8,
+  tensionPole: 3, tensionMax: 2, innerGap: 9,
   // Con standardize, la intensidad de un eje se mide en desviaciones típicas respecto a su media
   // (calculada con selecciones al azar sobre el catálogo) en lugar de respecto a 5.
   standardize: true,
-  z: { flat: 0.5, third: 0.8, tension: 1.0 },
+  z: { flat: 0.5, third: 0.8, tension: 1.2 },
   calibrationSamples: 4000,
 };
 
@@ -101,11 +101,16 @@ export function computeResult(model, selection, opts = {}) {
     const sw = cs.reduce((s, c) => s + c.w, 0);
     profile[t] = cs.reduce((s, c) => s + c.w * c.pos, 0) / sw;
   }
+  // Polo por posición absoluta (5 es el centro de la escala). Con standardize, la intensidad se mide en
+  // desviaciones típicas respecto a la media del eje, y solo cuenta si va en la dirección del polo.
   const dist = t => (std ? (profile[t] - model.stats[t].mean) / model.stats[t].sd : profile[t] - 5);
-  const intensity = t => Math.abs(dist(t));
+  const pole = t => (profile[t] >= 5 ? 'high' : 'low');
+  const intensity = t => {
+    const d = dist(t);
+    return std && (d >= 0) !== (pole(t) === 'high') ? 0 : Math.abs(d);
+  };
   const th = std ? cfg.z : { flat: cfg.flatThreshold, third: cfg.thirdAxisThreshold, tension: cfg.tensionPole };
   const ranked = [...order].sort((a, b) => intensity(b) - intensity(a) || order.indexOf(a) - order.indexOf(b));
-  const pole = t => (dist(t) >= 0 ? 'high' : 'low');
   const flat = intensity(ranked[0]) < th.flat;
   const archetype = flat ? { key: 'equilibrio' } : {
     key: `${ranked[0]}:${pole(ranked[0])}+${ranked[1]}:${pole(ranked[1])}`,

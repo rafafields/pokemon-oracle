@@ -4,17 +4,17 @@
 
 | Pokémon | Pos. | Etiqueta | Matiz |
 |---|---|---|---|
-| Doduo (+Normal) | 2 | Seguridad en compañía | Te sientes mejor con alguien a tu lado. Tu libertad consiste en elegir con quién ir. Salir sin compañía te cuesta, aunque eres más capaz de lo que crees. |
-| Pidgey (+Normal) | 3 | Vuelo bajo | Te mueves cerca de casa y valoras volver. Tu libertad es pequeña y completa. No necesitas el horizonte para sentirte a gusto, y eso es una forma de sabiduría. |
-| Dodrio (+Normal) | 3 | Rapidez con ataduras | Corres, pero con tu grupo. Tu independencia es de ritmo, no de compañía. Lo que frena es no saber qué querrías tú sin nadie alrededor. |
-| Pidgeotto (+Normal) | 4 | Probando el aire | Empiezas a alejarte y a mirar lejos. Te gusta volver, y eso te da seguridad para seguir explorando. Estás descubriendo cuánto espacio necesitas de verdad. |
-| Zubat (+Veneno) | 4 | Libertad en la oscuridad | Te mueves mejor sin que te miren y sin dar explicaciones. Tu libertad es discreta y nocturna. Necesitas un refugio al que volver, aunque no lo admitas. |
-| Golbat (+Veneno) | 5 | Autonomía con apetito | Tomas lo que necesitas y te mueves a tu aire. Tu independencia tiene apetito. Depender de alguien te cuesta, aunque a veces lo agradecerías. |
-| Spearow (+Normal) | 6 | Libertad peleona | Defiendes tu espacio con uñas y dientes. Tu independencia es una forma de orgullo. Que te digan por dónde ir te saca de quicio. |
-| Pidgeot (+Normal) | 6 | Altura elegida | Puedes ir lejos y vuelves por gusto. Tu libertad es madura: sabes qué necesitas. Te mueves con soltura entre quedarte y marcharte. |
-| Charizard (+Fuego) | 7 | Libertad con carácter | Te vas cuando quieres y te quedas cuando te interesa. Tu independencia va de la mano de tu orgullo. Aceptar un "no puedes" te resulta casi imposible. |
-| Butterfree (+Bicho) | 7 | Libertad ganada | Has cambiado para poder moverte a tus anchas. Tu independencia llegó tras un proceso largo. La disfrutas con delicadeza y la cuidas como algo conseguido. |
-| Farfetch'd (+Normal) | 7 | Camino propio | Vas por donde te parece y sin pedir permiso. Tu autonomía es obstinada y casi ceremonial. Hacer las cosas a tu manera es una convicción, y también una soledad. |
+| Doduo (+Normal) | 0 | Seguridad en compañía | Te sientes mejor con alguien a tu lado. Tu libertad consiste en elegir con quién ir. Salir sin compañía te cuesta, aunque eres más capaz de lo que crees. |
+| Pidgey (+Normal) | 1 | Vuelo bajo | Te mueves cerca de casa y valoras volver. Tu libertad es pequeña y completa. No necesitas el horizonte para sentirte a gusto, y eso es una forma de sabiduría. |
+| Dodrio (+Normal) | 1 | Rapidez con ataduras | Corres, pero con tu grupo. Tu independencia es de ritmo, no de compañía. Lo que frena es no saber qué querrías tú sin nadie alrededor. |
+| Pidgeotto (+Normal) | 2 | Probando el aire | Empiezas a alejarte y a mirar lejos. Te gusta volver, y eso te da seguridad para seguir explorando. Estás descubriendo cuánto espacio necesitas de verdad. |
+| Zubat (+Veneno) | 2 | Libertad en la oscuridad | Te mueves mejor sin que te miren y sin dar explicaciones. Tu libertad es discreta y nocturna. Necesitas un refugio al que volver, aunque no lo admitas. |
+| Golbat (+Veneno) | 4 | Autonomía con apetito | Tomas lo que necesitas y te mueves a tu aire. Tu independencia tiene apetito. Depender de alguien te cuesta, aunque a veces lo agradecerías. |
+| Spearow (+Normal) | 5 | Libertad peleona | Defiendes tu espacio con uñas y dientes. Tu independencia es una forma de orgullo. Que te digan por dónde ir te saca de quicio. |
+| Pidgeot (+Normal) | 5 | Altura elegida | Puedes ir lejos y vuelves por gusto. Tu libertad es madura: sabes qué necesitas. Te mueves con soltura entre quedarte y marcharte. |
+| Charizard (+Fuego) | 6 | Libertad con carácter | Te vas cuando quieres y te quedas cuando te interesa. Tu independencia va de la mano de tu orgullo. Aceptar un "no puedes" te resulta casi imposible. |
+| Butterfree (+Bicho) | 6 | Libertad ganada | Has cambiado para poder moverte a tus anchas. Tu independencia llegó tras un proceso largo. La disfrutas con delicadeza y la cuidas como algo conseguido. |
+| Farfetch'd (+Normal) | 6 | Camino propio | Vas por donde te parece y sin pedir permiso. Tu autonomía es obstinada y casi ceremonial. Hacer las cosas a tu manera es una convicción, y también una soledad. |
 | Fearow (+Normal) | 8 | Territorio abierto | Necesitas mucho espacio y lo reclamas con decisión. Tu independencia es ambiciosa y vigilante. Descansar en un sitio donde otros mandan se te hace cuesta arriba. |
 | Scyther (+Bicho) | 8 | Libertad precisa | Te mueves con autonomía, precisión y rapidez. Tu libertad es una forma de dominar la situación. Acercarse a ti sin que lo percibas es casi imposible, y eso mantiene a la gente a cierta distancia. |
 | Zapdos (+Eléctrico) | 8 | Libertad con fuerza | Vas y vienes como una tormenta. Tu independencia es enérgica y poco predecible. Nadie te retiene, ni siquiera quien más lo intentaría. |
@@ -24,4 +24,4 @@
 | Gyarados (+Agua) | 9 | Sin cadenas | No toleras que te encierren o te digan qué hacer. Tu libertad es una fuerza y a veces una furia. Cuando se desata, arrastra a quien tienes cerca. |
 | Aerodactyl (+Roca) | 10 | Soledad elegida | Eres independiente hasta la raíz. Rindes cuentas a pocos y decides por tu cuenta. Tu libertad es radical y puede ser solitaria. |
 
-**Reparto:** rango de 2 a 10. Ocho Pokémon están en la posición 8 o más: el tipo se concentra en el polo alto, lo que es coherente con la libertad. Quien quiera salir con poca libertad solo tiene Doduo, Pidgey y Dodrio, así que el extremo bajo del eje es el menos resuelto.
+**Reparto:** 19 candidatos entre las posiciones 0 y 10; sin entrada en 3, 7. Escala reestirada para ocupar de 0 a 10 (el orden no cambia).
