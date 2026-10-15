@@ -9,6 +9,7 @@ const data = {
   catalog: JSON.parse(read('data/catalog.json')),
   tensions: JSON.parse(read('data/tensions.json')),
   poles: JSON.parse(read('data/poles.json')),
+  en: JSON.parse(read('data/en.json')),
 };
 const html = read('web/template.html')
   .replace('/*ENGINE*/', () => read('src/engine.js'))

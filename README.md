@@ -1,51 +1,57 @@
-# Oráculo Pokémon
+# Pokémon Oracle
 
-*¿Qué dice tu selección de Pokémon sobre ti?*
+**English** · [Español](README.es.md)
 
-Un generador pequeño para el género de los subreddits de Pokémon: eliges tu Pokémon favorito de cada tipo de Kanto y el oráculo te devuelve un perfil de personalidad.
+*What does your Pokémon selection say about you?*
 
-- **Determinista y sin IA al ejecutarse.** La misma selección da siempre el mismo resultado. Es lo que permite compartirlo y discutirlo ("a mí me salió esto").
-- **Solo Kanto, con el tipado de la primera generación:** 151 Pokémon y 15 tipos (sin Hada ni Acero).
-- **Sin backend ni cuentas.** El objetivo es un único HTML estático.
+A small generator for the genre you see on Pokémon subreddits: pick your favourite Pokémon of each Kanto type and the oracle returns a personality profile.
 
-> No es un test psicológico validado. Es un juego: usa vocabulario de personalidad para dar un texto reconocible, al estilo de un horóscopo.
+- **Deterministic, no AI at runtime.** The same selection always gives the same result, which is what makes it shareable and arguable ("this is what I got").
+- **Kanto only, with first-generation typing:** 151 Pokémon and 15 types (no Fairy, no Steel).
+- **No backend, no accounts.** The goal is a single static HTML file.
 
-## Cómo funciona
+> This is not a validated psychological test. It is a game: it uses personality vocabulary to give a recognisable text, horoscope-style.
 
-Cada uno de los 15 tipos es un eje de personalidad con dos polos (Agua = sensibilidad, Fuego = intensidad…). Cada Pokémon ocupa un punto de esa escala, con un texto propio. Tus 15 elecciones dan un perfil, un arquetipo y unas tensiones entre elecciones contradictorias. Los Pokémon más raros pesan más que los más populares, y los de doble tipo aportan también a su segundo eje.
+## How it works
 
-El detalle completo está en [`docs/`](docs/), empezando por [Diseño del Oráculo Pokémon](docs/Dise%C3%B1o%20del%20Or%C3%A1culo%20Pok%C3%A9mon.md).
+Each of the 15 types is a personality axis with two poles (Water = sensitivity, Fire = intensity…). Each Pokémon sits at a point on that scale, with its own text. Your 15 picks produce a profile, an archetype and a few tensions between contradictory choices. Rarer picks weigh more than very popular ones, and dual-type Pokémon also contribute to their second axis.
 
-## Estado
+The result never ties a text to a specific Pokémon, to keep the "magic".
 
-Fase de diseño. Hay:
+The design documents live in [`docs/`](docs/) and are written in **Spanish**, starting with [Diseño del Oráculo Pokémon](docs/Dise%C3%B1o%20del%20Or%C3%A1culo%20Pok%C3%A9mon.md). The English version of the catalogue, pole phrases and tension texts is in [`docs/en/`](docs/en/).
 
-- el diseño y las [decisiones tomadas](docs/Decisiones%20de%20dise%C3%B1o.md),
-- los 15 ejes y un primer borrador del catálogo (unas 275 entradas),
-- una propuesta del motor, con una primera calibración por simulación y problemas abiertos (ver el [motor](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
+## Status
 
-Hay una interfaz de pruebas muy básica: abre `web/index.html` en el navegador (un solo archivo, sin servidor). Se regenera con `npm run web`. Además hay un motor y una simulación para calibrarlo:
+Design phase. There is:
 
-- `data/`: ejes, Pokémon (tipos y popularidad), catálogo y tensiones en JSON. Se generan desde `docs/` con `npm run data` (necesita Python 3).
-- `src/engine.js`: el motor, una función pura sin dependencias que servirá igual en Node y en el navegador.
-- `web/`: la interfaz de pruebas (`template.html` es la fuente; `index.html` se genera).
-- `sim/simulate.mjs`: simula miles de selecciones al azar para revisar el reparto de resultados. `npm run sim` (necesita Node 18 o superior).
-El catálogo es un borrador escrito con ayuda de IA, pendiente de revisión humana; en ejecución no se usa IA.
+- the design and the [decisions taken](docs/Decisiones%20de%20dise%C3%B1o.md),
+- the 15 axes and a first draft of the catalogue (about 275 entries, in Spanish and English),
+- a proposal for the engine, with a first calibration by simulation and open problems (see the [engine doc](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
 
-## Documentación
+There is a very basic test interface: open `web/index.html` in a browser (a single file, no server). English is the default language, with a Spanish switch. Rebuild it with `npm run web`. Also included:
 
-Todo está en español.
+- `data/`: axes, Pokémon (types and popularity), catalogue, poles, tensions and the English translation, as JSON. Generated from `docs/` with `npm run data` (needs Python 3).
+- `src/engine.js`: the engine, a pure function with no dependencies that works the same in Node and in the browser.
+- `web/`: the test interface (`template.html` is the source; `index.html` is generated).
+- `sim/simulate.mjs`: simulates thousands of random selections to check the spread of results. `npm run sim` (needs Node 18 or later).
 
-| Documento | Contenido |
+The catalogue is a draft written with AI help, pending human review; no AI is used at runtime.
+
+## Documentation
+
+The documents are in Spanish.
+
+| Document | Content |
 |---|---|
-| [Diseño](docs/Dise%C3%B1o%20del%20Or%C3%A1culo%20Pok%C3%A9mon.md) | Idea, modelo, riesgos y alcance |
-| [Decisiones de diseño](docs/Decisiones%20de%20dise%C3%B1o.md) | Las seis decisiones y su razonamiento |
-| [Ejes de personalidad](docs/Ejes%20de%20personalidad.md) | Los 15 ejes y sus polos |
-| [Motor de perfil](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md) | Cálculo del perfil, arquetipos y tensiones |
-| [Guía de voz](docs/Gu%C3%ADa%20de%20voz%20y%20estructura%20del%20cat%C3%A1logo.md) | Cómo se escriben las entradas |
+| [Design](docs/Dise%C3%B1o%20del%20Or%C3%A1culo%20Pok%C3%A9mon.md) | Idea, model, risks and scope |
+| [Design decisions](docs/Decisiones%20de%20dise%C3%B1o.md) | The six decisions and their reasoning |
+| [Personality axes](docs/Ejes%20de%20personalidad.md) | The 15 axes and their poles |
+| [Engine](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md) | Profile calculation, archetypes and tensions |
+| [Voice guide](docs/Gu%C3%ADa%20de%20voz%20y%20estructura%20del%20cat%C3%A1logo.md) | How the entries are written |
+| [English translations](docs/en/) | Catalogue, poles and tensions in English |
 
-## Aviso y atribuciones
+## Notice and credits
 
-Proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.
+Fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.
 
-Las imágenes de los Pokémon no se incluyen en el repositorio: la página las carga desde [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (proyecto [PokeAPI](https://pokeapi.co)) y pertenecen a sus propietarios.
+Pokémon images are not included in the repository: the page loads them from [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (a [PokeAPI](https://pokeapi.co) project) and they belong to their owners.

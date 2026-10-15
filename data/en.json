@@ -1,0 +1,1396 @@
+{
+ "types": {
+  "normal": "Normal",
+  "fuego": "Fire",
+  "agua": "Water",
+  "electrico": "Electric",
+  "planta": "Grass",
+  "hielo": "Ice",
+  "lucha": "Fighting",
+  "veneno": "Poison",
+  "tierra": "Ground",
+  "volador": "Flying",
+  "psiquico": "Psychic",
+  "bicho": "Bug",
+  "roca": "Rock",
+  "fantasma": "Ghost",
+  "dragon": "Dragon"
+ },
+ "axes": {
+  "normal": {
+   "name": "Simplicity",
+   "low": "Seeks to stand out",
+   "high": "Enjoys simplicity"
+  },
+  "fuego": {
+   "name": "Intensity",
+   "low": "Temperance",
+   "high": "Vehemence"
+  },
+  "agua": {
+   "name": "Sensitivity",
+   "low": "Restraint",
+   "high": "Emotional openness"
+  },
+  "electrico": {
+   "name": "Energy",
+   "low": "Slow pace",
+   "high": "Vibrant pace"
+  },
+  "planta": {
+   "name": "Care",
+   "low": "Self-sufficiency",
+   "high": "Nurtures and helps grow"
+  },
+  "hielo": {
+   "name": "Reserve",
+   "low": "Closeness",
+   "high": "Reserve"
+  },
+  "lucha": {
+   "name": "Discipline",
+   "low": "Spontaneity",
+   "high": "Constancy and rigour"
+  },
+  "veneno": {
+   "name": "Irony",
+   "low": "Trust",
+   "high": "Scepticism with acid humour"
+  },
+  "tierra": {
+   "name": "Pragmatism",
+   "low": "Idealism",
+   "high": "Pragmatism"
+  },
+  "volador": {
+   "name": "Freedom",
+   "low": "Roots",
+   "high": "Independence"
+  },
+  "psiquico": {
+   "name": "Curiosity",
+   "low": "The concrete",
+   "high": "The abstract and intellectual"
+  },
+  "bicho": {
+   "name": "Reinvention",
+   "low": "Stability",
+   "high": "Change"
+  },
+  "roca": {
+   "name": "Resilience",
+   "low": "Easily affected",
+   "high": "Withstands everything"
+  },
+  "fantasma": {
+   "name": "Introspection",
+   "low": "Looks outward",
+   "high": "Deep inner life"
+  },
+  "dragon": {
+   "name": "Ambition",
+   "low": "Contentment with who you are",
+   "high": "Aspiration to something great"
+  }
+ },
+ "poles": {
+  "normal": {
+   "low": {
+    "title": "Drive to stand out",
+    "tendency": "you need what's yours to be noticed and you look to leave your own mark on what you do",
+    "shadow": "Sometimes the need to stand out weighs more than the pleasure of what you do."
+   },
+   "high": {
+    "title": "Taste for simplicity",
+    "tendency": "you find your best mood in the everyday and need no more stage than each day",
+    "shadow": "Your comfort can leave untried things that would suit you."
+   }
+  },
+  "fuego": {
+   "low": {
+    "title": "Temperance",
+    "tendency": "you keep your pulse steady even when everything burns around you and you react calmly",
+    "shadow": "Your calm is sometimes mistaken for a lack of drive."
+   },
+   "high": {
+    "title": "Vehemence",
+    "tendency": "you live everything with force and defend what matters to you with all you have",
+    "shadow": "That force wears you out and sometimes wears out those close to you."
+   }
+  },
+  "agua": {
+   "low": {
+    "title": "Restraint",
+    "tendency": "you keep what you feel and show it only when you decide to",
+    "shadow": "What doesn't come out stays inside longer than you think."
+   },
+   "high": {
+    "title": "Emotional openness",
+    "tendency": "you feel intensely and let it show, which makes you easy to read and easy to love",
+    "shadow": "At times you expose yourself more than is good for you."
+   }
+  },
+  "electrico": {
+   "low": {
+    "title": "Slow pace",
+    "tendency": "you go at your own rhythm, unhurried, and perform best when nobody pushes you",
+    "shadow": "The world often moves faster than suits you."
+   },
+   "high": {
+    "title": "Vibrant pace",
+    "tendency": "you move fast, start things with enthusiasm and pass your energy on to almost everyone",
+    "shadow": "Braking is what you practise least."
+   }
+  },
+  "planta": {
+   "low": {
+    "title": "Self-sufficiency",
+    "tendency": "you manage on your own and prefer not to depend on anyone to get ahead",
+    "shadow": "Refusing help sometimes leaves you more on your own than you'd like."
+   },
+   "high": {
+    "title": "Caring instinct",
+    "tendency": "you look after whoever is near and give others time to grow",
+    "shadow": "While you tend to what's others', you forget to tend to what's yours."
+   }
+  },
+  "hielo": {
+   "low": {
+    "title": "Closeness",
+    "tendency": "you come close to people easily and let them into your life early",
+    "shadow": "Giving so much access exposes you to disappointments others spare themselves."
+   },
+   "high": {
+    "title": "Reserve",
+    "tendency": "you keep your distance from almost everyone and open the door only to whoever earns it",
+    "shadow": "That distance protects, and also leaves out some who would deserve to come in."
+   }
+  },
+  "lucha": {
+   "low": {
+    "title": "Spontaneity",
+    "tendency": "you improvise, go with the moment and run from rigid routines",
+    "shadow": "Without structure, what matters sometimes stays unfinished."
+   },
+   "high": {
+    "title": "Constancy",
+    "tendency": "you sustain effort over time and demand more of yourself than you demand of anyone",
+    "shadow": "Resting still doesn't feel like part of the work."
+   }
+  },
+  "veneno": {
+   "low": {
+    "title": "Trust",
+    "tendency": "you give the benefit of the doubt and believe in people's good intentions",
+    "shadow": "Your trust hands you the odd letdown now and then."
+   },
+   "high": {
+    "title": "Scepticism with humour",
+    "tendency": "you look with a critical eye, spot what doesn't add up and tell it with a sharp humour",
+    "shadow": "So much lucidity sometimes stops you enjoying what does work."
+   }
+  },
+  "tierra": {
+   "low": {
+    "title": "Idealism",
+    "tendency": "you believe in how things should be and find it hard to accept what stays half done",
+    "shadow": "The real world disappoints whoever measures it with the yardstick of the ideal."
+   },
+   "high": {
+    "title": "Pragmatism",
+    "tendency": "you decide by what works and prefer results to promises",
+    "shadow": "What's useful sometimes eats what was worth doing even though it served no purpose."
+   }
+  },
+  "volador": {
+   "low": {
+    "title": "Rootedness",
+    "tendency": "you need roots: a place, people and habits to return to",
+    "shadow": "Staying too long can hide what lies beyond."
+   },
+   "high": {
+    "title": "Independence",
+    "tendency": "you need space to go your own way and decide without asking permission",
+    "shadow": "Your independence can read as distance even when it isn't."
+   }
+  },
+  "psiquico": {
+   "low": {
+    "title": "Concrete mind",
+    "tendency": "you think from the tangible and trust more what you can see and touch than theories",
+    "shadow": "The big ideas sometimes find you too far away."
+   },
+   "high": {
+    "title": "Abstract mind",
+    "tendency": "you think in ideas, patterns and whys, and enjoy understanding more than doing",
+    "shadow": "Amid so many ideas, the practical waits its turn."
+   }
+  },
+  "bicho": {
+   "low": {
+    "title": "Stability",
+    "tendency": "you value what lasts and prefer to consolidate what you have before starting over",
+    "shadow": "Change comes anyway, and finds you with less rehearsal."
+   },
+   "high": {
+    "title": "Capacity for change",
+    "tendency": "you reinvent yourself easily and each stage is a starting point for the next",
+    "shadow": "Starting from zero so many times leaves you with fewer roots each time."
+   }
+  },
+  "roca": {
+   "low": {
+    "title": "Sensitivity to the blow",
+    "tendency": "you truly feel what happens and need time to take it in",
+    "shadow": "That gives you depth and sometimes leaves you raw."
+   },
+   "high": {
+    "title": "Endurance",
+    "tendency": "you withstand almost anything and blows change you less than it seems",
+    "shadow": "You don't always tell resisting from ceasing to feel."
+   }
+  },
+  "fantasma": {
+   "low": {
+    "title": "Outward gaze",
+    "tendency": "you live outward, attentive to people and the world, and think while you act",
+    "shadow": "You rarely stop to listen to what's happening inside you."
+   },
+   "high": {
+    "title": "Inner life",
+    "tendency": "you live a lot inside, with memories, thoughts and worlds almost nobody sees",
+    "shadow": "Some days that inner house weighs more than the street."
+   }
+  },
+  "dragon": {
+   "low": {
+    "title": "Contentment",
+    "tendency": "you're at peace with who you are and don't feel something big is waiting for you",
+    "shadow": "That peace can leave you without exploring what would fit."
+   },
+   "high": {
+    "title": "Ambition",
+    "tendency": "you aim high and feel that what's yours is something big",
+    "shadow": "The bar you set leaves little room to celebrate what you've already achieved."
+   }
+  }
+ },
+ "tensions": [
+  "You feel a lot and show little.",
+  "You want to go far without a plan to carry you.",
+  "You look after others and need your own space.",
+  "You protect someone you don't quite believe.",
+  "You believe in something and treat it with irony.",
+  "A lot burns inside and little shows outside.",
+  "You aim for something big and enjoy the small.",
+  "You think in ideas and decide by what works.",
+  "You run at full speed outside and live inward.",
+  "You want something enormous and chase it calmly.",
+  "You demand constancy of yourself and need to change.",
+  "You endure everything and feel everything."
+ ],
+ "entries": {
+  "Snorlax|normal": {
+   "label": "Unhurried fulfilment",
+   "text": "You know how to stop. Your best plan is to rest well, enjoy the table and let no one rush you, and you defend it with a calm that doesn't budge. The price: a pause that runs longer than it should."
+  },
+  "Rattata|normal": {
+   "label": "Resilience without fanfare",
+   "text": "You adapt to any place and make do with what there is. You don't need to be noticed to feel at home. What doesn't always arrive is the recognition you deserve."
+  },
+  "Pidgey|normal": {
+   "label": "Close to the ground, at ease",
+   "text": "You prefer the small and familiar to the showy: your neighbourhood, your habits, your own people. There you find a peace others travel far to look for. Your limit is the comfortable."
+  },
+  "Raticate|normal": {
+   "label": "Everyday constancy",
+   "text": "Yours is the steadiness of daily life: doing what needs doing, day after day, without waiting for applause. Nothing epic, but you'd be missed the moment you were gone."
+  },
+  "Chansey|normal": {
+   "label": "Quiet generosity",
+   "text": "You give without making noise. Your help is silent and constant, and what truly matters to you is that the other person is okay. The risk: ending up with no energy for yourself."
+  },
+  "Kangaskhan|normal": {
+   "label": "Protection in the background",
+   "text": "You carry your people, practically and emotionally, and your simplicity is that of everyday care. When someone touches your own, the calm disappears."
+  },
+  "Lickitung|normal": {
+   "label": "Curiosity with no filter",
+   "text": "You try everything, even if it comes out clumsy. Your way of being is direct and honest, and looking odd doesn't worry you. In return, you rarely think before trying."
+  },
+  "Doduo|normal": {
+   "label": "Shared pace",
+   "text": "You work well with a clear routine and someone running beside you. You prefer company and a steady pace to inventing shortcuts, even if that leaves you without surprises."
+  },
+  "Pidgeotto|normal": {
+   "label": "Higher, unchanged",
+   "text": "You're starting to see further and to be noticed, but you're still someone who would rather do than show off. You're learning how much attention you can take."
+  },
+  "Wigglytuff|normal": {
+   "label": "Softness with weight",
+   "text": "You like what is soft, warm and pleasant, and you cultivate it with taste. You have more character than you let on, and it shows when someone tries to take what's yours."
+  },
+  "Ditto|normal": {
+   "label": "No fixed shape",
+   "text": "You adapt to every situation until you almost vanish into it, and you feel no need to be just one thing. The question is whether, after so many disguises, you remember which one was yours."
+  },
+  "Eevee|normal": {
+   "label": "All doors open",
+   "text": "You have plenty of potential and haven't yet decided what to turn it into, and you like it that way. Meanwhile you enjoy the simple things and being loved as you are."
+  },
+  "Pidgeot|normal": {
+   "label": "Shining naturally",
+   "text": "You have presence without seeking it: when you step forward, it shows. You enjoy recognition without chasing it. Your balance lies in knowing when to go back home."
+  },
+  "Dodrio|normal": {
+   "label": "Running with pride",
+   "text": "Your simplicity has character: you do things fast and well, and you like it to be seen. You have a thousand opinions and still move forward. Maybe you need someone to tell you that you've arrived."
+  },
+  "Clefable|normal": {
+   "label": "Discreet strangeness",
+   "text": "You're hard to spot, and not by chance: you appear when you want and how you want. Your strangeness is yours, not a show. Almost nobody gets to know all of it."
+  },
+  "Porygon|normal": {
+   "label": "Off the catalogue",
+   "text": "You don't quite fit any box and it doesn't bother you. Yours is the curious and the unexpected, and underneath there's more affection than you admit."
+  },
+  "Spearow|normal": {
+   "label": "Character in a small package",
+   "text": "You have a lot of temperament in little space. You need to be respected and you answer before thinking. Underneath is someone who just wants to be taken seriously."
+  },
+  "Meowth|normal": {
+   "label": "An eye for the shine",
+   "text": "You're always looking for the opportunity, and you're drawn to what glitters: money, style, the clever move. Your charm is sharpness with grace. What glitters isn't always worth what it seems."
+  },
+  "Fearow|normal": {
+   "label": "Ruling the ground",
+   "text": "You want height and to be seen. You know what's yours and give no ground, even when it would be wise to. Landing and lowering your guard is your homework."
+  },
+  "Clefairy|normal": {
+   "label": "Magic from elsewhere",
+   "text": "You attract through strangeness, a little mystery and something magical. You like being someone who doesn't fully explain themselves, even if at times that leaves you misunderstood."
+  },
+  "Tauros|normal": {
+   "label": "Charging to prove it",
+   "text": "You need to move with force to feel you exist: drive, will and a wish for it to show. You admire what makes noise. What you lack is stillness, and you don't look for it."
+  },
+  "Farfetch'd|normal": {
+   "label": "Chosen singularity",
+   "text": "You cultivate your oddness with pride, even when it costs: your rules, your way, your course. You have something unique because you decided so. Sharing it with someone would make it easier to sustain."
+  },
+  "Persian|normal": {
+   "label": "Conscious elegance",
+   "text": "You know how you're seen and you look after it. Your style is daily work, and you won't settle for going unnoticed. After so much image, it's worth asking when you rest from it."
+  },
+  "Jigglypuff|normal": {
+   "label": "A stage of your own",
+   "text": "You need an audience, even if it doesn't always pay attention. You express yourself your way even if no one listens, and if they don't, it bothers you. Behind it is a wish for someone to stay."
+  },
+  "Vulpix|fuego": {
+   "label": "Ember warmth",
+   "text": "Your warmth is soft and felt up close. You prefer giving time and looking after the atmosphere to raising your voice. You rarely get angry, but when it happens, you take a while to let it go."
+  },
+  "Ninetales|fuego": {
+   "label": "Calm with a memory",
+   "text": "Your serenity is deep and a little enigmatic. You keep what you feel and let it out at your own pace. What's done to you isn't forgotten, even if you don't say it."
+  },
+  "Flareon|fuego": {
+   "label": "Hearth warmth",
+   "text": "Your intensity is welcoming: you give warmth without burning. You get involved with affection and constancy, and you avoid fireworks. What you rarely show is your anger, and it stays inside."
+  },
+  "Charmander|fuego": {
+   "label": "Hunger to grow",
+   "text": "You have drive and plenty of enthusiasm to show what you can do. Your energy grows with every challenge. You're still learning when to push and when to let go."
+  },
+  "Arcanine|fuego": {
+   "label": "Strength with nobility",
+   "text": "Your intensity has direction: you know what you defend and you do it with dignity. You inspire respect without imposing it. When you commit, you commit fully, and pulling back is hard."
+  },
+  "Moltres|fuego": {
+   "label": "Rebirth with pride",
+   "text": "You put body and soul into what you do, and you know how to start over after a fall. Your pride is your engine and your weight. Asking to be held up is the last thing you'd do."
+  },
+  "Growlithe|fuego": {
+   "label": "Loyal enthusiasm",
+   "text": "You throw yourself in for the people you love. Your vehemence is unfiltered affection and you can't hide what you feel. You react before asking, and that costs you the odd misunderstanding."
+  },
+  "Ponyta|fuego": {
+   "label": "Free impulse",
+   "text": "You move on impulse and need room to run toward what draws you. Your enthusiasm is contagious. Slowing down, even when you know it's wise, is what comes least naturally."
+  },
+  "Charmeleon|fuego": {
+   "label": "Pride under tension",
+   "text": "You're in a hard stage of heat: more strength, more temper, less patience. You want to win and for it to show. Your anger comes fast but leaves late."
+  },
+  "Rapidash|fuego": {
+   "label": "Speed with style",
+   "text": "You chase what you want with verve and elegance. You like the ovation, but you earn it by moving. Stopping is almost impossible, even when you've already arrived."
+  },
+  "Charizard|fuego": {
+   "label": "Power that shows",
+   "text": "Your intensity is total and proud: when you feel something, your surroundings know it. You're driven by challenge and grandeur. Whoever only wanted to get close may leave with burnt hands."
+  },
+  "Magmar|fuego": {
+   "label": "Volcanic temper",
+   "text": "You live at full volume and unfiltered: huge passions, huge rages, huge appetite. You bring energy to any group. You need to learn that not everything calls for an explosion."
+  },
+  "Cloyster|agua": {
+   "label": "Closed doors",
+   "text": "You close ranks when something affects you. Your privacy is well protected and few people get in. Inside you feel a lot; the challenge is letting someone see it."
+  },
+  "Kabutops|agua": {
+   "label": "Precise coldness",
+   "text": "You solve things precisely and without drama. Your emotions exist, but you treat them as a private, technical matter. That's why others misread you."
+  },
+  "Kingler|agua": {
+   "label": "Strength that doesn't explain itself",
+   "text": "You prefer doing to saying. Your emotion shows in forceful acts, rarely in words. Others take a while to understand how much you care."
+  },
+  "Slowpoke|agua": {
+   "label": "No rush, no drama",
+   "text": "You process everything calmly, so calmly that the emotion arrives late. Nothing shakes you at first, and that reassures others. The cost is reacting when the moment has passed."
+  },
+  "Shellder|agua": {
+   "label": "Reserve by default",
+   "text": "Your first reflex is to protect yourself. You say little about what you feel and wait until you trust. Once inside, people find out more than they expected."
+  },
+  "Starmie|agua": {
+   "label": "Distant shine",
+   "text": "You project something beautiful and hard to reach. You control what you show, and what you don't show is a lot. You're admired more than you're known."
+  },
+  "Kabuto|agua": {
+   "label": "Silent endurance",
+   "text": "You've been through a lot without saying anything. Your emotion goes inward and rarely shows. When you let it out, it surprises by how deep it is."
+  },
+  "Blastoise|agua": {
+   "label": "Solidity that cares",
+   "text": "You come across as strong and reliable, and you keep your emotions under control. Others lean on you without knowing what you carry, and you don't tell them."
+  },
+  "Poliwrath|agua": {
+   "label": "Feeling through effort",
+   "text": "You channel what you feel into effort: training, sweating, solving. You take emotion to the ground of action, where you feel safe. Putting it into words is the hard part."
+  },
+  "Slowbro|agua": {
+   "label": "Shared load",
+   "text": "You carry something that goes with you and weighs on you, and you bear it calmly. Your serenity is partly resignation. Loosening what you drag along would do you good."
+  },
+  "Krabby|agua": {
+   "label": "Toughness on the outside",
+   "text": "You have a practical defence and a stubborn streak. You show little, and what you show is cruder than what you feel. Inside there's more tenderness than you let on."
+  },
+  "Staryu|agua": {
+   "label": "Emotion in another language",
+   "text": "You feel in a way others don't always understand. Your apparent calm hides an inner life with its own code. Translating it is the hard part."
+  },
+  "Tentacruel|agua": {
+   "label": "Handle the waters with care",
+   "text": "You protect what you feel with effective barriers. Whoever approaches without permission notices at once. With whoever earns it, your generosity is enormous."
+  },
+  "Omastar|agua": {
+   "label": "Emotion in the depths",
+   "text": "What you feel settles slowly and stays. Almost nothing stirs you suddenly, but what sinks in, sinks in for good. Revisiting your past is hard and, when you do, it enriches you."
+  },
+  "Wartortle|agua": {
+   "label": "Calm with resources",
+   "text": "You know how to keep your composure and stay afloat. You share your feelings with those who inspire trust, and that list is short. It's a matter of time more than of will."
+  },
+  "Squirtle|agua": {
+   "label": "Earned trust",
+   "text": "You have a cheerful side and a cautious side. You show emotion with those you like and withdraw if it's taken badly. Your confidence arrives when you know you're cared for."
+  },
+  "Golduck|agua": {
+   "label": "Fluency with control",
+   "text": "You move easily among emotions and know how to keep them in check. Your elegance lies in calm. Anyone can have a bad day, and you prefer it not to show."
+  },
+  "Omanyte|agua": {
+   "label": "Held-close sensitivity",
+   "text": "You feel a lot, but you keep it close. You open slowly and at close range. It's your way of protecting what matters, even if it leaves you alone with it."
+  },
+  "Poliwhirl|agua": {
+   "label": "Halfway",
+   "text": "You balance well what you feel and what you show. You adapt to the setting without losing your centre. Careful: balance can be, deep down, a way of not deciding."
+  },
+  "Seadra|agua": {
+   "label": "Delicacy with defences",
+   "text": "You're sensitive and you defend it discreetly. You're moved, but without giving ground. Emotions interest you more than you admit."
+  },
+  "Dewgong|agua": {
+   "label": "Warm serenity",
+   "text": "You convey calm and closeness. Your emotions flow without jolts and others feel at ease with you. The hard part is getting angry on time when it's called for."
+  },
+  "Horsea|agua": {
+   "label": "Attention to detail",
+   "text": "Details affect you. You notice what others miss and respond with tenderness. You need to learn not to carry everything you notice."
+  },
+  "Tentacool|agua": {
+   "label": "Emotional sensor",
+   "text": "You pick up the mood of the room before anyone else. Your sensitivity works like a thermometer. The risk is absorbing what isn't yours."
+  },
+  "Seaking|agua": {
+   "label": "Presence that exposes itself",
+   "text": "You show what you feel with pride and aren't afraid of it being seen. Your emotion is part of your style, and sometimes that exposes you more than you thought."
+  },
+  "Poliwag|agua": {
+   "label": "Emotion in motion",
+   "text": "You get stirred up easily and your mood rises and falls with the surroundings. You feel with enthusiasm and not too many filters. Then you settle and start again."
+  },
+  "Seel|agua": {
+   "label": "Playful affection",
+   "text": "You show affection naturally and like to play. Your emotion is contagious and close. When something weighs on you, being alone with it is hard."
+  },
+  "Goldeen|agua": {
+   "label": "Expressive lightness",
+   "text": "You let what you feel show, and you do it with grace. You move among emotions with ease. So much lightness can keep you from staying with one long enough."
+  },
+  "Psyduck|agua": {
+   "label": "Overflowing mind",
+   "text": "You feel so much that it sometimes bewilders you. Emotions arrive in waves and ordering them is hard. Your kindness shows; so does your bewilderment."
+  },
+  "Vaporeon|agua": {
+   "label": "A current that adapts",
+   "text": "You adapt to every mood and every person without losing depth. Your emotion flows easily and keeps others company. You need space of your own so you don't dilute."
+  },
+  "Magikarp|agua": {
+   "label": "Everything on the surface",
+   "text": "You live failures and joys intensely and without hiding. You make an effort even when nobody sees it. Your sensitivity is your great potential, and also where it hurts most."
+  },
+  "Lapras|agua": {
+   "label": "Empathy that keeps company",
+   "text": "You feel with others and express it warmly. You're one of those who listen and keep company in hard moments. Your emotion is generous, and it also wears you out."
+  },
+  "Gyarados|agua": {
+   "label": "Tide unleashed",
+   "text": "What you feel comes out whole and unbraked. You go from calm to storm in no time. You have a lot to offer and a lot to learn to channel."
+  },
+  "Magneton|electrico": {
+   "label": "Attractive order",
+   "text": "Your rhythm is serene and organised, and you attract through coherence, not noise. You prefer a stable order to agitation. When everyone is rushing, speeding up is hard for you."
+  },
+  "Magnemite|electrico": {
+   "label": "Steady rhythm",
+   "text": "You work at a calm, continuous pace. You don't make much noise, but you're always in motion. Hurry knocks you off your frequency."
+  },
+  "Raichu|electrico": {
+   "label": "Stored charge",
+   "text": "You hold a contained energy that shows when it's needed. There is power behind your friendliness. It does you good to let go now and then; storing too much weighs."
+  },
+  "Zapdos|electrico": {
+   "label": "Storm with intent",
+   "text": "Your energy arrives in powerful, well-aimed bursts. You go from calm to lightning in a second. You choose your moments, and that impresses and also creates distance."
+  },
+  "Electabuzz|electrico": {
+   "label": "Competitiveness in motion",
+   "text": "You need tension and goals to switch on. You perform best with a challenge nearby and someone to outdo. Resting, without that tension, becomes uncomfortable."
+  },
+  "Pikachu|electrico": {
+   "label": "Contagious spark",
+   "text": "Your energy lifts the mood. You walk into a room and everyone's spirits rise. Recharging is your unfinished business: you run out sooner than you admit."
+  },
+  "Jolteon|electrico": {
+   "label": "Nervous speed",
+   "text": "You think, speak and react at a speed others struggle to follow. Being at rest takes effort. Your challenge is keeping quickness from turning into anxiety."
+  },
+  "Voltorb|electrico": {
+   "label": "Always at the limit",
+   "text": "You're always at the limit of your charge. Your energy is explosive and sometimes unpredictable. What looks like stillness in you is built-up tension."
+  },
+  "Electrode|electrico": {
+   "label": "Always at maximum",
+   "text": "Your pace is dizzying and knows no middle ground. You bring spark and vertigo to everything you touch. Fully winding down is your homework."
+  },
+  "Victreebel|planta": {
+   "label": "Appetite of your own",
+   "text": "You look after yourself before anyone else. You pursue what you want with determination and don't apologise for it. Your frankness can feel rough to someone who expected tenderness."
+  },
+  "Tangela|planta": {
+   "label": "A world of your own",
+   "text": "Your world is full of your things, your ideas and your knots. You don't need much from others to feel you lack nothing. Letting someone in would mean untangling."
+  },
+  "Parasect|planta": {
+   "label": "Care that sets the pace",
+   "text": "It looks like you care, but you hold the baton. Your way of caring is very intense and hardly negotiable. It's worth asking yourself who leads in that relationship."
+  },
+  "Gloom|planta": {
+   "label": "Care with reservations",
+   "text": "You help, but with conditions. It's hard to accept what you dislike in others. Your kindness is real, with clear limits not everyone sees."
+  },
+  "Weepinbell|planta": {
+   "label": "Patient with whoever comes near",
+   "text": "You wait for people to come to you and don't go looking for anyone. You attend well when it's your turn. Waiting too long makes you miss chances to keep someone company."
+  },
+  "Vileplume|planta": {
+   "label": "Generosity with character",
+   "text": "You give a lot, and your way of giving is very much your own and not always easy to receive. You have plenty of life to offer, but in your style, and not everyone gets it."
+  },
+  "Paras|planta": {
+   "label": "Closeness that embraces",
+   "text": "You care with a closeness so intense it's hard to part. You give yourself with affection. The challenge is not to live through the other person."
+  },
+  "Oddish|planta": {
+   "label": "Discreet attention",
+   "text": "You care in silence and without drawing attention. Your attention is greater than it seems. You wake up fully when someone needs you."
+  },
+  "Bellsprout|planta": {
+   "label": "Attentive flexibility",
+   "text": "You adapt to what the other person needs. You care without imposing. Your flexibility makes you give way more than you'd like, and you don't always notice."
+  },
+  "Exeggcute|planta": {
+   "label": "Care in community",
+   "text": "You care better in a group than alone. Your strength lies in not going it alone. Without that support, it's hard to know what you need."
+  },
+  "Exeggutor|planta": {
+   "label": "Abundant generosity",
+   "text": "You give from abundance and with good humour. You care broadly and with many ideas at once. Your enthusiasm can overwhelm someone who needs calm."
+  },
+  "Bulbasaur|planta": {
+   "label": "Patient care",
+   "text": "You care with constancy and patience. You wait for what you plant to bear fruit. You enjoy watching others grow, and sometimes you leave your own growth for later."
+  },
+  "Ivysaur|planta": {
+   "label": "One step from bearing fruit",
+   "text": "You're one step from bearing fruit and you know it. You care with a new weight on you. The weight of caring, here, is yours alone."
+  },
+  "Venusaur|planta": {
+   "label": "Shelter for everyone",
+   "text": "You are a shelter. You care with generosity and breadth, and your refuge reaches many people. The risk is holding everyone up with no one to ask to hold you."
+  },
+  "Jynx|hielo": {
+   "label": "Expressiveness without shame",
+   "text": "You communicate with big gestures and no fear of what people will say. You get close early and set the pace. Whoever doesn't know you may take your closeness for theatre."
+  },
+  "Lapras|hielo": {
+   "label": "Calm welcome",
+   "text": "You receive others with an open serenity. You come close without intruding. You enjoy keeping company and being kept company, and you bear prolonged solitude badly."
+  },
+  "Dewgong|hielo": {
+   "label": "Kindly balance",
+   "text": "You're near when you're needed and step back when you're not. You have a kindly middle ground. The hard part is knowing how much distance you want in each case."
+  },
+  "Cloyster|hielo": {
+   "label": "Protected interior",
+   "text": "You protect your inner world with great care. Few people ever get to know you truly. What you keep is worth it, and you wait for someone who knows how to value it."
+  },
+  "Articuno|hielo": {
+   "label": "Distance that commands",
+   "text": "Your presence is remote and almost unreachable. Your own climate is enough for you. Solitude suits you, until it stops suiting you."
+  },
+  "Mankey|lucha": {
+   "label": "Temper without a bridle",
+   "text": "You react before thinking and live on impulse. Your energy is honest, but barely measured. A routine would suit you better than you think."
+  },
+  "Primeape|lucha": {
+   "label": "Fury of the moment",
+   "text": "Provocations set you off and you lose control easily. Behind it is a great need for respect, which switches on faster than your patience."
+  },
+  "Machop|lucha": {
+   "label": "Starting with gusto",
+   "text": "You train with enthusiasm and are still finding your method. Visible progress motivates you. Sometimes you confuse the amount of effort with direction."
+  },
+  "Machoke|lucha": {
+   "label": "Constancy on your back",
+   "text": "You carry whatever it takes and trust in work. You demand a lot of yourself, sometimes too much. Resting still doesn't feel like part of training."
+  },
+  "Poliwrath|lucha": {
+   "label": "Calm that trains",
+   "text": "You combine effort with serenity. You train without losing your centre and without punishing yourself on the way. Your discipline is kind to you, and that's why it lasts."
+  },
+  "Machamp|lucha": {
+   "label": "Repeated mastery",
+   "text": "Your strength comes from repetition and demand. You can hold a lot at once and do it well. Stopping doesn't always fit your plan."
+  },
+  "Hitmonlee|lucha": {
+   "label": "Technique and precision",
+   "text": "You look for the perfect move, even if it's the same one a thousand times. Your flexibility is the fruit of your constancy. Perfectionism is your best tool and your heaviest load."
+  },
+  "Hitmonchan|lucha": {
+   "label": "Championship routine",
+   "text": "You live by rule and repetition. Your constancy is admirable and also demanding. Your calendar leaves almost no room for improvisation."
+  },
+  "Oddish|veneno": {
+   "label": "Wide-awake innocence",
+   "text": "You trust by default and look at the pleasant side of almost everything. Bad intentions surprise you. Learning to be a little suspicious wouldn't take away your smile."
+  },
+  "Bulbasaur|veneno": {
+   "label": "Quiet trust",
+   "text": "You give the benefit of the doubt with serenity and without naivety. When you're let down, you take it calmly. Your trust is a decision, not an oversight."
+  },
+  "Ivysaur|veneno": {
+   "label": "Faith with learning",
+   "text": "You keep trusting, though you've already seen things. You have an eye for what doesn't add up and still choose to believe. The price is learning some lessons the hard way."
+  },
+  "Bellsprout|veneno": {
+   "label": "Flexible optimism",
+   "text": "You adapt with good spirits and think well of people. Your humour is light and without edges. Spotting when someone is taking advantage is hard for you."
+  },
+  "Venusaur|veneno": {
+   "label": "Serenity with judgement",
+   "text": "You trust and observe at once. You have a gentle humour and little rush to judge. You know how to agree and keep your opinion to yourself, and it isn't always in your favour."
+  },
+  "Nidoran♀|veneno": {
+   "label": "Kind alertness",
+   "text": "Your manner is warm and you take care not to trust completely. Your distrust is protective, not hostile. It spares you surprises and also the odd unexpected gift."
+  },
+  "Nidorina|veneno": {
+   "label": "Caution with warmth",
+   "text": "You balance tenderness with a good dose of caution. You think it over before opening up fully. Whoever wins you over, wins you for real."
+  },
+  "Tentacool|veneno": {
+   "label": "Drifting scepticism",
+   "text": "You look at everything from a calm distance. You doubt without drama and let yourself go with the current. Your irony is subtle and rarely hurtful, so subtle it sometimes goes unnoticed."
+  },
+  "Weepinbell|veneno": {
+   "label": "Waiting humour",
+   "text": "You wait, observe and drop the right remark. Your irony arrives late, but well sharpened. Your patience makes you hard to fool."
+  },
+  "Weedle|veneno": {
+   "label": "Small irony",
+   "text": "Your humour is small and pointed. You defend yourself with jokes rather than big speeches. You're underestimated, and sometimes you use it."
+  },
+  "Nidoqueen|veneno": {
+   "label": "Firmness with tenderness",
+   "text": "You protect and distrust for the same reason: your people matter. Your humour is dry but warm. You don't let anyone pull your leg."
+  },
+  "Gloom|veneno": {
+   "label": "Sour grace",
+   "text": "You take life with a certain playful disdain. Your acid remark is your way of showing affection. Sometimes the acidity is just tiredness with good aim."
+  },
+  "Vileplume|veneno": {
+   "label": "Flashy cheek",
+   "text": "You say what you think in loud colours. Your scepticism is more theatrical than it looks. You enjoy being noticed, and that makes you unforgettable and a little tiring."
+  },
+  "Kakuna|veneno": {
+   "label": "Suspicious silence",
+   "text": "You observe without saying anything and keep your opinion to yourself. Your irony is in what you don't say. When you finally speak, it's clear you've thought it all through."
+  },
+  "Nidoran♂|veneno": {
+   "label": "Doubt with pride",
+   "text": "You prefer seeing to believing and have no trouble saying so. Your scepticism is protective and sometimes stubborn. You'd rather take offence than be fooled."
+  },
+  "Venonat|veneno": {
+   "label": "Sideways glance",
+   "text": "You observe from the side, with interest. You distrust with curiosity, without bitterness. You see the trick before anyone, even if you don't always say it out loud."
+  },
+  "Victreebel|veneno": {
+   "label": "Sincerity with an edge",
+   "text": "You say what you think with a frankness that cuts. Your irony is your way of telling the truth, and you almost never set out to be liked. Whoever understands you values how transparent you are."
+  },
+  "Tentacruel|veneno": {
+   "label": "Elegant distrust",
+   "text": "You size up whoever approaches before letting them through. Your irony is measured and precise. Whoever passes the test gains an alliance that's hard to break."
+  },
+  "Nidorino|veneno": {
+   "label": "Suspicious pride",
+   "text": "You don't trust at first and you like having the last word. Your irony has something of a challenge in it. Behind it is a wish for someone to prove that trust is possible."
+  },
+  "Nidoking|veneno": {
+   "label": "Toughness with humour",
+   "text": "You come across as firm, with a touch of mockery. You aren't easily impressed. Your scepticism is a form of protection, and also of distance."
+  },
+  "Zubat|veneno": {
+   "label": "Backstage humour",
+   "text": "You prefer to move backstage and look at the world with a raised eyebrow. Your irony is observant and nocturnal. You don't need to be celebrated, which is why sometimes nobody sees you."
+  },
+  "Venomoth|veneno": {
+   "label": "Biting elegance",
+   "text": "Your humour is refined and has an edge. You say light things with a serious undertone. It protects you from whoever talks too much, and keeps away whoever can't keep up."
+  },
+  "Golbat|veneno": {
+   "label": "Eye for deceit",
+   "text": "You spot early what doesn't add up. Your scepticism has saved you more than once. Seeing traps where there's only clumsiness is the price."
+  },
+  "Beedrill|veneno": {
+   "label": "Quick retort",
+   "text": "Your irony has aim. You defend what's yours with a fast, accurate retort, and you're almost always right. What's hard is getting it taken as play."
+  },
+  "Ekans|veneno": {
+   "label": "Irony under your breath",
+   "text": "You observe, calculate and drop the remark in a low voice. You don't like giving explanations. Your scepticism is silent and patient, and leaves those around you not knowing what you think."
+  },
+  "Koffing|veneno": {
+   "label": "Uncomfortable nerve",
+   "text": "You say what others keep quiet, sometimes at the worst moment. Your humour is unconventional. You don't usually agree just to be polite."
+  },
+  "Arbok|veneno": {
+   "label": "A look that commands",
+   "text": "Your distrust shows and is respected. You make it clear you're not easy to convince. Your humour is dry, and whoever knows you appreciates it."
+  },
+  "Grimer|veneno": {
+   "label": "Humour without squeamishness",
+   "text": "Almost nothing scandalises you and you laugh at the uncomfortable. Your humour is dark and carefree. Behind it is tolerance for the imperfect."
+  },
+  "Gastly|veneno": {
+   "label": "A joke with a backstory",
+   "text": "Your humour has a double bottom. You joke so as not to say everything you think. You're interested in what others prefer not to look at."
+  },
+  "Weezing|veneno": {
+   "label": "Double suspicion",
+   "text": "You doubt twice: others and your own ideas. Your irony is sceptical of everything, yourself included. It helps you not to believe your own hype."
+  },
+  "Muk|veneno": {
+   "label": "World-weary humour",
+   "text": "You've seen it all and take it with sarcasm. Almost nothing scandalises you. Your cynicism is also a way of looking after yourself."
+  },
+  "Haunter|veneno": {
+   "label": "Mischievous sarcasm",
+   "text": "You enjoy making people a little uncomfortable. Your irony is playful and provocative. You relish other people's fright more than you'd admit."
+  },
+  "Gengar|veneno": {
+   "label": "Mastery of mockery",
+   "text": "Your humour is dark, sharp and very much your own. You distrust on principle and have a good time doing it. Whoever understands you, adores you."
+  },
+  "Cubone|tierra": {
+   "label": "Heart in mourning",
+   "text": "You carry something you miss and turn it into purpose. Your inner world weighs more than what is useful. The practical turns uphill when it hurts."
+  },
+  "Marowak|tierra": {
+   "label": "Loss turned into strength",
+   "text": "You learned to be strong because it fell to you. You combine ideals with what life has taught you. Your realism was born of a wound, and sometimes you still feel it."
+  },
+  "Diglett|tierra": {
+   "label": "Quiet conviction",
+   "text": "You do your part out of conviction and not for recognition. You work on what you believe in even when nobody sees. Your idealism makes no noise, which is why it sometimes passes for mere habit."
+  },
+  "Nidoking|tierra": {
+   "label": "Strength with ideas",
+   "text": "You want to do the right thing and have the strength for it. You're driven by more than usefulness. When a principle weighs, your pragmatism takes a back seat."
+  },
+  "Nidoqueen|tierra": {
+   "label": "Protection with feet on the ground",
+   "text": "You do what needs doing and do it with sense. Your care is practical and firm. You know when an ideal must wait, even if it hurts to put it down."
+  },
+  "Rhydon|tierra": {
+   "label": "Productive stubbornness",
+   "text": "You open a path by force and without asking permission. You value what works. Changing method once you've started is hard, even when the method no longer serves."
+  },
+  "Rhyhorn|tierra": {
+   "label": "Straight to the point",
+   "text": "You go straight for what you want and don't swerve. You prefer facts to arguments. You miss what happens at the sides, sometimes exactly what you needed to see."
+  },
+  "Sandshrew|tierra": {
+   "label": "Defensive practicality",
+   "text": "You look after yourself with simple solutions. You waste few words and solve quickly. You know that less is more and that what's useful protects."
+  },
+  "Onix|tierra": {
+   "label": "Long-term plan",
+   "text": "Your way of thinking is long, solid and aimed at what lasts. You prefer a firm plan to a pretty gesture. You command respect, and that can leave you far from others."
+  },
+  "Sandslash|tierra": {
+   "label": "Sense of usefulness",
+   "text": "You go for the essential. Your judgement is practical and quick. With whoever beats around the bush, your manner turns rough, and it isn't always worth it."
+  },
+  "Geodude|tierra": {
+   "label": "Firm simplicity",
+   "text": "You bring solidity and constancy, with no pretension of dressing it up. You do what's necessary, at the right time and place. You don't need pretty explanations, though others would appreciate them."
+  },
+  "Dugtrio|tierra": {
+   "label": "More effective as a team",
+   "text": "You work best with people you already know and a shared method. You value coordination over showing off. Improvising alone isn't your thing."
+  },
+  "Graveler|tierra": {
+   "label": "Momentum put to use",
+   "text": "You move forward with what there is and make use of the momentum. You care about the result, not so much the style. On the way, you flatten things without noticing what you leave behind."
+  },
+  "Golem|tierra": {
+   "label": "Pragmatism without cracks",
+   "text": "You are decisiveness in person: realism, firmness and little inclination to doubt. Your judgement gives others stability. Listening to other people's dreams is hard for you."
+  },
+  "Doduo|volador": {
+   "label": "Safety in company",
+   "text": "You feel better with someone beside you. Your freedom lies in choosing who to go with. Going out without company is hard, though you're more capable than you think."
+  },
+  "Pidgey|volador": {
+   "label": "Low flight",
+   "text": "You move close to home and value coming back. Your freedom is small and complete. You don't need the horizon to feel at ease, and that is a kind of wisdom."
+  },
+  "Dodrio|volador": {
+   "label": "Speed with ties",
+   "text": "You run, but with your group. Your independence is one of pace, not of company. What holds you back is not knowing what you would want with nobody around."
+  },
+  "Pidgeotto|volador": {
+   "label": "Testing the air",
+   "text": "You're starting to move away and look far. You like coming back, and that gives you the confidence to keep exploring. You're discovering how much space you really need."
+  },
+  "Zubat|volador": {
+   "label": "Freedom in the dark",
+   "text": "You move best when unwatched and without explaining yourself. Your freedom is discreet and nocturnal. You need a refuge to return to, though you won't admit it."
+  },
+  "Golbat|volador": {
+   "label": "Autonomy with appetite",
+   "text": "You take what you need and go your own way. Your independence has an appetite. Depending on someone is hard, though at times you'd be glad of it."
+  },
+  "Spearow|volador": {
+   "label": "Scrappy freedom",
+   "text": "You defend your space tooth and nail. Your independence is a form of pride. Being told where to go drives you up the wall."
+  },
+  "Pidgeot|volador": {
+   "label": "Chosen height",
+   "text": "You can go far and you return by choice. Your freedom is mature: you know what you need. You move with ease between staying and leaving."
+  },
+  "Charizard|volador": {
+   "label": "Freedom with character",
+   "text": "You leave when you want and stay when you're interested. Your independence goes hand in hand with your pride. Accepting a \"you can't\" is almost impossible for you."
+  },
+  "Butterfree|volador": {
+   "label": "Earned freedom",
+   "text": "You changed so you could move as you please. Your independence came after a long process. You enjoy it delicately and look after it as something achieved."
+  },
+  "Farfetch'd|volador": {
+   "label": "A path of your own",
+   "text": "You go where you see fit and without asking permission. Your autonomy is stubborn and almost ceremonial. Doing things your way is a conviction, and also a loneliness."
+  },
+  "Fearow|volador": {
+   "label": "Open territory",
+   "text": "You need a lot of space and claim it decisively. Your independence is ambitious and watchful. Resting somewhere others are in charge is an uphill task."
+  },
+  "Scyther|volador": {
+   "label": "Precise freedom",
+   "text": "You move with autonomy, precision and speed. Your freedom is a way of mastering the situation. Approaching you without you noticing is almost impossible, and that keeps people at a certain distance."
+  },
+  "Zapdos|volador": {
+   "label": "Freedom with force",
+   "text": "You come and go like a storm. Your independence is energetic and hard to predict. Nobody holds you back, not even whoever would try hardest."
+  },
+  "Moltres|volador": {
+   "label": "Freedom with pride",
+   "text": "Your independence is a statement. You'd rather burn alone than fade in company. That choice isolates you more than you think."
+  },
+  "Dragonite|volador": {
+   "label": "Freedom with heart",
+   "text": "You move freely and with the intention of helping. Your independence serves others, and rarely stays still. It's hard to see you at rest."
+  },
+  "Articuno|volador": {
+   "label": "A sky of your own",
+   "text": "Your space is yours and you mark it with elegance. Little company is enough for you. You need someone to miss you to remember there's a world out there."
+  },
+  "Gyarados|volador": {
+   "label": "Unchained",
+   "text": "You won't be shut in or told what to do. Your freedom is a force and sometimes a fury. When it's unleashed, it drags along whoever is near."
+  },
+  "Aerodactyl|volador": {
+   "label": "Chosen solitude",
+   "text": "You're independent to the root. You answer to few and decide on your own. Your freedom is radical and can be lonely."
+  },
+  "Slowpoke|psiquico": {
+   "label": "Absolute present",
+   "text": "You live in what's in front of you, with little theory. You're interested in the tangible and the everyday. The big debates find you far away, and you probably forgive yourself for not following them."
+  },
+  "Slowbro|psiquico": {
+   "label": "Concrete fact",
+   "text": "You learn from experience and from what happens. Your thinking is slow and to the point. The abstract tires you quickly."
+  },
+  "Abra|psiquico": {
+   "label": "Mental escape",
+   "text": "You'd rather not overthink it and let the world take care of things. Your intuition outruns your reasoning. You vanish from the conversation when it gets complicated."
+  },
+  "Drowzee|psiquico": {
+   "label": "Close curiosity",
+   "text": "You're interested in what goes on in people's heads, especially their wishes and their concrete worries. Your curiosity is kind and close. Fewer theories, more people."
+  },
+  "Exeggcute|psiquico": {
+   "label": "Ideas in a group",
+   "text": "You think better with others. Your ideas are born in conversation and grow richer in it. Holding an idea without backing is quite hard for you."
+  },
+  "Jynx|psiquico": {
+   "label": "Expressive mind",
+   "text": "You think out loud and with your body. You're interested in what can be said, shown and spread. Your intelligence shows in how you communicate."
+  },
+  "Mr. Mime|psiquico": {
+   "label": "Imagining what isn't there",
+   "text": "You can make real what others don't see. Your curiosity lies in how to show ideas. Your inner world is very visible to whoever pays attention."
+  },
+  "Hypno|psiquico": {
+   "label": "Magnetic attention",
+   "text": "You're interested in how people's attention works. You observe and guide with delicacy. Your curiosity has something of a craft, and sometimes it's hard to tell where your interest ends and your influence begins."
+  },
+  "Exeggutor|psiquico": {
+   "label": "Panoramic view",
+   "text": "Your head has an overview and several paths at once. You enjoy speculating. Coming down to the detail so others can follow is the hard part."
+  },
+  "Starmie|psiquico": {
+   "label": "Calculated mystery",
+   "text": "Your intelligence is cold and brilliant. You like patterns and questions without an easy answer. You seem further away than you are."
+  },
+  "Kadabra|psiquico": {
+   "label": "Mind in motion",
+   "text": "Your mind is fast and full of resources. You learn quickly and enjoy understanding how everything works. Simple explanations feel like too little."
+  },
+  "Alakazam|psiquico": {
+   "label": "Trained intellect",
+   "text": "Your intellect is your pride and your tool. You think rigorously and on a large scale. What can't be reasoned out makes you uneasy."
+  },
+  "Mew|psiquico": {
+   "label": "Ageless curiosity",
+   "text": "You're interested in everything, always and without hurry. Your mind plays with ideas with a mix of childhood and wisdom. Scattering yourself feels like a virtue, and sometimes it is."
+  },
+  "Mewtwo|psiquico": {
+   "label": "Bottomless question",
+   "text": "You look for the ultimate why of everything, with intensity. Your mind is powerful and sometimes lonely. Finding an answer doesn't always calm you."
+  },
+  "Pinsir|bicho": {
+   "label": "Loyalty to your own",
+   "text": "You're clear about who you are and don't change under pressure. Your constancy gives others security. Change is hard for you, though sometimes you'd need it."
+  },
+  "Parasect|bicho": {
+   "label": "Attachment to the familiar",
+   "text": "You value what you already have and whoever you already know, with an intense loyalty. Keeping what works feels like a virtue. Letting go of what no longer serves is the hard part."
+  },
+  "Paras|bicho": {
+   "label": "Small roots",
+   "text": "You prefer the stable and the close. You change little and slowly. You feel at ease when everything is in its place."
+  },
+  "Kakuna|bicho": {
+   "label": "Fertile pause",
+   "text": "You're on hold, sometimes out of fear and sometimes out of wisdom. You save strength for a change you haven't announced yet. Your stillness is preparation."
+  },
+  "Metapod|bicho": {
+   "label": "Waiting for the moment",
+   "text": "You know how to stop while something takes shape. You defend your process even if it isn't visible. Patience is your way of changing, and not everyone recognises it as change."
+  },
+  "Scyther|bicho": {
+   "label": "Loyalty to technique",
+   "text": "You perfect what you know how to do instead of reinventing yourself. Your style is recognisable and demanding. Taking in the new takes extra effort."
+  },
+  "Venonat|bicho": {
+   "label": "Curious adaptation",
+   "text": "You change with interest, but without fever. You observe, learn and settle in. Your flexibility is moderate and practical, and you rarely risk a big turn."
+  },
+  "Beedrill|bicho": {
+   "label": "Change with purpose",
+   "text": "You evolved to defend what's yours. You reinvent yourself when needed and with determination. Some changes answer a reaction, not a choice."
+  },
+  "Weedle|bicho": {
+   "label": "Right at the start",
+   "text": "You start new things easily. You adapt to the terrain and don't stagnate. Your challenge is sustaining what you begin until it bears fruit."
+  },
+  "Caterpie|bicho": {
+   "label": "Wanting to be another version",
+   "text": "You want to grow and transform, and leaving behind who you were doesn't weigh on you. You enjoy every change of stage. Everything is easier when there's a horizon; without one, you lose your bearings."
+  },
+  "Venomoth|bicho": {
+   "label": "Nocturnal versatility",
+   "text": "You switch register easily and elegantly, depending on the hour and the place. Your versatility can hide who you really are."
+  },
+  "Butterfree|bicho": {
+   "label": "Complete transformation",
+   "text": "You've changed completely and you celebrate it. You live reinvention as a party. Looking back and recognising what is still yours is what you find hardest."
+  },
+  "Omanyte|roca": {
+   "label": "Deep sensitivity",
+   "text": "What happens affects you and you remember it for a long time. Your defences protect you more than your toughness does. Admitting that something hurts is part of your strength."
+  },
+  "Kabuto|roca": {
+   "label": "Discreet survivor",
+   "text": "You've been through a lot and you keep going. You don't boast about it. The tiredness shows at times, though you say nothing."
+  },
+  "Aerodactyl|roca": {
+   "label": "Toughness underneath",
+   "text": "You have a fierce character and a vulnerability you look after. Your resilience is a defence. Lowering it would bring you peace, though to you it seems a risk."
+  },
+  "Omastar|roca": {
+   "label": "Weight that holds",
+   "text": "You carry quite a lot and bear it with decorum. You endure without seeming to suffer. Your stamina is slow and firm, and almost nobody knows how much it weighs."
+  },
+  "Rhyhorn|roca": {
+   "label": "Stubborn push",
+   "text": "Faced with an obstacle, you push. You don't give up easily and you're not subtle. Changing plan takes an enormous effort."
+  },
+  "Kabutops|roca": {
+   "label": "Learned toughness",
+   "text": "You've learned to endure without fuss. You don't let yourself be affected and it shows. That toughness has protected you and also isolates you."
+  },
+  "Geodude|roca": {
+   "label": "Simple toughness",
+   "text": "You endure without overthinking it. Blows change you little. Your strength is that of the basics: nothing more is needed when everything works."
+  },
+  "Rhydon|roca": {
+   "label": "Experience that protects",
+   "text": "You endure because you've learned to over the years. Problems slide off you and don't throw you. Asking for help isn't among your habits."
+  },
+  "Graveler|roca": {
+   "label": "Endurance with weight",
+   "text": "You carry what's yours and what's others'. Nothing stops you, though it weighs. You need to offload now and then, and you almost never find the moment."
+  },
+  "Onix|roca": {
+   "label": "Long firmness",
+   "text": "You're immovable and patient. You withstand years of pressure without flinching. Your rigidity is your pride and your limit: what doesn't bend sometimes breaks."
+  },
+  "Golem|roca": {
+   "label": "Unbreakable",
+   "text": "Nothing shakes you. You're a fixed point for those around you, though you pay the price in rigidity. It's hard to tell, even for you, whether anything affects you."
+  },
+  "Gastly|fantasma": {
+   "label": "Restless presence",
+   "text": "You're interested in what happens outside: people, jokes, atmosphere. You live toward others and rarely stay alone. Your shadow comes out when you run out of energy."
+  },
+  "Haunter|fantasma": {
+   "label": "Double life",
+   "text": "You alternate the party with your reserved side. You know how to be sociable and disappear in time. You have an inner world you invite few people into."
+  },
+  "Gengar|fantasma": {
+   "label": "A shadow of your own",
+   "text": "Your inner life is rich, dark and funny. You think, remember and laugh at yourself in silence. Others see a part, and that suits you fine."
+  },
+  "Dratini|dragon": {
+   "label": "Potential in silence",
+   "text": "You carry something big inside that hasn't come out yet. You're fine with who you are now, and each stage is a step you take without hurry. You don't need to prove it, only to be allowed to grow."
+  },
+  "Dragonair|dragon": {
+   "label": "Serene power",
+   "text": "Your strength lies in elegance: cultivated ambition, without fuss. You know you'll get there, and how matters to you. Caring so much about form can hold you back before you start."
+  },
+  "Dragonite|dragon": {
+   "label": "Greatness with heart",
+   "text": "You aim for something big and, when you get there, you use it to help. Your ambition is generous: you want to grow so there's room for others. It's hard for you to recognise how big you already are."
+  }
+ },
+ "doubles": {
+  "Dragonite": {
+   "label": "Free greatness",
+   "text": "You want to go far, do it your way and help along the way: you go very far if someone needs you. Ambition and freedom together weigh. The risk is that independence gets confused with leaving."
+  },
+  "Charizard": {
+   "label": "Passion without ties",
+   "text": "You want to feel to the maximum and do it with nobody setting you limits. Your intensity and your independence reinforce each other. The risk is that pride leaves you alone at the top."
+  },
+  "Moltres": {
+   "label": "Pride that rises again",
+   "text": "You have passion and independence, and when you fall, you get back up your own way. Few people help you, because few know how to do it without hurting your pride."
+  },
+  "Poliwrath": {
+   "label": "Effort with calm",
+   "text": "You master what you feel through constancy. Your restraint is discipline and your discipline keeps you at peace. You rarely let the effort behind it show."
+  },
+  "Tentacool": {
+   "label": "Open heart, watchful eye",
+   "text": "You feel a lot and trust quite a bit, but with your guard at half height. The surroundings affect you and you watch them with gentle irony, without ceasing to get involved."
+  },
+  "Tentacruel": {
+   "label": "Shield with humour",
+   "text": "You hold back and distrust in measure. Your emotions and your irony protect each other. Whoever reaches you finds more warmth than they expected."
+  },
+  "Slowpoke": {
+   "label": "Calm without theory",
+   "text": "Emotions neither shake you nor do you care to turn them over. You live in the moment with a deep serenity. At times that serenity is, underneath, disconnection."
+  },
+  "Slowbro": {
+   "label": "Loaded serenity",
+   "text": "You carry what you feel calmly and without analysis. You accept what comes. Perhaps it would help to look at what you carry from a little more distance now and then."
+  },
+  "Starmie": {
+   "label": "Brilliant coldness",
+   "text": "You show little and think a lot. Your emotional world serves your intelligence. You shine more than you let on, and that keeps you safe and at a distance."
+  },
+  "Dewgong": {
+   "label": "Welcoming calm",
+   "text": "You flow with emotions and keep a kindly distance. You come close without intruding. Deciding how much to open up at each moment is what takes you the most work."
+  },
+  "Cloyster": {
+   "label": "Total closure",
+   "text": "Restraint and reserve at once: your privacy is doubly guarded. Reaching you is hard, and worth it. Maybe you'd benefit from one more door someone could open."
+  },
+  "Lapras": {
+   "label": "Open heart",
+   "text": "You feel with others and approach without fear. Your empathy and your closeness boost each other. Setting limits is what you still have to learn."
+  },
+  "Gyarados": {
+   "label": "Free storm",
+   "text": "Your emotions come out unbraked and your need for space is total. Nobody shuts you in, not even you. Your intensity is your strength and your risk."
+  },
+  "Omanyte": {
+   "label": "Soft memory",
+   "text": "You keep what you feel and are easily affected. You have few defences for what hurts. Your sensitivity is deep and quiet, and almost nobody finds out."
+  },
+  "Omastar": {
+   "label": "Fortress inside",
+   "text": "You hold in what you feel and endure without fanfare. Your calm was built over the years. What happens inside doesn't show outside, not even to those who know you best."
+  },
+  "Kabuto": {
+   "label": "Resisting in silence",
+   "text": "You keep quiet about what you feel and it affects you more than it seems. You survive without complaining. Talking about it would relieve you, and it's exactly what you least feel like doing."
+  },
+  "Kabutops": {
+   "label": "Resistant coldness",
+   "text": "There's little emotion outward and a lot of resistance inside. Your toughness is a learned decision. Asking for help is what's hardest for you."
+  },
+  "Zapdos": {
+   "label": "Sovereign storm",
+   "text": "Your energy arrives with force and at your own hour. You come and go without explaining. Keeping up with you is hard for almost everyone."
+  },
+  "Bulbasaur": {
+   "label": "Caring with faith",
+   "text": "You care generously and trust people. Your tenderness can be naive. You'd do well to learn to choose whom you care for, without losing faith."
+  },
+  "Ivysaur": {
+   "label": "Caring with learning",
+   "text": "You keep caring eagerly though you've already seen things. Your trust has matured, it hasn't gone away. You still believe in people, and that says a lot about you."
+  },
+  "Venusaur": {
+   "label": "Serene refuge",
+   "text": "You're shelter for many and you trust with judgement. Your generosity is broad and your judgement calm. You put up with a lot before closing off."
+  },
+  "Oddish": {
+   "label": "Naive tenderness",
+   "text": "You attend discreetly and think well of everyone. Your innocence makes people love you. Believing someone could let you down is hard for you."
+  },
+  "Gloom": {
+   "label": "Help with acidity",
+   "text": "You care your own way, with a critique along the way. Your affection has humour and a little roughness. Whoever learns to read it finds you among the most reliable."
+  },
+  "Vileplume": {
+   "label": "Generosity with spice",
+   "text": "You give a lot and dress it up with remarks. Your style is unique and sometimes confusing. Whoever gets it stays; whoever doesn't misses something good."
+  },
+  "Bellsprout": {
+   "label": "Flexible, optimistic attention",
+   "text": "You care flexibly and trust in the good. You adapt to the other person's needs. You often give way more than you should."
+  },
+  "Weepinbell": {
+   "label": "Patience with humour",
+   "text": "You wait, care just enough and drop a remark when the time comes. You like to see how things go before getting involved, and sometimes you arrive when the moment has passed."
+  },
+  "Victreebel": {
+   "label": "Voracious frankness",
+   "text": "You look after yourself first and say what you think with an edge. Your autonomy is very marked. Sincerity rarely goes hand in hand with closeness, and you know it."
+  },
+  "Paras": {
+   "label": "Shared closeness",
+   "text": "You care with attachment and change little. You get deeply involved in what you know. Letting go of what has ended is hard for you."
+  },
+  "Parasect": {
+   "label": "Attachment that dominates",
+   "text": "You care intensely and hold on to the familiar. Your affection is firm and not very flexible. Learning to let go is your pending task."
+  },
+  "Exeggcute": {
+   "label": "Care as a network",
+   "text": "You care better in a group and think with others. Your strength is the collective. Alone, knowing what you need becomes difficult."
+  },
+  "Exeggutor": {
+   "label": "Generosity with ideas",
+   "text": "You give from abundance and from ideas. You care with imagination. Your enthusiasm can overwhelm people who need calm."
+  },
+  "Jynx": {
+   "label": "Expressiveness with mind",
+   "text": "You communicate with great expressiveness and think out loud. Your closeness is theatrical and intelligent. It's hard to know what's behind it, and that's part of your appeal."
+  },
+  "Articuno": {
+   "label": "Absolute distance",
+   "text": "Reserve and independence at once: your space is sacred. Few people reach your height. The solitude you choose can weigh on you too."
+  },
+  "Weedle": {
+   "label": "Small irony",
+   "text": "You start new things with gentle irony. You're underestimated, and sometimes you use it. You change with humour, and that makes people take you less seriously than you deserve."
+  },
+  "Kakuna": {
+   "label": "Silence with wariness",
+   "text": "You wait, keep quiet and observe warily. Your stillness is preparation and defence. Your change will come when you decide, and not before."
+  },
+  "Beedrill": {
+   "label": "Change with aim",
+   "text": "You reinvent yourself to defend yourself and your irony protects you. You guard your space with quick retorts. You shed skins without losing your humour, and that unsettles whoever tries to predict your steps."
+  },
+  "Venonat": {
+   "label": "A curious, sceptical look",
+   "text": "You observe with interest and doubt at once. You change with prudence. You see what escapes others, and that sometimes leaves you with an uncomfortable truth."
+  },
+  "Venomoth": {
+   "label": "Versatile elegance",
+   "text": "You switch register smoothly and with a touch of irony. Your versatility has plenty of style. What lies beneath is often out of sight."
+  },
+  "Nidoqueen": {
+   "label": "Practical protection",
+   "text": "You protect with realism and measured irony. Your firmness isn't hardness. You quickly spot whoever tries to pull your leg."
+  },
+  "Nidoking": {
+   "label": "Pride with principles",
+   "text": "You show firmness, a touch of mockery and a few ideals. Your scepticism guards your sense of fairness. Giving way is hard, even when you'd have reasons."
+  },
+  "Zubat": {
+   "label": "Free shadow",
+   "text": "You observe with humour from outside and move discreetly. Your independence is nocturnal. You like watching without being watched, and that leaves you without witnesses to what you do well."
+  },
+  "Golbat": {
+   "label": "Autonomous instinct",
+   "text": "You see the trick and do what suits you. Your scepticism and your autonomy reinforce each other. Trusting and depending are your two big pending items."
+  },
+  "Gastly": {
+   "label": "A joke with a double bottom",
+   "text": "Your manner is sociable and you don't fully trust. Your humour works as bridge and shield. There's more darkness than you let show."
+  },
+  "Haunter": {
+   "label": "Mischief with intent",
+   "text": "Between the party and reserve, your humour is sharp. You enjoy making people uncomfortable without it showing. You choose well whom you show your shadow to."
+  },
+  "Gengar": {
+   "label": "Complete shadow",
+   "text": "Your inner world and your irony go hand in hand. You think in the dark and laugh at it. Few people reach you, and those who do adore you."
+  },
+  "Geodude": {
+   "label": "Practical toughness",
+   "text": "You endure and solve without frills. Your strength is the basics. Subtleties don't occupy you, and perhaps that's why some escape you."
+  },
+  "Graveler": {
+   "label": "Utilitarian endurance",
+   "text": "You carry what's called for and go for what's effective. Your endurance has a concrete purpose. The delicate makes you uneasy, and you avoid it more than you'd like to admit."
+  },
+  "Golem": {
+   "label": "Total firmness",
+   "text": "You keep your firmness and practical sense through anything. You are the fixed point of your surroundings. Your rigidity protects you and, at the same time, limits you."
+  },
+  "Onix": {
+   "label": "Firmness with vision",
+   "text": "You endure a lot and think long term. Your constancy is structure. Shifting your stance, even a little, takes patience and good arguments."
+  },
+  "Rhyhorn": {
+   "label": "Tenacious drive",
+   "text": "You go head-on and don't give way. Your drive is practical. Without a plan B, the collision with reality comes sooner than expected."
+  },
+  "Rhydon": {
+   "label": "Stubbornness with experience",
+   "text": "You open a path and endure. Your methods work, which is why they're hard to change, and the years have made them almost sacred. Asking for help isn't among your habits."
+  },
+  "Aerodactyl": {
+   "label": "Radical freedom",
+   "text": "You have fierceness, independence and a vulnerability you look after. Your autonomy is defence. Letting someone in would be hard for you, and would heal you."
+  },
+  "Butterfree": {
+   "label": "Transformed freedom",
+   "text": "You changed in order to be free. You live reinvention and movement as one thing. Staying in one place is almost impossible for you."
+  },
+  "Scyther": {
+   "label": "Autonomous precision",
+   "text": "Loyalty to your technique and your space. Your independence is style. It's hard to approach you without you noticing, and that keeps people at a distance."
+  },
+  "Pidgey": {
+   "label": "The small and close",
+   "text": "You enjoy the simple and the near, and your freedom is short. Your world is small and complete. Little horizon, much peace."
+  },
+  "Pidgeotto": {
+   "label": "Taking flight with humility",
+   "text": "You start looking further without leaving your simplicity. You discover you like space. You keep coming home, and that return does you good."
+  },
+  "Pidgeot": {
+   "label": "Free presence",
+   "text": "You have presence and carry your independence naturally. You enjoy being recognised and you don't tie yourself down. It's the balance of someone who knows how to come back."
+  },
+  "Spearow": {
+   "label": "Untamed character",
+   "text": "A lot of character in little space and little permission. You want respect and to be left to get on with it. Your freedom is a constant challenge."
+  },
+  "Fearow": {
+   "label": "Territory and presence",
+   "text": "You want space and to be seen ruling it. Your independence is a mark. Resting without watching over the territory is hard for you."
+  },
+  "Farfetch'd": {
+   "label": "A singular path",
+   "text": "You do things your way and own it with pride. Your singularity is chosen. Your oddness is your banner, and also your solitude."
+  },
+  "Doduo": {
+   "label": "Inseparable pair",
+   "text": "You enjoy the simple, in company. Your freedom is relative and shared. Going out with nobody beside you is your challenge."
+  },
+  "Dodrio": {
+   "label": "Speed as a team",
+   "text": "You run fast and in a group. Your independence is one of pace. All you lack is knowing where you'd go on your own, without the group setting the path."
+  }
+ }
+}

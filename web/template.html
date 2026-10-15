@@ -1,25 +1,30 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oráculo Pokémon</title>
+<title>Pokémon Oracle</title>
 <style>
   :root { --bg:#faf8f4; --fg:#222; --muted:#6b6b6b; --card:#fff; --line:#e4dfd6; --accent:#c0392b; }
   @media (prefers-color-scheme: dark) { :root { --bg:#17171a; --fg:#e8e6e1; --muted:#9a978f; --card:#222226; --line:#34343a; --accent:#ff6b5b; } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,sans-serif; }
   main { max-width:760px; margin:0 auto; padding:24px 16px 64px; }
+  header.top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
   h1 { margin:0 0 4px; font-size:1.8rem; } h2 { font-size:1.15rem; margin:28px 0 8px; }
   .muted { color:var(--muted); font-size:.9rem; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin:16px 0; }
-  .grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); }
+  .lang { display:flex; gap:4px; }
+  .lang button { padding:4px 10px; font-size:.85rem; }
+  .lang button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; margin:16px 0; }
   button.slot { display:flex; flex-direction:column; align-items:center; gap:2px; padding:10px 6px 8px; border-radius:10px; text-align:center; }
   button.slot:hover, button.opt:hover { border-color:var(--accent); }
   .slot .type { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
   .slot .pname, .opt .pname { font-size:.85rem; line-height:1.2; }
+  .slot.empty .pname { color:var(--muted); }
   .sprite { position:relative; width:96px; height:96px; border-radius:8px; background:linear-gradient(90deg,var(--line) 25%,transparent 50%,var(--line) 75%) var(--card); background-size:200% 100%; animation:shimmer 1.2s infinite linear; }
   .sprite.done { animation:none; background:none; }
+  .sprite.blank { animation:none; background:var(--line); display:flex; align-items:center; justify-content:center; font-size:2rem; color:var(--muted); }
   .sprite img { position:absolute; inset:0; width:100%; height:100%; image-rendering:pixelated; opacity:0; transition:opacity .2s; }
   .sprite.done img { opacity:1; }
   .sprite.fail { animation:none; background:var(--line); }
@@ -36,6 +41,7 @@
   .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
   button { font:inherit; padding:9px 16px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--fg); cursor:pointer; }
   button.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:10px 0; }
   .card p { margin:6px 0 0; }
   .arch { font-size:1.4rem; font-weight:700; margin:0 !important; }
@@ -43,7 +49,6 @@
   .dot { position:absolute; top:-3px; width:18px; height:18px; margin-left:-9px; border-radius:50%; background:var(--accent); }
   details > .card, details > summary { margin-top:8px; }
   .track { position:relative; height:12px; margin-top:4px; background:var(--line); border-radius:6px; }
-  .fill { position:absolute; top:0; bottom:0; left:0; background:var(--accent); border-radius:6px; }
   .mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--muted); }
   .poles { display:flex; justify-content:space-between; gap:12px; font-size:.8rem; color:var(--muted); }
   .entry b { display:block; } .entry small { color:var(--muted); }
@@ -55,37 +60,116 @@
 </head>
 <body>
 <main>
-  <h1>Oráculo Pokémon</h1>
-  <p class="muted">Elige tu Pokémon favorito de cada tipo de Kanto. Es un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Versión de pruebas: el catálogo es un borrador.</p>
+  <header class="top">
+    <h1 id="t-title"></h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-es" aria-pressed="false">ES</button>
+    </div>
+  </header>
+  <p class="muted" id="t-intro"></p>
   <div class="grid" id="slots"></div>
-  <dialog id="picker"><header><h3 id="picker-title"></h3><button id="picker-close" type="button">Cerrar</button></header><div class="opts" id="opts"></div></dialog>
+  <dialog id="picker"><header><h3 id="picker-title"></h3><button id="picker-close" type="button"></button></header><div class="opts" id="opts"></div></dialog>
   <div class="row">
-    <button class="primary" id="go">Esto dice de ti</button>
-    <button id="rand">Todo al azar</button>
-    <label class="muted"><input type="checkbox" id="std" checked> Normalizar ejes</label>
+    <button class="primary" id="go" disabled></button>
+    <span class="muted" id="count"></span>
   </div>
-  <p class="muted">Normalizar mide la intensidad de cada eje respecto a lo habitual en ese eje, no respecto al centro de la escala.</p>
+  <div class="row" id="debug-tools" hidden>
+    <button id="rand" type="button">Random (debug)</button>
+    <label class="muted"><input type="checkbox" id="std" checked> Normalize axes</label>
+  </div>
   <div id="out" hidden></div>
-  <footer class="muted legal">
-    <p>Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.</p>
-    <p>Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios.</p>
-    <p><a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Código y documentación en GitHub</a></p>
-  </footer>
+  <footer class="muted legal" id="legal"></footer>
 </main>
 <script type="module">
 /*DATA*/
 /*ENGINE*/
 
 const model = buildModel(DATA.axes, DATA.pokemon, DATA.catalog, DATA.tensions);
-const ax = Object.fromEntries(DATA.axes.map(a => [a.type, a]));
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // Regla de diseño: el resultado no asocia ningún texto a un Pokémon concreto ("proteger la magia").
 // Con #debug en la URL se muestran los Pokémon y el detalle del cálculo, solo para pruebas.
 const DEBUG = location.hash === '#debug';
-const KIND = { primary: 'principal', secondary: 'segundo tipo', double: 'doble selección' };
 
-// Sprites: solo se piden imágenes por URL a PokeAPI/sprites (no se llama a la API). Son ~1 KB cada una.
+// ---- Idiomas. Inglés por defecto; la elección se recuerda si el navegador deja guardarla.
+const UI = {
+  en: {
+    title: 'Pokémon Oracle',
+    intro: 'Choose your favourite Pokémon of each Kanto type. It is a game, not a validated psychological test: it uses personality vocabulary to give you a text you can recognise yourself in. Test version: the catalogue is a draft.',
+    type: t => `Your favourite ${t} Pokémon`,
+    close: 'Close',
+    go: 'This is what it says about you',
+    count: n => n < 15 ? `${n} of 15 chosen` : 'All 15 chosen',
+    choose: 'Choose',
+    change: 'Change',
+    profile: 'Your profile',
+    most: 'What says the most about you',
+    all: n => `See all the detail (${n} more)`,
+    tensions: 'Tensions',
+    noTension: 'Nothing worth mentioning.',
+    axes: 'The 15 axes',
+    dbl1: 'You picked the same Pokémon in two slots',
+    dblN: n => `You picked the same Pokémon in ${n} pairs of slots`,
+    dblTail: ', and that says something about you too.',
+    inner: a => `You move between two extremes in ${a}.`,
+    pattern: (ty, n, e) => `Many of your Pokémon have ${ty} as a second type (${n}; you would expect about ${e}).`,
+    legal: [
+      'Pokémon Oracle is a fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.',
+      'Pokémon images come from <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) and belong to their owners.',
+      '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Code and documentation on GitHub</a>',
+    ],
+    text: { connectors: ['At the same time,', 'Alongside that,', 'On top of that,', 'And meanwhile,'], joiner: 'with', deep: 'Deep down,' },
+  },
+  es: {
+    title: 'Oráculo Pokémon',
+    intro: 'Elige tu Pokémon favorito de cada tipo de Kanto. Es un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Versión de pruebas: el catálogo es un borrador.',
+    type: t => `Tu favorito de tipo ${t}`,
+    close: 'Cerrar',
+    go: 'Esto dice de ti',
+    count: n => n < 15 ? `${n} de 15 elegidos` : 'Los 15 elegidos',
+    choose: 'Elegir',
+    change: 'Cambiar',
+    profile: 'Tu perfil',
+    most: 'Lo que más dice de ti',
+    all: n => `Ver todo el detalle (${n} más)`,
+    tensions: 'Tensiones',
+    noTension: 'Ninguna destacable.',
+    axes: 'Los 15 ejes',
+    dbl1: 'Has repetido una elección en dos casillas',
+    dblN: n => `Has repetido ${n} elecciones en dos casillas`,
+    dblTail: ', y eso también dice algo de ti.',
+    inner: a => `Te mueves entre dos extremos en ${a}.`,
+    pattern: (ty, n, e) => `Muchos de tus Pokémon tienen ${ty} como segundo tipo (${n}; lo esperable serían ${e}).`,
+    legal: [
+      'Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.',
+      'Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios.',
+      '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Código y documentación en GitHub</a>',
+    ],
+    text: undefined, // el motor trae los conectores en español por defecto
+  },
+};
+// Contenido por idioma: tipos, ejes, polos, entradas del catálogo y textos de las tensiones.
+const content = {
+  en: {
+    type: t => DATA.en.types[t], axis: t => DATA.en.axes[t], poles: DATA.en.poles,
+    entry: c => c.kind === 'double' ? DATA.en.doubles[c.pokemon] : DATA.en.entries[c.pokemon + '|' + c.axis],
+    tension: i => DATA.en.tensions[i],
+  },
+  es: {
+    type: t => DATA.axes.find(a => a.type === t).typeName, axis: t => DATA.axes.find(a => a.type === t), poles: DATA.poles,
+    entry: c => c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon)
+      : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis),
+    tension: i => DATA.tensions[i].idea,
+  },
+};
+let lang = 'en';
+try { const s = localStorage.getItem('oracle-lang'); if (s === 'es' || s === 'en') lang = s; } catch (e) { /* sin almacenamiento */ }
+const ui = () => UI[lang];
+const C = () => content[lang];
+const KIND = { primary: 'primary', secondary: 'second type', double: 'double selection' };
+
+// ---- Sprites: solo se piden imágenes por URL a PokeAPI/sprites (no se llama a la API). Son ~1 KB cada una.
 // Primero CDN (jsDelivr) y, si falla, GitHub; si también falla, se queda el nombre sin imagen.
 const SPRITE = [id => `https://cdn.jsdelivr.net/gh/PokeAPI/sprites@master/sprites/pokemon/${id}.png`,
                 id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`];
@@ -106,19 +190,29 @@ function sprite(name, size) {
   return box;
 }
 
+// ---- Selectores
 const state = {};
 const slotBtn = {};
+const chosen = () => model.order.filter(t => state[t]).length;
 function paintSlot(t) {
   const b = slotBtn[t];
   b.replaceChildren();
-  const ty = document.createElement('span'); ty.className = 'type'; ty.textContent = ax[t].typeName;
-  const nm = document.createElement('span'); nm.className = 'pname'; nm.textContent = state[t];
-  b.append(ty, sprite(state[t]), nm);
-  b.setAttribute('aria-label', `${ax[t].typeName}: ${state[t]}. Cambiar`);
+  b.classList.toggle('empty', !state[t]);
+  const ty = document.createElement('span'); ty.className = 'type'; ty.textContent = C().type(t);
+  const nm = document.createElement('span'); nm.className = 'pname';
+  let sp;
+  if (state[t]) { nm.textContent = state[t]; sp = sprite(state[t]); }
+  else { nm.textContent = ui().choose; sp = document.createElement('span'); sp.className = 'sprite blank'; sp.textContent = '?'; }
+  b.append(ty, sp, nm);
+  b.setAttribute('aria-label', `${C().type(t)}: ${state[t] || ui().choose}`);
+}
+function paintStatus() {
+  $('go').disabled = chosen() < 15;
+  $('count').textContent = ui().count(chosen());
 }
 const picker = $('picker');
 function openPicker(t) {
-  $('picker-title').textContent = `Tu favorito de tipo ${ax[t].typeName}`;
+  $('picker-title').textContent = ui().type(C().type(t));
   const box = $('opts');
   box.replaceChildren();
   for (const p of model.lists[t]) {
@@ -127,7 +221,7 @@ function openPicker(t) {
     o.setAttribute('aria-pressed', String(p.name === state[t]));
     const nm = document.createElement('span'); nm.className = 'pname'; nm.textContent = p.name;
     o.append(sprite(p.name, 80), nm);
-    o.onclick = () => { state[t] = p.name; paintSlot(t); picker.close(); };
+    o.onclick = () => { state[t] = p.name; paintSlot(t); paintStatus(); picker.close(); };
     box.appendChild(o);
   }
   picker.showModal();
@@ -144,10 +238,6 @@ for (const t of model.order) {
   $('slots').appendChild(b);
 }
 
-function randomize() {
-  for (const t of model.order) { const l = model.lists[t]; state[t] = l[Math.floor(Math.random() * l.length)].name; paintSlot(t); }
-}
-
 // Precarga tranquila del resto de sprites cuando el navegador está libre, para que los selectores abran al instante.
 const idle = window.requestIdleCallback || (f => setTimeout(f, 800));
 function prefetch(names) {
@@ -157,49 +247,83 @@ function prefetch(names) {
 }
 idle(() => prefetch([...new Set(model.order.flatMap(t => model.lists[t].map(p => p.name)))]));
 
-function render() {
-  const sel = { ...state };
-  const r = computeResult(model, sel, { standardize: $('std').checked });
-  const at = archetypeText(DATA.poles, r.archetype);
-  let h = `<h2>Tu perfil</h2><div class="card"><p class="arch">${esc(at.title)}</p>`;
+// ---- Resultado
+let shown = false;
+function render(scroll) {
+  const r = computeResult(model, { ...state }, { standardize: $('std').checked });
+  const u = ui(), c = C();
+  const at = archetypeText(c.poles, r.archetype, u.text);
+  let h = `<h2>${esc(u.profile)}</h2><div class="card"><p class="arch">${esc(at.title)}</p>`;
   if (at.paragraph) h += `<p>${esc(at.paragraph)}</p>`;
   if (at.nuance) h += `<p>${esc(at.nuance)}</p>`;
   h += '</div>';
-  if (r.doubles.length) h += `<div class="card">${r.doubles.length === 1 ? 'Has repetido una elección en dos casillas' : 'Has repetido ' + r.doubles.length + ' elecciones en dos casillas'}, y eso también dice algo de ti.${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
-  const entryOf = c => c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon)
-    : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis);
-  const card = c => {
-    const e = entryOf(c);
-    const dbg = DEBUG ? `<small>${esc(c.pokemon)} · ${esc(ax[c.axis].name)} ${c.pos} · ${KIND[c.kind]} · relevancia ${c.score.toFixed(2)}</small>` : '';
+  if (r.doubles.length) h += `<div class="card">${esc(r.doubles.length === 1 ? u.dbl1 : u.dblN(r.doubles.length))}${esc(u.dblTail)}${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
+  const card = x => {
+    const e = c.entry(x);
+    const dbg = DEBUG ? `<small>${esc(x.pokemon)} · ${esc(c.axis(x.axis).name)} ${x.pos} · ${KIND[x.kind]} · relevance ${x.score.toFixed(2)}</small>` : '';
     return `<div class="card entry"><b>${esc(e.label)}</b>${dbg}<p>${esc(e.text)}</p></div>`;
   };
-  h += '<h2>Lo que más dice de ti</h2>';
-  for (const c of r.revealing) h += card(c);
-  const rest = r.scored.filter(c => !r.revealing.includes(c));
-  if (rest.length) h += `<details><summary class="muted">Ver todo el detalle (${rest.length} más)</summary>${rest.map(card).join('')}</details>`;
-  h += '<h2>Tensiones</h2>';
-  if (!r.tensions.length) h += '<p class="muted">Ninguna destacable.</p>';
-  for (const tn of r.tensions) h += `<div class="card">${tn.kind === 'axes' ? esc(tn.idea) : 'Te mueves entre dos extremos en ' + esc(ax[tn.axis].name) + '.'}</div>`;
-  if (r.pattern) h += `<div class="card">Muchos de tus Pokémon tienen ${esc(ax[r.pattern.type].typeName)} como segundo tipo (${r.pattern.observed}; lo esperable serían ${(r.pattern.observed - r.pattern.dev).toFixed(1)}).</div>`;
-  h += '<h2>Los 15 ejes</h2><div class="card">';
+  h += `<h2>${esc(u.most)}</h2>`;
+  for (const x of r.revealing) h += card(x);
+  const rest = r.scored.filter(x => !r.revealing.includes(x));
+  if (rest.length) h += `<details><summary class="muted">${esc(u.all(rest.length))}</summary>${rest.map(card).join('')}</details>`;
+  h += `<h2>${esc(u.tensions)}</h2>`;
+  if (!r.tensions.length) h += `<p class="muted">${esc(u.noTension)}</p>`;
+  for (const tn of r.tensions) h += `<div class="card">${esc(tn.kind === 'axes' ? c.tension(tn.index) : u.inner(c.axis(tn.axis).name))}</div>`;
+  if (r.pattern) h += `<div class="card">${esc(u.pattern(c.type(r.pattern.type), r.pattern.observed, (r.pattern.observed - r.pattern.dev).toFixed(1)))}</div>`;
+  h += `<h2>${esc(u.axes)}</h2><div class="card">`;
   for (const t of model.order) {
-    const v = r.profile[t];
-    h += `<div class="axis"><div class="poles"><span>${esc(ax[t].low)}</span><span>${esc(ax[t].high)}</span></div><div class="track"><div class="mid"></div><div class="dot" style="left:${v * 10}%"></div></div>${DEBUG ? `<div class="muted">${esc(ax[t].name)}: ${v.toFixed(1)}</div>` : ''}</div>`;
+    const v = r.profile[t], a = c.axis(t);
+    h += `<div class="axis"><div class="poles"><span>${esc(a.low)}</span><span>${esc(a.high)}</span></div><div class="track"><div class="mid"></div><div class="dot" style="left:${v * 10}%"></div></div>${DEBUG ? `<div class="muted">${esc(a.name)}: ${v.toFixed(1)}</div>` : ''}</div>`;
   }
   h += '</div>';
-  if (DEBUG) h += '<details open><summary class="muted">Detalle del cálculo</summary><div class="card"><table><tr><th>Eje</th><th>Pokémon</th><th>Origen</th><th>Pos.</th><th>Peso</th></tr>';
-  for (const c of DEBUG ? [...r.contribs].sort((x, y) => model.order.indexOf(x.axis) - model.order.indexOf(y.axis)) : []) {
-    h += `<tr><td>${esc(ax[c.axis].name)}</td><td>${esc(c.pokemon)}</td><td>${KIND[c.kind]}</td><td>${c.pos}</td><td>${c.w.toFixed(2)}</td></tr>`;
+  if (DEBUG) {
+    h += '<details open><summary class="muted">Calculation detail</summary><div class="card"><table><tr><th>Axis</th><th>Pokémon</th><th>Origin</th><th>Pos.</th><th>Weight</th></tr>';
+    for (const x of [...r.contribs].sort((p, q) => model.order.indexOf(p.axis) - model.order.indexOf(q.axis))) {
+      h += `<tr><td>${esc(c.axis(x.axis).name)}</td><td>${esc(x.pokemon)}</td><td>${KIND[x.kind]}</td><td>${x.pos}</td><td>${x.w.toFixed(2)}</td></tr>`;
+    }
+    h += '</table></div></details>';
   }
-  if (DEBUG) h += '</table></div></details>';
   $('out').innerHTML = h;
   $('out').hidden = false;
-  $('out').scrollIntoView({ behavior: 'smooth' });
+  shown = true;
+  if (scroll) $('out').scrollIntoView({ behavior: 'smooth' });
 }
 
-$('go').onclick = render;
-$('rand').onclick = () => { randomize(); render(); };
-randomize();
+// ---- Textos fijos y cambio de idioma
+function applyLang() {
+  const u = ui();
+  document.documentElement.lang = lang;
+  document.title = u.title;
+  $('t-title').textContent = u.title;
+  $('t-intro').textContent = u.intro;
+  $('go').textContent = u.go;
+  $('picker-close').textContent = u.close;
+  $('legal').innerHTML = u.legal.map(p => `<p>${p}</p>`).join('');
+  $('lang-en').setAttribute('aria-pressed', String(lang === 'en'));
+  $('lang-es').setAttribute('aria-pressed', String(lang === 'es'));
+  for (const t of model.order) paintSlot(t);
+  paintStatus();
+  if (shown) render(false);
+}
+function setLang(l) {
+  lang = l;
+  try { localStorage.setItem('oracle-lang', l); } catch (e) { /* sin almacenamiento */ }
+  if (picker.open) picker.close();
+  applyLang();
+}
+$('lang-en').onclick = () => setLang('en');
+$('lang-es').onclick = () => setLang('es');
+
+$('go').onclick = () => render(true);
+if (DEBUG) {
+  $('debug-tools').hidden = false;
+  $('rand').onclick = () => {
+    for (const t of model.order) { const l = model.lists[t]; state[t] = l[Math.floor(Math.random() * l.length)].name; }
+    applyLang(); render(true);
+  };
+}
+applyLang();
 </script>
 </body>
 </html>

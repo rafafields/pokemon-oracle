@@ -127,6 +127,57 @@ for c in rows(read('Frases de los polos.md')):
     poles[axis_by_name[c[0]]]['low' if c[1] == 'bajo' else 'high'] = {'title': c[2], 'tendency': c[3], 'shadow': c[4]}
 assert all(set(v) == {'low', 'high'} for v in poles.values()), 'faltan polos'
 dump('poles.json', poles)
+# --- traducción al inglés (docs/en)
+EN_TYPES = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison',
+            'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon']
+
+
+def read_en(name):
+    with open(os.path.join(DOCS, 'en', name), encoding='utf-8') as f:
+        return f.read()
+
+
+def sections(text):
+    """Filas de las tablas de cada sección '## ...' (lista de listas de celdas)."""
+    out, cur = {}, None
+    for line in text.splitlines():
+        if line.startswith('## '):
+            cur = line[3:].strip(); out[cur] = []
+        elif cur and line.startswith('|') and not line.startswith('|---'):
+            out[cur].append([c.strip() for c in line.strip().strip('|').split('|')])
+    return {k: [r for r in v if r[0] not in ('Type', 'Axis', 'Pokémon', '#')] for k, v in out.items()}
+
+
+en = {'types': {}, 'axes': {}, 'poles': {}, 'tensions': [], 'entries': {}, 'doubles': {}}
+sec = sections(read_en('Axes, poles and tensions.md'))
+for a, r in zip(axes, sec['Types and axes']):
+    assert r[0] == EN_TYPES[axes.index(a)], r
+    en['types'][a['type']] = r[0]
+    en['axes'][a['type']] = {'name': r[1], 'low': r[2], 'high': r[3]}
+en_axis = {v['name']: k for k, v in en['axes'].items()}
+for r in sec['Poles']:
+    en['poles'].setdefault(en_axis[r[0]], {})[r[1]] = {'title': r[2], 'tendency': r[3], 'shadow': r[4]}
+assert all(set(v) == {'low', 'high'} for v in en['poles'].values()) and len(en['poles']) == 15, 'faltan polos en inglés'
+en['tensions'] = [r[1] for r in sec['Tensions']]
+for a, tn in zip(axes, EN_TYPES):
+    body = read_en('Catalog, %s.md' % tn)
+    for line in body.splitlines():
+        if line.startswith('|') and not line.startswith('|---'):
+            c = [x.strip() for x in line.strip().strip('|').split('|')]
+            if c[0] == 'Pokémon':
+                continue
+            en['entries']['%s|%s' % (c[0], a['type'])] = {'label': c[1], 'text': c[2]}
+for line in read_en('Catalog, double selections.md').splitlines():
+    if line.startswith('|') and not line.startswith('|---'):
+        c = [x.strip() for x in line.strip().strip('|').split('|')]
+        if c[0] != 'Pokémon':
+            en['doubles'][c[0]] = {'label': c[1], 'text': c[2]}
+assert set(en['entries']) == {'%s|%s' % (e['pokemon'], e['type']) for e in entries}, (
+    sorted(set(en['entries']) ^ {'%s|%s' % (e['pokemon'], e['type']) for e in entries}))
+assert set(en['doubles']) == {d['pokemon'] for d in doubles}, 'dobles en inglés'
+assert len(en['tensions']) == 12
+dump('en.json', en)
+
 dump('axes.json', axes)
 dump('pokemon.json', sorted(pokemon.values(), key=lambda p: p['id']))
 dump('catalog.json', {'simple': entries, 'double': doubles})
