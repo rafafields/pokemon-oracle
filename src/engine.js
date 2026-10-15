@@ -12,6 +12,10 @@ export const DEFAULTS = {
   standardize: true,
   z: { flat: 0.5, third: 0.8, tension: 1.2 },
   calibrationSamples: 4000,
+  // 'profile': la popularidad pesa al promediar las posiciones de un eje (comportamiento inicial).
+  // 'dominance': el perfil no usa la popularidad; solo multiplica la intensidad del eje, es decir,
+  // decide qué ejes destacan. Así elegir a un Pokémon muy popular no diluye su propio eje.
+  popMode: 'profile',
 };
 
 export function buildModel(axes, pokemon, catalog, tensions, config = {}) {
@@ -78,19 +82,20 @@ export function computeResult(model, selection, opts = {}) {
   const doubles = [];
   const seenDouble = new Set();
   for (const { slot, p } of picks) {
-    const w = cfg.popWeight[p.popularity];
+    const pw = cfg.popWeight[p.popularity];
+    const w = cfg.popMode === 'dominance' ? 1 : pw;
     if (p.types.length === 2 && chosenIn.get(p.name).length === 2) {
       if (seenDouble.has(p.name)) continue;
       seenDouble.add(p.name);
       const d = double.get(p.name);
       doubles.push(d);
-      for (const t of p.types) contribs.push({ axis: t, pos: d.pos[t], w, pop: w, pokemon: p.name, kind: 'double' });
+      for (const t of p.types) contribs.push({ axis: t, pos: d.pos[t], w, pop: pw, pokemon: p.name, kind: 'double' });
       continue;
     }
-    contribs.push({ axis: slot, pos: simple.get(p.name + '|' + slot).pos, w, pop: w, pokemon: p.name, kind: 'primary' });
+    contribs.push({ axis: slot, pos: simple.get(p.name + '|' + slot).pos, w, pop: pw, pokemon: p.name, kind: 'primary' });
     if (p.types.length === 2) {
       const u = other(p, slot);
-      contribs.push({ axis: u, pos: simple.get(p.name + '|' + u).pos, w: w * sec[u], pop: w, pokemon: p.name, kind: 'secondary' });
+      contribs.push({ axis: u, pos: simple.get(p.name + '|' + u).pos, w: w * sec[u], pop: pw, pokemon: p.name, kind: 'secondary' });
     }
   }
 
@@ -105,10 +110,16 @@ export function computeResult(model, selection, opts = {}) {
   // desviaciones típicas respecto a la media del eje, y solo cuenta si va en la dirección del polo.
   const dist = t => (std ? (profile[t] - model.stats[t].mean) / model.stats[t].sd : profile[t] - 5);
   const pole = t => (profile[t] >= 5 ? 'high' : 'low');
-  const intensity = t => {
+  const popAxis = {};
+  for (const t of order) {
+    const cs = contribs.filter(c => c.axis === t && c.kind !== 'secondary');
+    popAxis[t] = cs.reduce((s, c) => s + c.pop, 0) / cs.length;
+  }
+  const baseIntensity = t => {
     const d = dist(t);
     return std && (d >= 0) !== (pole(t) === 'high') ? 0 : Math.abs(d);
   };
+  const intensity = t => baseIntensity(t) * (cfg.popMode === 'dominance' ? popAxis[t] : 1);
   const th = std ? cfg.z : { flat: cfg.flatThreshold, third: cfg.thirdAxisThreshold, tension: cfg.tensionPole };
   const ranked = [...order].sort((a, b) => intensity(b) - intensity(a) || order.indexOf(a) - order.indexOf(b));
   const flat = intensity(ranked[0]) < th.flat;
@@ -142,7 +153,7 @@ export function computeResult(model, selection, opts = {}) {
 
   // Entradas ordenadas por relevancia: peso de popularidad × intensidad de su eje.
   // Las 3 más relevantes (revealing) salen solo de contribuciones completas (principal o doble), no de las de segundo tipo.
-  const scored = contribs.map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
+  const scored = contribs.map(c => ({ ...c, score: (cfg.popMode === 'dominance' ? 1 : c.pop) * intensity(c.axis) }))
     .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis) || (a.kind === 'secondary') - (b.kind === 'secondary'));
   const revealing = scored.filter(c => c.kind !== 'secondary').slice(0, 3);
 
