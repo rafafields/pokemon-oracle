@@ -44,8 +44,8 @@ Todo está en español.
 | [Motor de perfil](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md) | Cálculo del perfil, arquetipos y tensiones |
 | [Guía de voz](docs/Gu%C3%ADa%20de%20voz%20y%20estructura%20del%20cat%C3%A1logo.md) | Cómo se escriben las entradas |
 
-## Aviso
+## Aviso y atribuciones
 
-Las imágenes de los Pokémon no se incluyen en el repositorio: la página las carga desde [PokeAPI/sprites](https://github.com/PokeAPI/sprites) y pertenecen a sus propietarios.
+Proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.
 
-Proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y sus nombres son marcas de sus propietarios.
+Las imágenes de los Pokémon no se incluyen en el repositorio: la página las carga desde [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (proyecto [PokeAPI](https://pokeapi.co)) y pertenecen a sus propietarios.

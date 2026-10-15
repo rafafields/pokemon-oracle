@@ -48,6 +48,8 @@
   .poles { display:flex; justify-content:space-between; gap:12px; font-size:.8rem; color:var(--muted); }
   .entry b { display:block; } .entry small { color:var(--muted); }
   table { border-collapse:collapse; width:100%; font-size:.85rem; } td,th { text-align:left; padding:3px 6px; border-bottom:1px solid var(--line); }
+  .legal { margin-top:48px; padding-top:16px; border-top:1px solid var(--line); font-size:.8rem; }
+  .legal a { color:inherit; }
   [hidden] { display:none !important; }
 </style>
 </head>
@@ -64,6 +66,11 @@
   </div>
   <p class="muted">Normalizar mide la intensidad de cada eje respecto a lo habitual en ese eje, no respecto al centro de la escala.</p>
   <div id="out" hidden></div>
+  <footer class="muted legal">
+    <p>Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+    <p>Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios.</p>
+    <p><a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Código y documentación en GitHub</a></p>
+  </footer>
 </main>
 <script type="module">
 /*DATA*/
