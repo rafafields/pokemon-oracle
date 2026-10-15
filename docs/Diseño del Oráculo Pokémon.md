@@ -22,6 +22,10 @@ Flujo: el usuario elige con selectores su Pokémon favorito de cada tipo, pulsa 
 6. **Tipo secundario.** Un dual aporta también a su segundo eje, con un peso corregido por lo que se desvía tu selección de lo esperable. Veneno, que es secundario en muchos Pokémon de Kanto, pesa poco; Volador pesa más. Un solo mecanismo.
 7. **Peso por rareza.** Las elecciones populares (Charizard) aportan poco; las poco habituales aportan más. Es lo que da la sensación de que el oráculo "te ha leído".
 
+## Regla de la interfaz: proteger la magia
+
+El resultado **nunca asocia un texto ni un valor a un Pokémon concreto**: no se dice "tu Golem dice que…". El texto habla de la persona, y quien juega no debe poder trazar qué elección produjo cada frase. Por eso el resultado no muestra nombres de Pokémon, ni sus posiciones en el eje, y la doble selección se comenta sin nombrar al Pokémon. Para pruebas existe `web/index.html#debug`, que sí los muestra junto con el detalle del cálculo.
+
 ## Riesgos conocidos
 
 | Riesgo | Detalle | Tratamiento |

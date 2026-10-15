@@ -197,6 +197,9 @@ const model = buildModel(DATA.axes, DATA.pokemon, DATA.catalog, DATA.tensions);
 const ax = Object.fromEntries(DATA.axes.map(a => [a.type, a]));
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// Regla de diseño: el resultado no asocia ningún texto a un Pokémon concreto ("proteger la magia").
+// Con #debug en la URL se muestran los Pokémon y el detalle del cálculo, solo para pruebas.
+const DEBUG = location.hash === '#debug';
 const KIND = { primary: 'principal', secondary: 'segundo tipo', double: 'doble selección' };
 
 for (const t of model.order) {
@@ -219,11 +222,11 @@ function render() {
   h += `<p class="arch">${a.poles ? esc(poleName(a.poles[0])) + ' con ' + esc(poleName(a.poles[1])) : 'Equilibrio'}</p>`;
   if (a.third) h += `<p class="muted">Matiz: ${esc(poleName(a.third))}</p>`;
   h += '<p class="muted">Texto provisional: aún no están escritas las frases de cada polo.</p></div>';
-  if (r.doubles.length) h += `<div class="card">Has elegido a <b>${r.doubles.map(esc).join(', ')}</b> en dos casillas. Eso cuenta con una entrada propia.</div>`;
+  if (r.doubles.length) h += `<div class="card">${r.doubles.length === 1 ? 'Has repetido una elección en dos casillas' : 'Has repetido ' + r.doubles.length + ' elecciones en dos casillas'}, y eso también dice algo de ti.${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
   h += '<h2>Lo que más dice de ti</h2>';
   for (const c of r.revealing) {
     const e = c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon) : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis);
-    h += `<div class="card entry"><b>${esc(e.label)}</b><small>${esc(c.pokemon)} · ${esc(ax[c.axis].name)} ${c.pos}${c.kind === 'double' ? ' (doble selección)' : ''}</small><p>${esc(e.text)}</p></div>`;
+    h += `<div class="card entry"><b>${esc(e.label)}</b><small>${esc(ax[c.axis].name)}${DEBUG ? ' · ' + esc(c.pokemon) + ' ' + c.pos + (c.kind === 'double' ? ' (doble)' : '') : ''}</small><p>${esc(e.text)}</p></div>`;
   }
   h += '<h2>Tensiones</h2>';
   if (!r.tensions.length) h += '<p class="muted">Ninguna destacable.</p>';
@@ -234,11 +237,12 @@ function render() {
     const v = r.profile[t];
     h += `<div class="axis"><span>${esc(ax[t].name)}</span><div><div class="track"><div class="fill" style="width:${v * 10}%"></div><div class="mid"></div></div><div class="poles"><span>${esc(ax[t].low)}</span><span>${esc(ax[t].high)}</span></div></div><span>${v.toFixed(1)}</span></div>`;
   }
-  h += '</div><details><summary class="muted">Detalle del cálculo</summary><div class="card"><table><tr><th>Eje</th><th>Pokémon</th><th>Origen</th><th>Pos.</th><th>Peso</th></tr>';
-  for (const c of [...r.contribs].sort((x, y) => model.order.indexOf(x.axis) - model.order.indexOf(y.axis))) {
+  h += '</div>';
+  if (DEBUG) h += '<details open><summary class="muted">Detalle del cálculo</summary><div class="card"><table><tr><th>Eje</th><th>Pokémon</th><th>Origen</th><th>Pos.</th><th>Peso</th></tr>';
+  for (const c of DEBUG ? [...r.contribs].sort((x, y) => model.order.indexOf(x.axis) - model.order.indexOf(y.axis)) : []) {
     h += `<tr><td>${esc(ax[c.axis].name)}</td><td>${esc(c.pokemon)}</td><td>${KIND[c.kind]}</td><td>${c.pos}</td><td>${c.w.toFixed(2)}</td></tr>`;
   }
-  h += '</table></div></details>';
+  if (DEBUG) h += '</table></div></details>';
   $('out').innerHTML = h;
   $('out').hidden = false;
   $('out').scrollIntoView({ behavior: 'smooth' });
