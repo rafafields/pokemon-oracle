@@ -13,9 +13,26 @@
   h1 { margin:0 0 4px; font-size:1.8rem; } h2 { font-size:1.15rem; margin:28px 0 8px; }
   .muted { color:var(--muted); font-size:.9rem; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin:16px 0; }
-  label.slot { display:block; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
-  label.slot span { display:block; font-size:.8rem; color:var(--muted); }
-  select { width:100%; margin-top:2px; font:inherit; padding:4px; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:6px; }
+  .grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); }
+  button.slot { display:flex; flex-direction:column; align-items:center; gap:2px; padding:10px 6px 8px; border-radius:10px; text-align:center; }
+  button.slot:hover, button.opt:hover { border-color:var(--accent); }
+  .slot .type { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  .slot .pname, .opt .pname { font-size:.85rem; line-height:1.2; }
+  .sprite { position:relative; width:96px; height:96px; border-radius:8px; background:linear-gradient(90deg,var(--line) 25%,transparent 50%,var(--line) 75%) var(--card); background-size:200% 100%; animation:shimmer 1.2s infinite linear; }
+  .sprite.done { animation:none; background:none; }
+  .sprite img { position:absolute; inset:0; width:100%; height:100%; image-rendering:pixelated; opacity:0; transition:opacity .2s; }
+  .sprite.done img { opacity:1; }
+  .sprite.fail { animation:none; background:var(--line); }
+  @keyframes shimmer { to { background-position:-200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .sprite { animation:none; } }
+  dialog { width:min(720px,96vw); max-height:88vh; padding:0; border:1px solid var(--line); border-radius:12px; background:var(--bg); color:var(--fg); }
+  dialog::backdrop { background:rgba(0,0,0,.5); }
+  dialog header { position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--line); z-index:1; }
+  dialog h3 { margin:0; font-size:1.05rem; }
+  .opts { display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:8px; padding:12px 16px 16px; }
+  button.opt { display:flex; flex-direction:column; align-items:center; gap:2px; padding:6px 4px; }
+  button.opt[aria-pressed="true"] { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent); }
+  button.opt .sprite { width:80px; height:80px; }
   .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
   button { font:inherit; padding:9px 16px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--fg); cursor:pointer; }
   button.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
@@ -39,6 +56,7 @@
   <h1>Oráculo Pokémon</h1>
   <p class="muted">Elige tu Pokémon favorito de cada tipo de Kanto. Es un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Versión de pruebas: el catálogo es un borrador.</p>
   <div class="grid" id="slots"></div>
+  <dialog id="picker"><header><h3 id="picker-title"></h3><button id="picker-close" type="button">Cerrar</button></header><div class="opts" id="opts"></div></dialog>
   <div class="row">
     <button class="primary" id="go">Esto dice de ti</button>
     <button id="rand">Todo al azar</button>
@@ -238,19 +256,80 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const DEBUG = location.hash === '#debug';
 const KIND = { primary: 'principal', secondary: 'segundo tipo', double: 'doble selección' };
 
+// Sprites: solo se piden imágenes por URL a PokeAPI/sprites (no se llama a la API). Son ~1 KB cada una.
+// Primero CDN (jsDelivr) y, si falla, GitHub; si también falla, se queda el nombre sin imagen.
+const SPRITE = [id => `https://cdn.jsdelivr.net/gh/PokeAPI/sprites@master/sprites/pokemon/${id}.png`,
+                id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`];
+const idOf = Object.fromEntries(DATA.pokemon.map(p => [p.name, p.id]));
+function sprite(name, size) {
+  const box = document.createElement('span');
+  box.className = 'sprite';
+  if (size) { box.style.width = box.style.height = size + 'px'; }
+  const img = document.createElement('img');
+  img.alt = '';
+  img.decoding = 'async';
+  img.loading = 'lazy';
+  let k = 0;
+  img.onload = () => box.classList.add('done');
+  img.onerror = () => { if (++k < SPRITE.length) img.src = SPRITE[k](idOf[name]); else box.classList.add('fail'); };
+  img.src = SPRITE[0](idOf[name]);
+  box.appendChild(img);
+  return box;
+}
+
+const state = {};
+const slotBtn = {};
+function paintSlot(t) {
+  const b = slotBtn[t];
+  b.replaceChildren();
+  const ty = document.createElement('span'); ty.className = 'type'; ty.textContent = ax[t].typeName;
+  const nm = document.createElement('span'); nm.className = 'pname'; nm.textContent = state[t];
+  b.append(ty, sprite(state[t]), nm);
+  b.setAttribute('aria-label', `${ax[t].typeName}: ${state[t]}. Cambiar`);
+}
+const picker = $('picker');
+function openPicker(t) {
+  $('picker-title').textContent = `Tu favorito de tipo ${ax[t].typeName}`;
+  const box = $('opts');
+  box.replaceChildren();
+  for (const p of model.lists[t]) {
+    const o = document.createElement('button');
+    o.type = 'button'; o.className = 'opt';
+    o.setAttribute('aria-pressed', String(p.name === state[t]));
+    const nm = document.createElement('span'); nm.className = 'pname'; nm.textContent = p.name;
+    o.append(sprite(p.name, 80), nm);
+    o.onclick = () => { state[t] = p.name; paintSlot(t); picker.close(); };
+    box.appendChild(o);
+  }
+  picker.showModal();
+  box.querySelector('[aria-pressed="true"]')?.scrollIntoView({ block: 'center' });
+}
+$('picker-close').onclick = () => picker.close();
+picker.addEventListener('click', e => { if (e.target === picker) picker.close(); });
+
 for (const t of model.order) {
-  const l = document.createElement('label');
-  l.className = 'slot';
-  l.innerHTML = `<span>${esc(ax[t].typeName)}</span><select id="s-${t}">${model.lists[t].map(p => `<option>${esc(p.name)}</option>`).join('')}</select>`;
-  $('slots').appendChild(l);
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'slot';
+  b.onclick = () => openPicker(t);
+  slotBtn[t] = b;
+  $('slots').appendChild(b);
 }
 
 function randomize() {
-  for (const t of model.order) { const l = model.lists[t]; $('s-' + t).value = l[Math.floor(Math.random() * l.length)].name; }
+  for (const t of model.order) { const l = model.lists[t]; state[t] = l[Math.floor(Math.random() * l.length)].name; paintSlot(t); }
 }
 
+// Precarga tranquila del resto de sprites cuando el navegador está libre, para que los selectores abran al instante.
+const idle = window.requestIdleCallback || (f => setTimeout(f, 800));
+function prefetch(names) {
+  const batch = names.splice(0, 12);
+  for (const n of batch) new Image().src = SPRITE[0](idOf[n]);
+  if (names.length) idle(() => prefetch(names));
+}
+idle(() => prefetch([...new Set(model.order.flatMap(t => model.lists[t].map(p => p.name)))]));
+
 function render() {
-  const sel = Object.fromEntries(model.order.map(t => [t, $('s-' + t).value]));
+  const sel = { ...state };
   const r = computeResult(model, sel, { standardize: $('std').checked });
   const at = archetypeText(DATA.poles, r.archetype);
   let h = `<h2>Tu perfil</h2><div class="card"><p class="arch">${esc(at.title)}</p>`;

@@ -46,4 +46,6 @@ Todo está en español.
 
 ## Aviso
 
+Las imágenes de los Pokémon no se incluyen en el repositorio: la página las carga desde [PokeAPI/sprites](https://github.com/PokeAPI/sprites) y pertenecen a sus propietarios.
+
 Proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y sus nombres son marcas de sus propietarios.
