@@ -22,11 +22,13 @@
   .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:10px 0; }
   .card p { margin:6px 0 0; }
   .arch { font-size:1.4rem; font-weight:700; margin:0 !important; }
-  .axis { display:grid; grid-template-columns:110px 1fr 36px; gap:8px; align-items:center; margin:6px 0; font-size:.9rem; }
-  .track { position:relative; height:12px; background:var(--line); border-radius:6px; }
+  .axis { margin:12px 0; }
+  .dot { position:absolute; top:-3px; width:18px; height:18px; margin-left:-9px; border-radius:50%; background:var(--accent); }
+  details > .card, details > summary { margin-top:8px; }
+  .track { position:relative; height:12px; margin-top:4px; background:var(--line); border-radius:6px; }
   .fill { position:absolute; top:0; bottom:0; left:0; background:var(--accent); border-radius:6px; }
   .mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--muted); }
-  .poles { display:flex; justify-content:space-between; font-size:.7rem; color:var(--muted); }
+  .poles { display:flex; justify-content:space-between; gap:12px; font-size:.8rem; color:var(--muted); }
   .entry b { display:block; } .entry small { color:var(--muted); }
   table { border-collapse:collapse; width:100%; font-size:.85rem; } td,th { text-align:left; padding:3px 6px; border-bottom:1px solid var(--line); }
   [hidden] { display:none !important; }
@@ -184,12 +186,13 @@ export function computeResult(model, selection, opts = {}) {
     .sort((a, b) => dev[b] - dev[a] || order.indexOf(a) - order.indexOf(b));
   const pattern = cand.length ? { type: cand[0], observed: observed[cand[0]], dev: dev[cand[0]] } : null;
 
-  // Entradas reveladoras: mayor peso de popularidad × intensidad del eje, solo contribuciones completas.
-  const revealing = contribs.filter(c => c.kind !== 'secondary')
-    .map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
-    .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis)).slice(0, 3);
+  // Entradas ordenadas por relevancia: peso de popularidad × intensidad de su eje.
+  // Las 3 más relevantes (revealing) salen solo de contribuciones completas (principal o doble), no de las de segundo tipo.
+  const scored = contribs.map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
+    .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis) || (a.kind === 'secondary') - (b.kind === 'secondary'));
+  const revealing = scored.filter(c => c.kind !== 'secondary').slice(0, 3);
 
-  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, observed, dev, sec, contribs };
+  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, scored, observed, dev, sec, contribs };
 }
 
 const CONNECTORS = ['Al mismo tiempo,', 'Y a la vez', 'A eso se suma que', 'Junto a eso,'];
@@ -222,7 +225,7 @@ const KIND = { primary: 'principal', secondary: 'segundo tipo', double: 'doble s
 for (const t of model.order) {
   const l = document.createElement('label');
   l.className = 'slot';
-  l.innerHTML = `<span>${esc(ax[t].typeName)} · ${esc(ax[t].name)}</span><select id="s-${t}">${model.lists[t].map(p => `<option>${esc(p.name)}</option>`).join('')}</select>`;
+  l.innerHTML = `<span>${esc(ax[t].typeName)}</span><select id="s-${t}">${model.lists[t].map(p => `<option>${esc(p.name)}</option>`).join('')}</select>`;
   $('slots').appendChild(l);
 }
 
@@ -239,11 +242,17 @@ function render() {
   if (at.nuance) h += `<p>${esc(at.nuance)}</p>`;
   h += '</div>';
   if (r.doubles.length) h += `<div class="card">${r.doubles.length === 1 ? 'Has repetido una elección en dos casillas' : 'Has repetido ' + r.doubles.length + ' elecciones en dos casillas'}, y eso también dice algo de ti.${DEBUG ? ' <span class="muted">[' + r.doubles.map(esc).join(', ') + ']</span>' : ''}</div>`;
+  const entryOf = c => c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon)
+    : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis);
+  const card = c => {
+    const e = entryOf(c);
+    const dbg = DEBUG ? `<small>${esc(c.pokemon)} · ${esc(ax[c.axis].name)} ${c.pos} · ${KIND[c.kind]} · relevancia ${c.score.toFixed(2)}</small>` : '';
+    return `<div class="card entry"><b>${esc(e.label)}</b>${dbg}<p>${esc(e.text)}</p></div>`;
+  };
   h += '<h2>Lo que más dice de ti</h2>';
-  for (const c of r.revealing) {
-    const e = c.kind === 'double' ? DATA.catalog.double.find(d => d.pokemon === c.pokemon) : DATA.catalog.simple.find(x => x.pokemon === c.pokemon && x.type === c.axis);
-    h += `<div class="card entry"><b>${esc(e.label)}</b><small>${esc(ax[c.axis].name)}${DEBUG ? ' · ' + esc(c.pokemon) + ' ' + c.pos + (c.kind === 'double' ? ' (doble)' : '') : ''}</small><p>${esc(e.text)}</p></div>`;
-  }
+  for (const c of r.revealing) h += card(c);
+  const rest = r.scored.filter(c => !r.revealing.includes(c));
+  if (rest.length) h += `<details><summary class="muted">Ver todo el detalle (${rest.length} más)</summary>${rest.map(card).join('')}</details>`;
   h += '<h2>Tensiones</h2>';
   if (!r.tensions.length) h += '<p class="muted">Ninguna destacable.</p>';
   for (const tn of r.tensions) h += `<div class="card">${tn.kind === 'axes' ? esc(tn.idea) : 'Te mueves entre dos extremos en ' + esc(ax[tn.axis].name) + '.'}</div>`;
@@ -251,7 +260,7 @@ function render() {
   h += '<h2>Los 15 ejes</h2><div class="card">';
   for (const t of model.order) {
     const v = r.profile[t];
-    h += `<div class="axis"><span>${esc(ax[t].name)}</span><div><div class="track"><div class="fill" style="width:${v * 10}%"></div><div class="mid"></div></div><div class="poles"><span>${esc(ax[t].low)}</span><span>${esc(ax[t].high)}</span></div></div><span>${v.toFixed(1)}</span></div>`;
+    h += `<div class="axis"><div class="poles"><span>${esc(ax[t].low)}</span><span>${esc(ax[t].high)}</span></div><div class="track"><div class="mid"></div><div class="dot" style="left:${v * 10}%"></div></div>${DEBUG ? `<div class="muted">${esc(ax[t].name)}: ${v.toFixed(1)}</div>` : ''}</div>`;
   }
   h += '</div>';
   if (DEBUG) h += '<details open><summary class="muted">Detalle del cálculo</summary><div class="card"><table><tr><th>Eje</th><th>Pokémon</th><th>Origen</th><th>Pos.</th><th>Peso</th></tr>';

@@ -135,12 +135,13 @@ export function computeResult(model, selection, opts = {}) {
     .sort((a, b) => dev[b] - dev[a] || order.indexOf(a) - order.indexOf(b));
   const pattern = cand.length ? { type: cand[0], observed: observed[cand[0]], dev: dev[cand[0]] } : null;
 
-  // Entradas reveladoras: mayor peso de popularidad × intensidad del eje, solo contribuciones completas.
-  const revealing = contribs.filter(c => c.kind !== 'secondary')
-    .map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
-    .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis)).slice(0, 3);
+  // Entradas ordenadas por relevancia: peso de popularidad × intensidad de su eje.
+  // Las 3 más relevantes (revealing) salen solo de contribuciones completas (principal o doble), no de las de segundo tipo.
+  const scored = contribs.map(c => ({ ...c, score: c.pop * intensity(c.axis) }))
+    .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis) || (a.kind === 'secondary') - (b.kind === 'secondary'));
+  const revealing = scored.filter(c => c.kind !== 'secondary').slice(0, 3);
 
-  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, observed, dev, sec, contribs };
+  return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, scored, observed, dev, sec, contribs };
 }
 
 const CONNECTORS = ['Al mismo tiempo,', 'Y a la vez', 'A eso se suma que', 'Junto a eso,'];
