@@ -38,7 +38,7 @@ Tres causas, y solo una es de candidatos:
 
 **No lo recomiendo para ningún eje.** El diagnóstico lo descarta: Fuego, Eléctrico y Roca llegan a los dos polos con 97–100 %, y los cuatro polos débiles no se arreglan cambiando el significado del eje, sino con la causa 1 o la 2.
 
-La única duda es **Tierra (Idealismo ↔ Pragmatismo)**, por tener pocos idealistas. Reorientarlo (por ejemplo, a "Desapego ↔ Apego a lo material") cambiaría las 14 entradas del tipo, y con la reubicación de la sección 4 llega al 98 %. No compensa.
+La única duda es **Tierra (Idealismo ↔ Pragmatismo)**, por tener pocos idealistas. Reorientarlo (por ejemplo, a "Desapego ↔ Apego a lo material") cambiaría las 14 entradas del tipo para ganar un polo bajo que ya se alcanza el 82 % de las veces. No compensa.
 
 ## 4. C: recolocar o reescribir candidatos
 
