@@ -155,6 +155,10 @@ export function computeResult(model, selection, opts = {}) {
   // Las 3 más relevantes (revealing) salen solo de contribuciones completas (principal o doble), no de las de segundo tipo.
   const scored = contribs.map(c => ({ ...c, score: (cfg.popMode === 'dominance' ? 1 : c.pop) * intensity(c.axis) }))
     .sort((a, b) => b.score - a.score || order.indexOf(a.axis) - order.indexOf(b.axis) || (a.kind === 'secondary') - (b.kind === 'secondary'));
+  // Una entrada de doble selección aporta a dos ejes pero es un solo texto: se queda con su contribución más relevante.
+  const seen = new Set();
+  const unique = scored.filter(c => c.kind !== 'double' || (seen.has(c.pokemon) ? false : seen.add(c.pokemon)));
+  scored.length = 0; scored.push(...unique);
   const revealing = scored.filter(c => c.kind !== 'secondary').slice(0, 3);
 
   return { profile, ranked, archetype, tensions, pattern, doubles: doubles.map(d => d.pokemon), revealing, scored, observed, dev, sec, contribs };
