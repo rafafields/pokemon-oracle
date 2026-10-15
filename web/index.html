@@ -28,7 +28,7 @@
 
   /* Pixel UI: bordes escalonados con box-shadow, sin esquinas redondeadas */
   button { font-family:var(--display); font-weight:700; letter-spacing:.05em; font-size:.8rem; border:0; border-radius:0; cursor:pointer;
-    padding:12px 18px; margin:4px; color:var(--fg); background:var(--surface2);
+    padding:12px 18px 16px; line-height:1.2; margin:4px; color:var(--fg); background:var(--surface2);
     box-shadow:0 -4px 0 0 var(--edge), 0 4px 0 0 var(--edge), -4px 0 0 0 var(--edge), 4px 0 0 0 var(--edge),
                inset -4px -4px 0 0 rgba(0,0,0,.4), inset 4px 4px 0 0 rgba(255,255,255,.12); }
   button:hover { background:var(--accent-lo); }
@@ -54,7 +54,7 @@
   @keyframes twinkle { 50% { opacity:.35; } }
   @media (prefers-reduced-motion: reduce) { .stars { animation:none; } }
   .lang { position:absolute; top:16px; right:16px; display:flex; }
-  .lang button { padding:8px 12px; font-size:.7rem; }
+  .lang button { padding:8px 12px 11px; font-size:.7rem; }
   .lang button[aria-pressed="true"] { background:var(--accent); color:#fff; }
   .hero h1 { font-size:clamp(2.2rem, 9vw, 4.5rem); line-height:1.05; margin:0 0 20px; color:#fff; text-shadow:0 0 24px rgba(167,139,250,.75), 4px 4px 0 #3a1d7a; }
   .tagline { font-family:var(--display); font-size:clamp(.85rem, 2.6vw, 1.15rem); color:var(--glow); margin:0 0 18px; text-transform:uppercase; letter-spacing:.08em; }
@@ -64,7 +64,10 @@
   @media (prefers-reduced-motion: reduce) { .scroll-hint { animation:none; } }
 
   main { max-width:980px; margin:0 auto; padding:56px 16px 64px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:18px 14px; margin:18px 0 26px; }
+  .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:18px 14px; margin:18px 0 26px; }
+  @media (max-width:820px) { .grid { grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:520px) { .grid { grid-template-columns:repeat(2,1fr); } }
+  #t-pick { text-align:center; }
   button.slot { display:flex; flex-direction:column; align-items:center; gap:4px; padding:12px 6px 10px; margin:4px; text-align:center; font-family:var(--text); font-weight:500; letter-spacing:0; }
   button.slot:hover, button.opt:hover { background:var(--accent-lo); }
   .slot .type { font-family:var(--display); font-size:.68rem; color:var(--glow); text-transform:uppercase; letter-spacing:.08em; }
@@ -89,7 +92,7 @@
   button.opt .sprite { width:80px; height:80px; }
   .row { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
   .go-row { display:flex; flex-direction:column; align-items:center; gap:10px; margin:30px 0 8px; }
-  .go-row button { padding:16px 28px; font-size:.95rem; }
+  .go-row button { padding:16px 28px 20px; font-size:.95rem; }
   .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px 18px; margin:16px 0; }
   .cards .card { margin:4px; display:flex; flex-direction:column; gap:8px; }
   .cards.wide { grid-template-columns:1fr; }
@@ -348,7 +351,7 @@ const UI = {
     tag: 'What does your Pokémon selection say about you?',
     cta: 'Choose your Pokémon',
     pick: 'Pick one Pokémon per type',
-    intro: 'Choose your favourite Pokémon of each Kanto type and let the oracle read you. It is a game, not a validated psychological test: it borrows the vocabulary of personality to give you a text you can recognise yourself in. Test version: the catalogue is a draft.',
+    intro: 'Fifteen types, fifteen choices. Pick your favourite Pokémon of each Kanto type and let the oracle read what your selection reveals about you: what you hold on to, what you hide, where you pull in two directions at once.',
     type: t => `Your favourite ${t} Pokémon`,
     close: 'Close',
     go: 'This is what it says about you',
@@ -369,7 +372,7 @@ const UI = {
     inner: a => `You move between two extremes in ${a}.`,
     pattern: (ty, n, e) => `Many of your Pokémon have ${ty} as a second type (${n}; you would expect about ${e}).`,
     legal: [
-      'Pokémon Oracle is a fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.',
+      'A game, not a validated psychological test: it borrows the vocabulary of personality to give you a text you can recognise yourself in. Pokémon Oracle is a fan project, non-profit and unaffiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon and Pokémon character names are trademarks of their owners: © Nintendo / Creatures Inc. / GAME FREAK inc.',
       'Pokémon images come from <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) and belong to their owners. Icons: <a href="https://github.com/halfmage/pixelarticons" target="_blank" rel="noopener">Pixelarticons</a> (MIT).',
       '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Code and documentation on GitHub</a>',
     ],
@@ -380,7 +383,7 @@ const UI = {
     tag: '¿Qué dice tu selección de Pokémon sobre ti?',
     cta: 'Elige tus Pokémon',
     pick: 'Elige un Pokémon por tipo',
-    intro: 'Elige tu Pokémon favorito de cada tipo de Kanto. Es un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Versión de pruebas: el catálogo es un borrador.',
+    intro: 'Quince tipos, quince elecciones. Elige tu Pokémon favorito de cada tipo de Kanto y deja que el oráculo lea lo que tu selección revela de ti: a qué te aferras, qué escondes, dónde tiras en dos direcciones a la vez.',
     type: t => `Tu favorito de tipo ${t}`,
     close: 'Cerrar',
     go: 'Esto dice de ti',
@@ -401,7 +404,7 @@ const UI = {
     inner: a => `Te mueves entre dos extremos en ${a}.`,
     pattern: (ty, n, e) => `Muchos de tus Pokémon tienen ${ty} como segundo tipo (${n}; lo esperable serían ${e}).`,
     legal: [
-      'Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.',
+      'Un juego, no un test psicológico validado: usa vocabulario de personalidad para dar un texto reconocible. Oráculo Pokémon es un proyecto de fans, sin ánimo de lucro y sin relación con Nintendo, Game Freak ni The Pokémon Company. Pokémon y los nombres de los Pokémon son marcas de sus propietarios: © Nintendo / Creatures Inc. / GAME FREAK inc.',
       'Las imágenes de los Pokémon proceden de <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a> (<a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>) y pertenecen a sus propietarios. Iconos: <a href="https://github.com/halfmage/pixelarticons" target="_blank" rel="noopener">Pixelarticons</a> (MIT).',
       '<a href="https://github.com/rafafields/pokemon-oracle" target="_blank" rel="noopener">Código y documentación en GitHub</a>',
     ],
