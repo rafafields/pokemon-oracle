@@ -1,1 +1,10 @@
 node_modules/
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Sprite experiments (generated images are reviewed before being committed)
+sprites/pilot/
+sprites/pilot2/
