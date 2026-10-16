@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0713">
 <title>Pokémon Oracle</title>
+<meta name="description" content="What does your Pokémon selection say about you? Pick your favourite Pokémon of each Kanto type and read your profile.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pokémon Oracle">
+<meta property="og:description" content="What does your Pokémon selection say about you?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
@@ -105,6 +109,7 @@
   .radar svg { position:absolute; left:50%; top:55%; width:150px; height:150px; transform:translate(-50%,-50%); overflow:visible; }
   .radar .lbl { position:absolute; max-width:84px; font-size:.7rem; line-height:1.15; color:var(--muted); }
   .radar-title { font-family:var(--display); font-size:.85rem; color:var(--glow); text-transform:uppercase; letter-spacing:.06em; text-align:center; }
+  .share-url { width:min(420px,90%); padding:8px; font:.8rem var(--text); color:var(--fg); background:var(--bg); border:2px solid var(--line); }
   .px { position:fixed; width:6px; height:6px; pointer-events:none; z-index:50; animation:pxfly .7s steps(7) forwards; }
   @keyframes pxfly { to { transform:translate(var(--dx),var(--dy)); opacity:0; } }
   @media (prefers-reduced-motion: reduce) { .px { display:none; } }
@@ -161,6 +166,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 // Con #debug en la URL se muestran los Pokémon y el detalle del cálculo, solo para pruebas.
 const DEBUG = location.hash === '#debug';
 
+// ---- Enlace para compartir: los 15 números de la Pokédex (en el orden de los tipos) en el hash, p. ej. #s=6.9.25. Se recalcula todo en el navegador.
+const HASH_RE = /^#s=(\d{1,3}(?:\.\d{1,3}){14})$/;
+
 // ---- Idiomas. Inglés por defecto; la elección se recuerda si el navegador deja guardarla.
 const UI = {
   en: {
@@ -183,6 +191,8 @@ const UI = {
     axes: 'The 15 axes',
     groups: ['Heart', 'Mind', 'Way of acting'],
     byAxis: 'Detail by axis',
+    share: 'Share your result', copied: 'Link copied', again: 'Make yours', linkLabel: 'Copy this link',
+    shareText: 'This is what my Pokémon selection says about me:',
     dbl1: 'You picked the same Pokémon in two slots',
     dblN: n => `You picked the same Pokémon in ${n} pairs of slots`,
     dblTail: ', and that says something about you too.',
@@ -215,6 +225,8 @@ const UI = {
     axes: 'Los 15 ejes',
     groups: ['Corazón', 'Mente', 'Forma de actuar'],
     byAxis: 'Detalle por eje',
+    share: 'Comparte tu resultado', copied: 'Enlace copiado', again: 'Haz el tuyo', linkLabel: 'Copia este enlace',
+    shareText: 'Esto dice de mí mi selección de Pokémon:',
     dbl1: 'Has repetido una elección en dos casillas',
     dblN: n => `Has repetido ${n} elecciones en dos casillas`,
     dblTail: ', y eso también dice algo de ti.',
@@ -394,10 +406,47 @@ function render(scroll) {
     }
     h += '</table></div></details>';
   }
+  h += `<div class="go-row"><button class="primary" id="share" type="button">${esc(u.share)}</button><input id="share-url" class="share-url" readonly hidden aria-label="${esc(u.linkLabel)}"><button id="again" type="button">${esc(u.again)}</button></div>`;
   $('out').innerHTML = h;
+  $('share').onclick = share;
+  $('again').onclick = again;
   $('out').hidden = false;
+  if (!DEBUG) history.replaceState(null, '', shareHash());
   shown = true;
   if (scroll) $('out').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ---- Compartir
+const nameOfId = Object.fromEntries(DATA.pokemon.map(p => [p.id, p.name]));
+const shareHash = () => '#s=' + model.order.map(t => idOf[state[t]]).join('.');
+const shareUrl = () => location.href.split('#')[0] + shareHash();
+function loadHash() {
+  const m = HASH_RE.exec(location.hash);
+  if (!m) return false;
+  const picks = m[1].split('.').map(n => nameOfId[+n]);
+  if (!model.order.every((t, i) => picks[i] && model.lists[t].some(p => p.name === picks[i]))) return false;
+  model.order.forEach((t, i) => { state[t] = picks[i]; });
+  return true;
+}
+async function share() {
+  const u = ui(), url = shareUrl(), btn = $('share');
+  if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+    try { await navigator.share({ title: u.title, text: u.shareText, url }); return; } catch (e) { if (e.name === 'AbortError') return; }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    btn.textContent = u.copied;
+    setTimeout(() => { btn.textContent = u.share; }, 2000);
+  } catch (e) {
+    const box = $('share-url'); box.hidden = false; box.value = url; box.focus(); box.select();
+  }
+}
+function again() {
+  for (const t of model.order) delete state[t];
+  history.replaceState(null, '', location.pathname + location.search);
+  $('out').hidden = true; shown = false;
+  applyLang();
+  $('select').scrollIntoView({ behavior: 'smooth' });
 }
 
 // ---- Textos fijos y cambio de idioma
@@ -466,7 +515,11 @@ if (DEBUG) {
     applyLang(); render(true);
   };
 }
-applyLang();
+if (!DEBUG && loadHash()) {
+  applyLang(); render(false);
+  requestAnimationFrame(() => $('out').scrollIntoView({ behavior: 'auto' }));
+} else applyLang();
+addEventListener('hashchange', () => { if (!DEBUG && loadHash()) { applyLang(); render(true); } });
 </script>
 </body>
 </html>
