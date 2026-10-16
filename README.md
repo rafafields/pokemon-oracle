@@ -28,7 +28,7 @@ Design phase. There is:
 - the 15 axes and a first draft of the catalogue (about 275 entries, in Spanish and English),
 - a proposal for the engine, with a first calibration by simulation and open problems (see the [engine doc](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
 
-There is a very basic test interface: open `web/index.html` in a browser (a single file, no server). English is the default language, with a Spanish switch. Rebuild it with `npm run web`. Also included:
+**Try it live: https://rafafields.github.io/pokemon-oracle/** (test version, the catalogue is a draft). It is also a single file you can open locally: `web/index.html`, no server. English is the default language, with a Spanish switch. Rebuild it with `npm run web`. Also included:
 
 - `data/`: axes, Pokémon (types and popularity), catalogue, poles, tensions and the English translation, as JSON. Generated from `docs/` with `npm run data` (needs Python 3).
 - `src/engine.js`: the engine, a pure function with no dependencies that works the same in Node and in the browser.

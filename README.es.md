@@ -26,7 +26,7 @@ Fase de diseño. Hay:
 - los 15 ejes y un primer borrador del catálogo (unas 275 entradas),
 - una propuesta del motor, con una primera calibración por simulación y problemas abiertos (ver el [motor](docs/Motor%20de%20perfil%20y%20reglas%20de%20tensi%C3%B3n.md)).
 
-Hay una interfaz de pruebas muy básica: abre `web/index.html` en el navegador (un solo archivo, sin servidor). Se regenera con `npm run web`. Además hay un motor y una simulación para calibrarlo:
+**Pruébalo en vivo: https://rafafields.github.io/pokemon-oracle/** (versión de pruebas, el catálogo es un borrador). También es un solo archivo que puede abrirse en local: `web/index.html`, sin servidor. Se regenera con `npm run web`. Además hay un motor y una simulación para calibrarlo:
 
 - `data/`: ejes, Pokémon (tipos y popularidad), catálogo y tensiones en JSON. Se generan desde `docs/` con `npm run data` (necesita Python 3).
 - `src/engine.js`: el motor, una función pura sin dependencias que servirá igual en Node y en el navegador.
