@@ -6,5 +6,7 @@ node_modules/
 !.env.example
 
 # Sprite experiments (generated images are reviewed before being committed)
-sprites/pilot/
-sprites/pilot2/
+sprites/pilot*/
+sprites/raw/
+sprites/review/
+sprites/trainers/rejected/

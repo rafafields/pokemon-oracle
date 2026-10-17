@@ -9,5 +9,8 @@
     "web": "node scripts/build_web.mjs",
     "trainer": "node scripts/build_trainer_calib.mjs",
     "trainer:check": "node sim/check_trainer.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   }
 }
