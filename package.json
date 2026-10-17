@@ -6,6 +6,8 @@
     "data": "python scripts/build_data.py",
     "sim": "node sim/simulate.mjs",
     "try": "node sim/try.mjs",
-    "web": "node scripts/build_web.mjs"
+    "web": "node scripts/build_web.mjs",
+    "trainer": "node scripts/build_trainer_calib.mjs",
+    "trainer:check": "node sim/check_trainer.mjs"
   }
 }

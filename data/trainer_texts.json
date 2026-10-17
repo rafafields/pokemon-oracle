@@ -1,0 +1,382 @@
+{
+ "type:normal:rare": {
+  "es": "Cuida y cría a sus Pokémon con paciencia.",
+  "en": "Raises and cares for Pokémon with patience."
+ },
+ "type:normal:common": {
+  "es": "Recién salido de casa y con ganas de combatir.",
+  "en": "Fresh out of town and eager to battle."
+ },
+ "type:fuego:rare": {
+  "es": "Escupe llamas en plena calle para dar espectáculo.",
+  "en": "Spits flames in the street for a show."
+ },
+ "type:fuego:common": {
+  "es": "Listo y escurridizo, con Pokémon de fuego a su lado.",
+  "en": "Sly and slippery, with fire Pokémon at hand."
+ },
+ "type:agua:rare": {
+  "es": "Curtido en el puerto, con el mar como campo de batalla.",
+  "en": "Weathered at the harbour, with the sea as a battlefield."
+ },
+ "type:agua:common": {
+  "es": "Espera horas junto al agua a que pique algo.",
+  "en": "Waits for hours by the water for a bite."
+ },
+ "type:electrico:rare": {
+  "es": "Monta circuitos y combate con la energía que domina.",
+  "en": "Builds circuits and fights with the power it controls."
+ },
+ "type:electrico:common": {
+  "es": "Entiende de cables, enchufes y Pokémon eléctricos.",
+  "en": "Knows cables, sockets and electric Pokémon."
+ },
+ "type:planta:rare": {
+  "es": "Cultiva un jardín y a los Pokémon que viven en él.",
+  "en": "Tends a garden and the Pokémon living in it."
+ },
+ "type:planta:common": {
+  "es": "Acampa en la hierba y entrena entre árboles.",
+  "en": "Camps in the grass and trains among the trees."
+ },
+ "type:hielo:rare": {
+  "es": "Baja por la nieve a toda velocidad con su equipo helado.",
+  "en": "Races down the snow with a frozen team."
+ },
+ "type:hielo:common": {
+  "es": "Practica con Pokémon de hielo en cuevas y nieve.",
+  "en": "Trains with ice Pokémon in caves and snow."
+ },
+ "type:lucha:rare": {
+  "es": "Maestro del dojo: enseña a combatir con cuerpo y mente.",
+  "en": "Dojo master: teaches fighting with body and mind."
+ },
+ "type:lucha:common": {
+  "es": "Entrena a diario en el dojo, golpe a golpe.",
+  "en": "Trains daily at the dojo, blow by blow."
+ },
+ "type:veneno:rare": {
+  "es": "Silencioso y rápido, ataca con veneno y sorpresa.",
+  "en": "Silent and swift, strikes with poison and surprise."
+ },
+ "type:veneno:common": {
+  "es": "Mezcla compuestos raros y confía en los Pokémon tóxicos.",
+  "en": "Mixes odd compounds and trusts poison Pokémon."
+ },
+ "type:tierra:rare": {
+  "es": "Excava ruinas y encuentra algo más que fósiles.",
+  "en": "Digs through ruins and finds more than fossils."
+ },
+ "type:tierra:common": {
+  "es": "Pasa el día bajo tierra con su pala y sus Pokémon.",
+  "en": "Spends the day underground with a shovel and Pokémon."
+ },
+ "type:volador:rare": {
+  "es": "Entrena aves de caza y las suelta desde el cielo.",
+  "en": "Trains birds of prey and sends them from the sky."
+ },
+ "type:volador:common": {
+  "es": "Conoce cada ave y cada canto de memoria.",
+  "en": "Knows every bird and every song by heart."
+ },
+ "type:psiquico:rare": {
+  "es": "Adivina el próximo movimiento antes de que ocurra.",
+  "en": "Foresees the next move before it happens."
+ },
+ "type:psiquico:common": {
+  "es": "Combate con la mente y habla poco.",
+  "en": "Battles with the mind and says little."
+ },
+ "type:bicho:rare": {
+  "es": "Estudia insectos con lupa y mucho método.",
+  "en": "Studies insects with a magnifier and method."
+ },
+ "type:bicho:common": {
+  "es": "Red en mano, recorre la hierba alta.",
+  "en": "Net in hand, roams the tall grass."
+ },
+ "type:roca:rare": {
+  "es": "Lee las rocas como otros leen un libro.",
+  "en": "Reads rocks like others read a book."
+ },
+ "type:roca:common": {
+  "es": "Sube cada ladera con su mochila y su paciencia.",
+  "en": "Climbs every slope with a backpack and patience."
+ },
+ "type:fantasma:rare": {
+  "es": "Convoca presencias y las pone a su servicio.",
+  "en": "Summons presences and puts them to work."
+ },
+ "type:fantasma:common": {
+  "es": "Siente lo que no se ve en las torres y los pasillos.",
+  "en": "Senses the unseen in towers and corridors."
+ },
+ "type:dragon:rare": {
+  "es": "Doma criaturas que casi nadie ha visto de cerca.",
+  "en": "Tames creatures few have seen up close."
+ },
+ "type:dragon:common": {
+  "es": "Sueña con criar un dragón y empieza por lo pequeño.",
+  "en": "Dreams of raising a dragon and starts small."
+ },
+ "gym:normal": {
+  "es": "Defiende su gimnasio con un equipo de Normal.",
+  "en": "Defends the gym with a Normal team."
+ },
+ "elite:normal": {
+  "es": "Uno de los muros antes del Campeón, especialista en Normal.",
+  "en": "One of the walls before the Champion, a Normal specialist."
+ },
+ "gym:fuego": {
+  "es": "Defiende su gimnasio con un equipo de Fuego.",
+  "en": "Defends the gym with a Fire team."
+ },
+ "elite:fuego": {
+  "es": "Uno de los muros antes del Campeón, especialista en Fuego.",
+  "en": "One of the walls before the Champion, a Fire specialist."
+ },
+ "gym:agua": {
+  "es": "Defiende su gimnasio con un equipo de Agua.",
+  "en": "Defends the gym with a Water team."
+ },
+ "elite:agua": {
+  "es": "Uno de los muros antes del Campeón, especialista en Agua.",
+  "en": "One of the walls before the Champion, a Water specialist."
+ },
+ "gym:electrico": {
+  "es": "Defiende su gimnasio con un equipo de Eléctrico.",
+  "en": "Defends the gym with a Electric team."
+ },
+ "elite:electrico": {
+  "es": "Uno de los muros antes del Campeón, especialista en Eléctrico.",
+  "en": "One of the walls before the Champion, a Electric specialist."
+ },
+ "gym:planta": {
+  "es": "Defiende su gimnasio con un equipo de Planta.",
+  "en": "Defends the gym with a Grass team."
+ },
+ "elite:planta": {
+  "es": "Uno de los muros antes del Campeón, especialista en Planta.",
+  "en": "One of the walls before the Champion, a Grass specialist."
+ },
+ "gym:hielo": {
+  "es": "Defiende su gimnasio con un equipo de Hielo.",
+  "en": "Defends the gym with a Ice team."
+ },
+ "elite:hielo": {
+  "es": "Uno de los muros antes del Campeón, especialista en Hielo.",
+  "en": "One of the walls before the Champion, a Ice specialist."
+ },
+ "gym:lucha": {
+  "es": "Defiende su gimnasio con un equipo de Lucha.",
+  "en": "Defends the gym with a Fighting team."
+ },
+ "elite:lucha": {
+  "es": "Uno de los muros antes del Campeón, especialista en Lucha.",
+  "en": "One of the walls before the Champion, a Fighting specialist."
+ },
+ "gym:veneno": {
+  "es": "Defiende su gimnasio con un equipo de Veneno.",
+  "en": "Defends the gym with a Poison team."
+ },
+ "elite:veneno": {
+  "es": "Uno de los muros antes del Campeón, especialista en Veneno.",
+  "en": "One of the walls before the Champion, a Poison specialist."
+ },
+ "gym:tierra": {
+  "es": "Defiende su gimnasio con un equipo de Tierra.",
+  "en": "Defends the gym with a Ground team."
+ },
+ "elite:tierra": {
+  "es": "Uno de los muros antes del Campeón, especialista en Tierra.",
+  "en": "One of the walls before the Champion, a Ground specialist."
+ },
+ "gym:volador": {
+  "es": "Defiende su gimnasio con un equipo de Volador.",
+  "en": "Defends the gym with a Flying team."
+ },
+ "elite:volador": {
+  "es": "Uno de los muros antes del Campeón, especialista en Volador.",
+  "en": "One of the walls before the Champion, a Flying specialist."
+ },
+ "gym:psiquico": {
+  "es": "Defiende su gimnasio con un equipo de Psíquico.",
+  "en": "Defends the gym with a Psychic team."
+ },
+ "elite:psiquico": {
+  "es": "Uno de los muros antes del Campeón, especialista en Psíquico.",
+  "en": "One of the walls before the Champion, a Psychic specialist."
+ },
+ "gym:bicho": {
+  "es": "Defiende su gimnasio con un equipo de Bicho.",
+  "en": "Defends the gym with a Bug team."
+ },
+ "elite:bicho": {
+  "es": "Uno de los muros antes del Campeón, especialista en Bicho.",
+  "en": "One of the walls before the Champion, a Bug specialist."
+ },
+ "gym:roca": {
+  "es": "Defiende su gimnasio con un equipo de Roca.",
+  "en": "Defends the gym with a Rock team."
+ },
+ "elite:roca": {
+  "es": "Uno de los muros antes del Campeón, especialista en Roca.",
+  "en": "One of the walls before the Champion, a Rock specialist."
+ },
+ "gym:fantasma": {
+  "es": "Defiende su gimnasio con un equipo de Fantasma.",
+  "en": "Defends the gym with a Ghost team."
+ },
+ "elite:fantasma": {
+  "es": "Uno de los muros antes del Campeón, especialista en Fantasma.",
+  "en": "One of the walls before the Champion, a Ghost specialist."
+ },
+ "gym:dragon": {
+  "es": "Defiende su gimnasio con un equipo de Dragón.",
+  "en": "Defends the gym with a Dragon team."
+ },
+ "elite:dragon": {
+  "es": "Uno de los muros antes del Campeón, especialista en Dragón.",
+  "en": "One of the walls before the Champion, a Dragon specialist."
+ },
+ "champion": {
+  "es": "Lo más alto de la Liga Pokémon.",
+  "en": "The very top of the Pokémon League."
+ },
+ "rocket:entrenador": {
+  "es": "Obedece sin preguntar y roba lo que le mandan.",
+  "en": "Obeys without question and steals what it is told to."
+ },
+ "rocket:lider": {
+  "es": "Dirige operaciones con ambición y sangre fría.",
+  "en": "Runs operations with ambition and a cool head."
+ },
+ "rocket:altomando": {
+  "es": "Planea desde la sombra el golpe más grande.",
+  "en": "Plans the biggest heist from the shadows."
+ },
+ "rail:protagonista": {
+  "es": "Empieza su viaje con un Pokémon y muchas ganas.",
+  "en": "Starts a journey with one Pokémon and big dreams."
+ },
+ "rail:rival": {
+  "es": "Siempre aparece justo cuando mejor te iba.",
+  "en": "Always shows up right when things were going well."
+ },
+ "rail:profesor": {
+  "es": "Estudia a los Pokémon y regala el primero.",
+  "en": "Studies Pokémon and hands out the first one."
+ },
+ "rail:enfermera": {
+  "es": "Cura a tus Pokémon con una sonrisa, sin cobrar.",
+  "en": "Heals your Pokémon with a smile, for free."
+ },
+ "rail:policia": {
+  "es": "Vigila la ciudad y no se separa de su perro.",
+  "en": "Watches over the city, never without a dog Pokémon."
+ },
+ "rail:dependiente": {
+  "es": "Atiende el mostrador y recuerda tus compras.",
+  "en": "Mans the counter and remembers your purchases."
+ },
+ "rail:fans": {
+  "es": "Habla sin parar de su Pokémon favorito.",
+  "en": "Talks nonstop about a favourite Pokémon."
+ },
+ "rail:guru": {
+  "es": "Regala una caña a quien sabe esperar.",
+  "en": "Gives a rod to those who can wait."
+ },
+ "rail:guardia": {
+  "es": "Bloquea el paso hasta que le traes algo.",
+  "en": "Blocks the way until you bring something."
+ },
+ "rail:sabio": {
+  "es": "Lo ha visto casi todo y lo cuenta con calma.",
+  "en": "Has seen almost everything and tells it calmly."
+ },
+ "rail:voluntario": {
+  "es": "Cuida la Torre y a quienes descansan en ella.",
+  "en": "Looks after the Tower and those who rest there."
+ },
+ "rail:informatico": {
+  "es": "Arregla el PC donde guardas tus Pokémon.",
+  "en": "Fixes the PC where your Pokémon are stored."
+ },
+ "rail:guia": {
+  "es": "Anima desde la puerta del gimnasio.",
+  "en": "Cheers from the gym door."
+ },
+ "rail:vecino": {
+  "es": "Vive en el pueblo de siempre y conoce a todo el mundo.",
+  "en": "Lives in the old hometown and knows everyone."
+ },
+ "rail:pokemaniaco": {
+  "es": "Colecciona Pokémon raros sin medida.",
+  "en": "Collects rare Pokémon without limit."
+ },
+ "rail:empollon": {
+  "es": "Pasa las horas entre fórmulas, cables y apuntes.",
+  "en": "Spends hours among formulas, cables and notes."
+ },
+ "rail:motero": {
+  "es": "Recorre la ruta a toda velocidad en moto.",
+  "en": "Races along the route on a motorbike."
+ },
+ "rail:picaro": {
+  "es": "Rápido de manos, nunca dice de dónde lo sacó.",
+  "en": "Quick-handed, never says where it came from."
+ },
+ "rail:malabarista": {
+  "es": "Mantiene varios trucos en el aire a la vez.",
+  "en": "Keeps several tricks in the air at once."
+ },
+ "rail:macarra": {
+  "es": "Plantado en la ruta, con ganas de pelea.",
+  "en": "Planted on the route, itching for a fight."
+ },
+ "rail:jugador": {
+  "es": "Apuesta fuerte y se va con fortuna o sin ella.",
+  "en": "Bets big and leaves with a fortune or nothing."
+ },
+ "rail:belleza": {
+  "es": "Cuida las apariencias, las suyas y las de sus Pokémon.",
+  "en": "Takes care of appearances, its own and its Pokémon’s."
+ },
+ "rail:rockero": {
+  "es": "Toca alto y combate con ritmo.",
+  "en": "Plays loud and battles to a beat."
+ },
+ "rail:domador": {
+  "es": "Doma bestias enormes con mano firme.",
+  "en": "Tames huge beasts with a firm hand."
+ },
+ "rail:caballero": {
+  "es": "Viaja de traje, con buenos modales y un Pokémon de lujo.",
+  "en": "Travels in a fine suit, with manners and a prized Pokémon."
+ },
+ "rail:cientifico": {
+  "es": "Prueba cada teoría en el laboratorio.",
+  "en": "Tests every theory in the lab."
+ },
+ "rail:canalizador": {
+  "es": "Escucha a los espíritus de la Torre.",
+  "en": "Listens to the spirits of the Tower."
+ },
+ "rail:nadador": {
+  "es": "Se lanza al mar con su equipo de agua.",
+  "en": "Dives into the sea with a water team."
+ },
+ "rail:chica": {
+  "es": "Pasea por la ruta con sus Pokémon favoritos.",
+  "en": "Strolls the route with its favourite Pokémon."
+ },
+ "band:experto": {
+  "es": "Entrena con método y casi nunca pierde.",
+  "en": "Trains with method and rarely loses."
+ },
+ "band:joven": {
+  "es": "Acaba de empezar y se nota la ilusión.",
+  "en": "Just starting out, and it shows."
+ }
+}

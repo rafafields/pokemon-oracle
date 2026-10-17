@@ -1,0 +1,650 @@
+{
+  "_nota": "Borrador de la capa de entrenador. Los nombres de clase son propuestas por confirmar. Evaluar con: node sim/rules.mjs",
+  "tiers": {
+    "leaderPct": 0.92,
+    "elitePct": 0.98,
+    "championPct": 0.99
+  },
+  "affinities": {
+    "Cubone": "fantasma",
+    "Marowak": "fantasma",
+    "Gyarados": "dragon",
+    "Charizard": "dragon"
+  },
+  "rocket": {
+    "pokemon": [
+      "Rattata",
+      "Raticate",
+      "Ekans",
+      "Arbok",
+      "Zubat",
+      "Golbat",
+      "Koffing",
+      "Weezing",
+      "Grimer",
+      "Muk",
+      "Meowth",
+      "Persian",
+      "Spearow",
+      "Drowzee",
+      "Machop"
+    ],
+    "minPicks": 2,
+    "names": {
+      "entrenador": "Recluta del Equipo Rocket",
+      "lider": "Ejecutivo del Equipo Rocket",
+      "altomando": "Jefe del Equipo Rocket"
+    },
+    "leaderPct": 0.8,
+    "bossPct": 0.95,
+    "namesEn": {
+      "entrenador": "Team Rocket Grunt",
+      "lider": "Team Rocket Executive",
+      "altomando": "Team Rocket Boss"
+    }
+  },
+  "byType": {
+    "normal": {
+      "rare": "Criador",
+      "common": "Joven",
+      "rareEn": "Breeder",
+      "commonEn": "Youngster"
+    },
+    "fuego": {
+      "rare": "Tragafuegos",
+      "common": "Ladrón",
+      "rareEn": "Firebreather",
+      "commonEn": "Thief"
+    },
+    "agua": {
+      "rare": "Marinero",
+      "common": "Pescador",
+      "rareEn": "Sailor",
+      "commonEn": "Fisherman"
+    },
+    "electrico": {
+      "rare": "Ingeniero",
+      "common": "Técnico",
+      "rareEn": "Engineer",
+      "commonEn": "Technician"
+    },
+    "planta": {
+      "rare": "Jardinero",
+      "common": "Excursionista",
+      "rareEn": "Gardener",
+      "commonEn": "Camper"
+    },
+    "hielo": {
+      "rare": "Esquiador",
+      "common": "Aprendiz del frío",
+      "rareEn": "Skier",
+      "commonEn": "Frost Apprentice"
+    },
+    "lucha": {
+      "rare": "Sensei",
+      "common": "Cinturón negro",
+      "rareEn": "Sensei",
+      "commonEn": "Black Belt"
+    },
+    "veneno": {
+      "rare": "Ninja",
+      "common": "Químico",
+      "rareEn": "Ninja",
+      "commonEn": "Chemist"
+    },
+    "tierra": {
+      "rare": "Arqueólogo",
+      "common": "Excavador",
+      "rareEn": "Archaeologist",
+      "commonEn": "Digger"
+    },
+    "volador": {
+      "rare": "Halconero",
+      "common": "Ornitólogo",
+      "rareEn": "Falconer",
+      "commonEn": "Bird Keeper"
+    },
+    "psiquico": {
+      "rare": "Vidente",
+      "common": "Psíquico",
+      "rareEn": "Seer",
+      "commonEn": "Psychic"
+    },
+    "bicho": {
+      "rare": "Entomólogo",
+      "common": "Cazabichos",
+      "rareEn": "Entomologist",
+      "commonEn": "Bug Catcher"
+    },
+    "roca": {
+      "rare": "Geólogo",
+      "common": "Montañero",
+      "rareEn": "Geologist",
+      "commonEn": "Hiker"
+    },
+    "fantasma": {
+      "rare": "Espiritista",
+      "common": "Médium",
+      "rareEn": "Spiritualist",
+      "commonEn": "Medium"
+    },
+    "dragon": {
+      "rare": "Domador de dragones",
+      "common": "Aprendiz de dragones",
+      "rareEn": "Dragon Tamer",
+      "commonEn": "Dragon Apprentice"
+    }
+  },
+  "gym": "Líder de gimnasio de {tipo}",
+  "elite": "Alto Mando de {tipo}",
+  "generic": "Entrenador de {tipo}",
+  "rareShare": 0.15,
+  "champion": "Campeón de la Liga",
+  "rails": [
+    {
+      "id": "protagonista",
+      "es": "Aspirante a Maestro (protagonista)",
+      "min": 3,
+      "picks": [
+        "Bulbasaur",
+        "Charmander",
+        "Squirtle",
+        "Pikachu",
+        "Eevee",
+        "Pidgey",
+        "Rattata"
+      ],
+      "kind": "central",
+      "en": "Aspiring Master (protagonist)"
+    },
+    {
+      "id": "rival",
+      "es": "Rival",
+      "min": 3,
+      "picks": [
+        "Pidgeot",
+        "Alakazam",
+        "Rhydon",
+        "Arcanine",
+        "Blastoise",
+        "Charizard",
+        "Venusaur"
+      ],
+      "kind": "central",
+      "en": "Rival"
+    },
+    {
+      "id": "profesor",
+      "es": "Profesor",
+      "min": 3,
+      "picks": [
+        "Abra",
+        "Kadabra",
+        "Alakazam",
+        "Slowbro",
+        "Porygon",
+        "Ditto",
+        "Kabuto",
+        "Omanyte",
+        "Aerodactyl",
+        "Mew"
+      ],
+      "kind": "profesor",
+      "en": "Professor"
+    },
+    {
+      "id": "enfermera",
+      "es": "Enfermera del Centro Pokémon",
+      "min": 1,
+      "picks": [
+        "Chansey"
+      ],
+      "kind": "npc",
+      "target": 1,
+      "en": "Pokémon Center Nurse"
+    },
+    {
+      "id": "policia",
+      "es": "Policía",
+      "min": 2,
+      "picks": [
+        "Growlithe",
+        "Machop",
+        "Machoke",
+        "Hitmonlee"
+      ],
+      "kind": "npc",
+      "target": 1,
+      "en": "Police Officer"
+    },
+    {
+      "id": "dependiente",
+      "es": "Dependiente",
+      "min": 1,
+      "picks": [
+        "Lickitung"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Shop Clerk"
+    },
+    {
+      "id": "fans",
+      "es": "Presidente del club de fans",
+      "min": 2,
+      "picks": [
+        "Rapidash",
+        "Ponyta",
+        "Seel",
+        "Ninetales"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Fan Club President"
+    },
+    {
+      "id": "guru",
+      "es": "Gurú de la pesca",
+      "min": 1,
+      "picks": [
+        "Magikarp"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Fishing Guru"
+    },
+    {
+      "id": "guardia",
+      "es": "Guardia",
+      "min": 3,
+      "picks": [
+        "Snorlax",
+        "Geodude",
+        "Graveler",
+        "Golem",
+        "Rhyhorn",
+        "Rhydon"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Guard"
+    },
+    {
+      "id": "sabio",
+      "es": "Viejo sabio",
+      "min": 3,
+      "picks": [
+        "Kabutops",
+        "Omastar",
+        "Aerodactyl",
+        "Slowbro",
+        "Hypno"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Wise Elder"
+    },
+    {
+      "id": "voluntario",
+      "es": "Voluntario de la Torre",
+      "min": 3,
+      "picks": [
+        "Gastly",
+        "Haunter",
+        "Cubone",
+        "Marowak"
+      ],
+      "kind": "npc",
+      "target": 1,
+      "en": "Tower Volunteer"
+    },
+    {
+      "id": "informatico",
+      "es": "Informático",
+      "min": 2,
+      "picks": [
+        "Porygon",
+        "Magneton",
+        "Electrode",
+        "Abra"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Computer Geek"
+    },
+    {
+      "id": "guia",
+      "es": "Guía de gimnasio",
+      "min": 2,
+      "picks": [
+        "Machop",
+        "Squirtle"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Gym Guide"
+    },
+    {
+      "id": "vecino",
+      "es": "Vecino",
+      "min": 2,
+      "picks": [
+        "Rattata",
+        "Caterpie",
+        "Weedle",
+        "Spearow",
+        "Nidoran♀",
+        "Nidoran♂",
+        "Meowth"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Neighbour"
+    },
+    {
+      "id": "pokemaniaco",
+      "es": "Pokémaníaco",
+      "min": 3,
+      "picks": [
+        "Zapdos",
+        "Moltres",
+        "Mewtwo",
+        "Ditto",
+        "Porygon"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Pokémaniac"
+    },
+    {
+      "id": "empollon",
+      "es": "Empollón",
+      "min": 2,
+      "picks": [
+        "Magnemite",
+        "Magneton",
+        "Grimer",
+        "Muk",
+        "Koffing",
+        "Weezing"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Super Nerd"
+    },
+    {
+      "id": "motero",
+      "es": "Motero",
+      "min": 2,
+      "picks": [
+        "Koffing",
+        "Weezing",
+        "Grimer",
+        "Muk",
+        "Rapidash"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Biker"
+    },
+    {
+      "id": "picaro",
+      "es": "Pícaro",
+      "min": 2,
+      "picks": [
+        "Growlithe",
+        "Ponyta",
+        "Magmar",
+        "Meowth"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Burglar"
+    },
+    {
+      "id": "malabarista",
+      "es": "Malabarista",
+      "min": 2,
+      "picks": [
+        "Mr. Mime",
+        "Hypno",
+        "Drowzee",
+        "Clefairy"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Juggler"
+    },
+    {
+      "id": "macarra",
+      "es": "Macarra",
+      "min": 2,
+      "picks": [
+        "Machop",
+        "Machoke",
+        "Primeape",
+        "Hitmonlee",
+        "Tauros"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Cue Ball"
+    },
+    {
+      "id": "jugador",
+      "es": "Jugador",
+      "min": 2,
+      "picks": [
+        "Ditto",
+        "Porygon",
+        "Growlithe",
+        "Poliwag"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Gambler"
+    },
+    {
+      "id": "belleza",
+      "es": "Belleza",
+      "min": 3,
+      "picks": [
+        "Clefairy",
+        "Jigglypuff",
+        "Goldeen",
+        "Seaking",
+        "Staryu",
+        "Starmie",
+        "Vulpix",
+        "Ninetales"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Beauty"
+    },
+    {
+      "id": "rockero",
+      "es": "Rockero",
+      "min": 2,
+      "picks": [
+        "Voltorb",
+        "Electrode",
+        "Magnemite",
+        "Zapdos",
+        "Raichu",
+        "Electabuzz"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Rocker"
+    },
+    {
+      "id": "domador",
+      "es": "Domador",
+      "min": 3,
+      "picks": [
+        "Arbok",
+        "Tauros",
+        "Rhydon",
+        "Rhyhorn",
+        "Persian",
+        "Primeape",
+        "Sandslash"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Tamer"
+    },
+    {
+      "id": "caballero",
+      "es": "Caballero",
+      "min": 1,
+      "picks": [
+        "Persian",
+        "Growlithe"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Gentleman"
+    },
+    {
+      "id": "cientifico",
+      "es": "Científico",
+      "min": 2,
+      "picks": [
+        "Magnemite",
+        "Voltorb",
+        "Koffing",
+        "Grimer",
+        "Electrode"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Scientist"
+    },
+    {
+      "id": "canalizador",
+      "es": "Canalizador",
+      "min": 3,
+      "picks": [
+        "Gastly",
+        "Haunter",
+        "Gengar",
+        "Hypno",
+        "Mr. Mime"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Channeler"
+    },
+    {
+      "id": "nadador",
+      "es": "Nadador",
+      "min": 2,
+      "picks": [
+        "Tentacool",
+        "Tentacruel",
+        "Shellder",
+        "Horsea",
+        "Seadra",
+        "Staryu"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Swimmer"
+    },
+    {
+      "id": "chica",
+      "es": "Chica",
+      "min": 3,
+      "picks": [
+        "Clefairy",
+        "Jigglypuff",
+        "Oddish",
+        "Bellsprout",
+        "Vulpix",
+        "Pikachu"
+      ],
+      "kind": "npc",
+      "target": 0.5,
+      "en": "Lass"
+    }
+  ],
+  "bands": [
+    {
+      "id": "experto",
+      "es": "Entrenador experto",
+      "from": 0.86,
+      "to": 0.92,
+      "en": "Cooltrainer"
+    },
+    {
+      "id": "joven",
+      "es": "Joven entrenador",
+      "from": 0,
+      "to": 0.05,
+      "en": "Jr. Trainer"
+    }
+  ],
+  "calibration": {
+    "samples": 60000,
+    "seed": 5,
+    "popExponent": 2
+  },
+  "rarity": {
+    "grades": [
+      "B",
+      "A",
+      "A+",
+      "S",
+      "S+",
+      "S++"
+    ],
+    "plan": [
+      0.35,
+      0.28,
+      0.16,
+      0.12,
+      0.07,
+      0.02
+    ]
+  },
+  "typesEn": {
+    "normal": "Normal",
+    "fuego": "Fire",
+    "agua": "Water",
+    "electrico": "Electric",
+    "planta": "Grass",
+    "hielo": "Ice",
+    "lucha": "Fighting",
+    "veneno": "Poison",
+    "tierra": "Ground",
+    "volador": "Flying",
+    "psiquico": "Psychic",
+    "bicho": "Bug",
+    "roca": "Rock",
+    "fantasma": "Ghost",
+    "dragon": "Dragon"
+  },
+  "gymEn": "{tipo} Gym Leader",
+  "eliteEn": "Elite Four: {tipo}",
+  "genericEn": "{tipo} Trainer",
+  "championEn": "League Champion",
+  "typesEs": {
+    "normal": "Normal",
+    "fuego": "Fuego",
+    "agua": "Agua",
+    "electrico": "Eléctrico",
+    "planta": "Planta",
+    "hielo": "Hielo",
+    "lucha": "Lucha",
+    "veneno": "Veneno",
+    "tierra": "Tierra",
+    "volador": "Volador",
+    "psiquico": "Psíquico",
+    "bicho": "Bicho",
+    "roca": "Roca",
+    "fantasma": "Fantasma",
+    "dragon": "Dragón"
+  }
+}
