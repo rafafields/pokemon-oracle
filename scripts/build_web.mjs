@@ -10,6 +10,8 @@ const data = {
   tensions: JSON.parse(read('data/tensions.json')),
   poles: JSON.parse(read('data/poles.json')),
   en: JSON.parse(read('data/en.json')),
+  // Capa de entrenador (src/trainer.js): reglas, datos de evolución, calibración y una frase por clase.
+  trainer: { rules: JSON.parse(read('data/trainers.json')), extra: JSON.parse(read('data/pokemon_extra.json')), calib: JSON.parse(read('data/trainer_calib.json')), texts: JSON.parse(read('data/trainer_texts.json')) },
 };
 // Imagen de fondo del hero (opcional): web/hero.webp|jpg|jpeg|png se incrusta como data URI para mantener un único archivo.
 let hero = '';
@@ -25,7 +27,7 @@ for (const ext of ['webp', 'jpg', 'jpeg', 'png']) {
 const html = read('web/template.html')
   .replace('/*HERO*/', () => `:root { ${hero} }`)
   .replace('/*ICONS*/', () => read('web/icons.json').trim())
-  .replace('/*ENGINE*/', () => read('src/engine.js'))
+  .replace('/*ENGINE*/', () => read('src/engine.js') + '\n' + read('src/trainer.js'))
   .replace('/*DATA*/', () => 'const DATA = ' + JSON.stringify(data).replace(/</g, '\\u003c') + ';');
 writeFileSync(new URL('web/index.html', root), html);
 console.log('web/index.html', (html.length / 1024).toFixed(0) + ' KB');

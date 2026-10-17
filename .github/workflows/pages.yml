@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/build_web.mjs
-      - run: mkdir _site && cp web/index.html _site/index.html
+      - run: mkdir _site && cp web/index.html _site/index.html && cp -r web/trainers _site/trainers
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
