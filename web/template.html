@@ -490,7 +490,7 @@ async function share() {
     const box = $('share-url'); box.hidden = false; box.value = url; box.focus(); box.select();
   }
 }
-// ---- Imagen para compartir (canvas 1080x1350): arquetipo, los 15 Pokémon elegidos y el enlace. No lleva ningún texto ligado a un Pokémon.
+// ---- Imagen para compartir (canvas 1920x1080): arquetipo, foto de familia (el entrenador y los Pokémon elegidos) y el enlace. No lleva ningún texto ligado a un Pokémon.
 const SITE = 'rafafields.github.io/pokemon-oracle';
 function loadSprite(name) {
   return new Promise(res => {
@@ -513,13 +513,87 @@ function wrapLines(ctx, text, maxW, maxLines) {
   if (lines.length > maxLines) { lines.length = maxLines; lines[maxLines - 1] = lines[maxLines - 1].replace(/[\s,.;:]*$/, '') + '…'; }
   return lines;
 }
+// ---- Foto de familia: el entrenador y los Pokémon elegidos, en horizontal y en tres filas.
+// Cada sprite ocupa una celda cuadrada del mismo tamaño y lleva una escala interior según su altura real, así que
+// nada se solapa por culpa del tamaño. Los más altos van detrás y los más bajos delante; el entrenador, en el centro
+// de la fila del medio. Las filas alternan par, impar, par (la del medio incluye al entrenador) para que queden escalonadas.
+// Escala lineal: un Pokémon de FULL_M metros o más llena su celda (sin reducción) y los demás se reducen en proporción
+// directa a su altura real (un Weedle de 0,3 m, a una séptima parte). Los más grandes (Onix, 8,8 m) se quedan en la celda entera.
+const TRAINER_M = 1.6;                  // estatura del entrenador, en metros
+const TRAINER_CHAR_H = 100, TRAINER_BOTTOM = 118; // el personaje mide 100 px y pisa en y=118 de 128 (scripts/generate_sprites.mjs)
+const FULL_M = 2;                       // altura que llena la celda entera, en metros
+const TRAINER_FILL = TRAINER_M / FULL_M; // parte de la altura de la celda que ocupa el entrenador
+function opaqueBox(img) { // caja de los píxeles visibles del sprite, para medir al Pokémon y no su margen
+  try {
+    const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
+    const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0);
+    const d = g.getImageData(0, 0, c.width, c.height).data;
+    let x0 = c.width, y0 = c.height, x1 = -1, y1 = -1;
+    for (let y = 0; y < c.height; y++) for (let xx = 0; xx < c.width; xx++) if (d[(y * c.width + xx) * 4 + 3] > 24) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    return x1 < 0 ? null : { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 };
+  } catch (e) { return null; }
+}
+function loadTrainerSprite(key) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = () => res(null);
+    img.src = 'trainers/' + key.replaceAll(':', '-') + '.png';
+  });
+}
+function drawFamily(x, W, top, bottom, sprites, trainerImg) {
+  const OVERLAP = .47; // distancia entre filas, en celdas: cuanto menor, más se tapan las de detrás con las de delante
+  const S = Math.min(320, (bottom - top) / (1 + 2 * OVERLAP)), STEP = S * OVERLAP, AVAIL = W - 120;
+  top += (bottom - top - S - 2 * STEP) / 2; // el conjunto, centrado en su zona
+  // un Pokémon repetido en dos casillas sale una sola vez
+  const seen = new Set(), figs = [];
+  model.order.forEach((t, i) => {
+    const name = state[t];
+    if (seen.has(name) || !sprites[i]) return;
+    seen.add(name);
+    const box = opaqueBox(sprites[i]) || { x: 0, y: 0, w: sprites[i].naturalWidth, h: sprites[i].naturalHeight };
+    const hm = DATA.trainer.extra[idOf[name]].h / 10;
+    const k = Math.min(S * Math.min(1, hm / FULL_M) / box.h, S * .96 / box.w, S * .98 / box.h); // escala interior, sin salirse de la celda
+    // la celda es cuadrada para los grandes y se estrecha con el sprite para los pequeños
+    figs.push({ img: sprites[i], box, hm, k, cw: Math.min(S, Math.max(box.w * k + S * .12, S * .4)) });
+  });
+  const tk = S * TRAINER_FILL / TRAINER_CHAR_H;
+  const trainerFig = trainerImg ? { trainer: true, k: tk, cw: Math.max(S * .5, 60 * tk + S * .12) } : null;
+  // filas: delante un número par (los más bajos), en el medio un número par de Pokémon más el entrenador (impar), detrás el resto.
+  // Delante crece hasta 6 si hay Pokémon más bajos que el entrenador.
+  const asc = figs.slice().sort((a, b) => a.hm - b.hm), F = asc.length;
+  const even = v => Math.max(0, 2 * Math.round(v / 2));
+  const nShort = asc.filter(p => p.hm < TRAINER_M).length;
+  const nFront = Math.min(F, even(Math.min(6, Math.max(F / 3, nShort)))), nMid = Math.min(F - nFront, even((F - nFront) / 2));
+  const rows = [asc.slice(nFront + nMid).reverse(), asc.slice(nFront, nFront + nMid).reverse(), asc.slice(0, nFront)]; // de dentro afuera: los altos al centro detrás, los bajos al centro delante
+  rows.forEach((row, ri) => {
+    const base = top + S + ri * STEP - 8; // línea del suelo de la fila
+    const items = row.slice();
+    const pivot = ri === 1 && trainerFig ? trainerFig : (items.length % 2 && ri !== 2 ? items.shift() : null);
+    const left = [], right = [];
+    items.forEach((p, i) => (i % 2 ? left : right).push(p));
+    const placed = pivot ? [{ p: pivot, cx: W / 2 }] : [];
+    for (const [side, dir] of [[left, -1], [right, 1]]) {
+      const off = pivot ? pivot.cw / 2 : 0;
+      let edge = off, ext = off + side.reduce((s, p) => s + p.cw, 0);
+      const fit = Math.min(1, AVAIL / 2 / ext); // si no caben, se acercan un poco
+      for (const p of side) { placed.push({ p, cx: W / 2 + dir * (edge + p.cw / 2) * fit }); edge += p.cw; }
+    }
+    for (const { p, cx } of placed) {
+      x.fillStyle = 'rgba(0,0,0,.4)'; x.beginPath(); x.ellipse(cx, base - 2, p.trainer ? S * .2 : Math.min(S * .26, p.cw * .42), 9, 0, 0, Math.PI * 2); x.fill();
+      if (p.trainer) x.drawImage(trainerImg, cx - 64 * p.k, base - TRAINER_BOTTOM * p.k, 128 * p.k, 128 * p.k);
+      else x.drawImage(p.img, p.box.x, p.box.y, p.box.w, p.box.h, cx - p.box.w * p.k / 2, base - p.box.h * p.k, p.box.w * p.k, p.box.h * p.k);
+    }
+  });
+}
 async function makeImage() {
   const u = ui(), c = C();
   const r = computeResult(model, { ...state }, { standardize: $('std').checked });
   const at = archetypeText(c.poles, r.archetype, u.text);
   await Promise.all(['80px "Jersey 10"', '500 30px Inter'].map(f => document.fonts.load(f).catch(() => {})));
-  const sprites = await Promise.all(model.order.map(t => loadSprite(state[t])));
-  const W = 1080, H = 1350, cv = document.createElement('canvas');
+  const tr = computeTrainer(trainerModel, DATA.trainer.calib, { ...state });
+  const [sprites, trainerImg] = await Promise.all([Promise.all(model.order.map(t => loadSprite(state[t]))), loadTrainerSprite(tr.key)]);
+  const W = 1920, H = 1080, cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
   x.imageSmoothingEnabled = false;
@@ -527,7 +601,7 @@ async function makeImage() {
   // fondo
   const g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#150b2b'); g.addColorStop(1, '#0b0713');
   x.fillStyle = g; x.fillRect(0, 0, W, H);
-  const rg = x.createRadialGradient(W / 2, 260, 10, W / 2, 260, 620); rg.addColorStop(0, 'rgba(139,92,246,.38)'); rg.addColorStop(1, 'rgba(139,92,246,0)');
+  const rg = x.createRadialGradient(W / 2, 220, 10, W / 2, 220, 1000); rg.addColorStop(0, 'rgba(139,92,246,.38)'); rg.addColorStop(1, 'rgba(139,92,246,0)');
   x.fillStyle = rg; x.fillRect(0, 0, W, H);
   // marco de píxel
   x.fillStyle = '#000'; x.fillRect(16, 16, W - 32, H - 32);
@@ -539,39 +613,26 @@ async function makeImage() {
   let seed = 7;
   const rnd = () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   const cols = ['#ffffff', '#c4b5fd', '#a78bfa', '#ede9fe'];
-  for (let i = 0; i < 90; i++) { const sz = rnd() < .25 ? 6 : 4; x.fillStyle = cols[Math.floor(rnd() * cols.length)]; x.globalAlpha = .4 + rnd() * .6; x.fillRect(Math.floor(rnd() * W / 4) * 4, Math.floor(rnd() * H / 4) * 4, sz, sz); }
+  for (let i = 0; i < 150; i++) { const sz = rnd() < .25 ? 6 : 4; x.fillStyle = cols[Math.floor(rnd() * cols.length)]; x.globalAlpha = .4 + rnd() * .6; x.fillRect(Math.floor(rnd() * W / 4) * 4, Math.floor(rnd() * H / 4) * 4, sz, sz); }
   x.globalAlpha = 1;
   // título
-  x.font = `120px ${DISP}`;
-  x.fillStyle = '#3a1d7a'; x.fillText(u.title, W / 2 + 5, 155 + 5);
-  x.shadowColor = 'rgba(167,139,250,.9)'; x.shadowBlur = 26; x.fillStyle = '#fff'; x.fillText(u.title, W / 2, 155); x.shadowBlur = 0;
+  x.font = `104px ${DISP}`;
+  x.fillStyle = '#3a1d7a'; x.fillText(u.title, W / 2 + 5, 125 + 5);
+  x.shadowColor = 'rgba(167,139,250,.9)'; x.shadowBlur = 26; x.fillStyle = '#fff'; x.fillText(u.title, W / 2, 125); x.shadowBlur = 0;
   // arquetipo
-  x.font = `76px ${DISP}`; x.fillStyle = '#c4b5fd';
-  const tl = wrapLines(x, at.title, 900, 2);
-  let y = 250;
-  for (const l of tl) { x.fillText(l, W / 2, y); y += 66; }
+  x.font = `68px ${DISP}`; x.fillStyle = '#c4b5fd';
+  const tl = wrapLines(x, at.title, 1600, 2);
+  let y = 200;
+  for (const l of tl) { x.fillText(l, W / 2, y); y += 60; }
   const first = (at.paragraph || '').split(/(?<=[.!?])\s/)[0];
   if (first) {
-    x.font = `500 30px ${TXT}`; x.fillStyle = '#ece8f7';
-    y += 14;
-    for (const l of wrapLines(x, first, 860, 2)) { x.fillText(l, W / 2, y); y += 42; }
+    x.font = `500 28px ${TXT}`; x.fillStyle = '#ece8f7';
+    y += 2;
+    for (const l of wrapLines(x, first, 1500, 2)) { x.fillText(l, W / 2, y); y += 38; }
   }
-  // rejilla 5x3
-  const cw = 188, ch = 252, gx = 5, gy = 12, x0 = (W - (5 * cw + 4 * gx)) / 2, y0 = 458;
-  model.order.forEach((t, i) => {
-    const cx = x0 + (i % 5) * (cw + gx), cy = y0 + Math.floor(i / 5) * (ch + gy);
-    x.fillStyle = '#000'; x.fillRect(cx - 4, cy - 4, cw + 8, ch + 8);
-    x.fillStyle = '#150d24'; x.fillRect(cx, cy, cw, ch);
-    x.strokeStyle = '#3b2766'; x.lineWidth = 4; x.strokeRect(cx + 2, cy + 2, cw - 4, ch - 4);
-    x.font = `27px ${DISP}`; x.fillStyle = '#c4b5fd'; x.fillText(c.type(t).toUpperCase(), cx + cw / 2, cy + 32);
-    if (sprites[i]) x.drawImage(sprites[i], cx - 2, cy + 34, 192, 192);
-    else { x.font = `80px ${DISP}`; x.fillStyle = '#a78bfa'; x.fillText('?', cx + cw / 2, cy + 150); }
-    x.font = `500 23px ${TXT}`; x.fillStyle = '#ece8f7';
-    let nm = state[t]; while (x.measureText(nm).width > cw - 16 && x.font.includes('px')) { x.font = x.font.replace(/(\d+)px/, (m, n) => (n - 1) + 'px'); }
-    x.fillText(nm, cx + cw / 2, cy + ch - 14);
-  });
+  drawFamily(x, W, y + 10, H - 78, sprites, trainerImg);
   // enlace
-  x.font = `44px ${DISP}`; x.fillStyle = '#a78bfa'; x.fillText(SITE, W / 2, H - 52);
+  x.font = `40px ${DISP}`; x.fillStyle = '#a78bfa'; x.fillText(SITE, W / 2, H - 44);
   return new Promise((ok, ko) => cv.toBlob(b => b ? ok(b) : ko(new Error('toBlob')), 'image/png'));
 }
 async function saveImage() {
